@@ -4,6 +4,7 @@ import { Route } from 'react-router-dom'
 import { TeamOutlined, FileOutlined, AppstoreOutlined } from '@ant-design/icons'
 import AddArticle from '../pages/AddArticle/index.js'
 import ArticleList from '../pages/ArticleList/index.js'
+import Echart from '../pages/EchartsTest'
 import { ArticleManagement } from '../config/menuItem'
 
 const { Header, Content, Footer, Sider } = Layout;
@@ -30,7 +31,7 @@ function AdminIndex(props) {
   return (
     <Layout style={{ minHeight: '100vh' }}>
       <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
-        <div className="logo" />
+        <div className="logo" >Blog System</div>
         <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
           <SubMenu
             key="1"
@@ -46,9 +47,11 @@ function AdminIndex(props) {
             <Menu.Item key={ArticleManagement.articleList}>文章列表</Menu.Item>
           </SubMenu>
 
-          <Menu.Item key="4">
+          <Menu.Item
+            onClick={()=>(props.history.push('/index/echarts/'))}
+            key={ArticleManagement.echarts}>
             <FileOutlined />
-            <span>留言管理</span>
+            <span>Echarts测试</span>
           </Menu.Item>
           <Menu.Item key="5">
             <TeamOutlined />
@@ -60,8 +63,8 @@ function AdminIndex(props) {
         <Header style={{ background: '#fff', padding: 0 }} />
         <Content style={{ margin: '0 16px' }}>
           <Breadcrumb style={{ margin: '16px 0' }}>
-            <Breadcrumb.Item>后台管理</Breadcrumb.Item>
-            <Breadcrumb.Item>工作台</Breadcrumb.Item>
+            {/* <Breadcrumb.Item>后台管理</Breadcrumb.Item>
+            <Breadcrumb.Item>工作台</Breadcrumb.Item> */}
           </Breadcrumb>
           <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
             <div>
@@ -69,6 +72,8 @@ function AdminIndex(props) {
               <Route path="/index/add/" exact component={AddArticle} />
               <Route path="/index/add/:id"  component={AddArticle} />
               <Route path="/index/list/" component={ArticleList} />
+              <Route path="/index/echarts/" component={Echart} />
+
               
             </div>
           </div>

@@ -5,5 +5,6 @@ export const menuItem = {
 
 export const ArticleManagement = {
   addArticle: 'addArticle',
-  articleList: 'articleList'
+  articleList: 'articleList',
+  echarts: 'echarts'
 }

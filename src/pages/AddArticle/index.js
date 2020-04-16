@@ -53,8 +53,8 @@ function AddArticle(props) {
         setTypeInfo(res.data.data)
         // res.data.data == "未登录" ? (localStorage.removeItem("openId"), props.history.push('/')) : setTypeInfo(res.data.data);
         if (res.data.data == "未登录") {
-          // localStorage.removeItem('openId')
-          // props.history.push('/')  
+          localStorage.removeItem('openId')
+          props.history.push('/')  
         } else {
           setTypeInfo(res.data.data)
         }
@@ -171,14 +171,14 @@ function AddArticle(props) {
               <Input size="middle" placeholder="请输入博客标题" onChange={(e) => { changeArticleTitle(e.target.value) }} value={articleTitle} />
             </Col>
             <Col span={4}>
-              <Select defaultValue={selectedType} onChange={selectTypeHandler} size="middle">
-                {/* {
+              <Select placeholder='请选择累别' value={selectedType} onChange={selectTypeHandler} size="middle">
+                {
                   typeInfo.map((item, key) => {
                     return (
                       <Option value={item.id} key={key}>{item.typeName}</Option>
                     )
                   })
-                } */}
+                }
               </Select>
             </Col>
           </Row>
