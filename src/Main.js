@@ -6,6 +6,7 @@ import AdminIndex from './AdminIndex/index.js'
 function Main() {
   return (
     <div>
+      aaa
       <Router>
         <Route path="/"exact component={Login}></Route>
         <Route path="/index/" component={AdminIndex}></Route>
