@@ -31,7 +31,7 @@ function AdminIndex(props) {
   return (
     <Layout style={{ minHeight: '100vh' }}>
       <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
-        <div className="logo" >Blog System</div>
+        <div className="logo"><h4 className="logo-title">Blog System</h4></div>
         <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
           <SubMenu
             key="1"
