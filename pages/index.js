@@ -33,10 +33,9 @@ marked.setOptions({
 
 const Home = (list) => {
   const [mylist, setMylist] = useState(list.data)
-  // console.log(list);
   return (
-    <div>
-      <Header>
+    <div className='wrap'>
+      <Header>
         <title>Home</title>
       </Header>
       <Row className="comm-main" type="flex" justify="center">

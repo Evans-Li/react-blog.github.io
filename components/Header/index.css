@@ -2,12 +2,12 @@
     background-color: #fff;
     padding: .4rem;
     overflow: hidden;
-    height: 3.2rem;
+    height: 4rem;
     border-bottom:1px solid #eee;
 }
 .header-logo{
     color:#1e90ff;
-    font-size: 1.4rem;
+    font-size: 2rem;
     text-align: left;
 }
 .header-txt{
@@ -23,4 +23,7 @@
     font-size:1rem !important;
     padding-left:1rem;
     padding-right:1rem;
+}
+.memu-div{
+  
 }
