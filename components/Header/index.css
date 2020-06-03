@@ -4,6 +4,8 @@
     overflow: hidden;
     height: 4rem;
     border-bottom:1px solid #eee;
+    position: relative;
+    /* top: -20px; */
 }
 .header-logo{
     color:#1e90ff;

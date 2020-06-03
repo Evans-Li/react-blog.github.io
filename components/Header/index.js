@@ -1,9 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import './index.css'
 import Router from 'next/router'
-import { Row, Col, Menu, Icon } from 'antd'
+import { Row, Col, Menu, Spin } from 'antd'
 import axios from 'axios'
 import { serviceUrl } from '../../config/apiUrl'
+import {
+  HomeOutlined,
+  YoutubeOutlined,
+  ReadOutlined,
+  SmileOutlined
+} from '@ant-design/icons'
+import { tuple } from 'antd/lib/_util/type'
 
 
 
@@ -31,11 +38,13 @@ const Header = () => {
 
   return (
   <div>
+    
       <div className="header">
-        <Row type="flex" justify="center">
+      {/* <div style={{clear: 'both'}}>Hello World</div> */}
+        <Row type="flex" justify="center" >
           <Col xs={24} sm={24} md={10} lg={15} xl={12}>
             <span className="header-logo">Evans</span>
-            <span className="header-txt">一位前端菜鸟</span>
+            <span className="header-txt">--前端菜鸟</span>
           </Col>
 
           <Col className="memu-div" xs={0} sm={0} md={14} lg={8} xl={6}>
@@ -43,19 +52,28 @@ const Header = () => {
               onClick={handleClick}
             >
               <Menu.Item key="0">
-                <Icon type="home" />
-                首页
-                </Menu.Item>
-                {
+                <HomeOutlined />首页
+              </Menu.Item>
+              <Menu.Item key={1}>
+                <YoutubeOutlined/> 实用技术
+              </Menu.Item>
+              <Menu.Item key={2}>
+                <ReadOutlined/> 个人笔记
+              </Menu.Item>
+              <Menu.Item key={3}>
+                <SmileOutlined/> 快乐生活
+              </Menu.Item>
+                  
+                {/* {
                   typeInfo.map((item)=>{
                     return(
                       <Menu.Item key={item.Id}>
-                        <Icon type={item.icon}/>
+                        
                         {item.typeName}
                       </Menu.Item>
                     )
                   })
-                }
+                } */}
 
             </Menu>
           </Col>

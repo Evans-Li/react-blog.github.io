@@ -54,6 +54,20 @@ code {
  margin:8px  auto ;
 
 }
-/* .wrap {
-  background: url('../../double-bubble-dark.png');
-} */
+.wrap {
+  background: url('/static/images/double-bubble-dark.png');
+}
+
+.list-item{
+  /* padding: 10px 10px; */
+  margin: 10px ;
+  /* border: 1px solid; */
+  border-radius: 5px;
+  box-shadow: 5px  red ;
+}
+.ant-card-body{
+  padding: 5px 10px;
+}
+.ant-tag > .anticon + span{
+  margin: 0;
+}

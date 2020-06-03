@@ -16,3 +16,30 @@
     margin-left: .5rem;
     margin-right: .5rem;
 }
+.ant-tag{
+  margin: 5px 3px;
+}
+
+
+
+.my-node-enter {
+  opacity: 0;
+}
+.my-node-enter-active {
+  opacity: 1;
+  transition: opacity 200ms ease-in;
+}
+.my-node-exit {
+  opacity: 1;
+}
+.my-node-exit-active {
+  opacity: 0;
+  transition: opacity 200ms ease-in;
+}
+.my-node-appear {
+  opacity: 0.01;
+}
+.group-appear-active {
+  opacity: 1;
+  transition: all 10000ms ease-out;
+}
