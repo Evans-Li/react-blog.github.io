@@ -40,7 +40,6 @@ const Header = () => {
   <div>
     
       <div className="header">
-      {/* <div style={{clear: 'both'}}>Hello World</div> */}
         <Row type="flex" justify="center" >
           <Col xs={24} sm={24} md={10} lg={15} xl={12}>
             <span className="header-logo">Evans</span>

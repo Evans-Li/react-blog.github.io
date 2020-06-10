@@ -57,7 +57,7 @@ const Home = (list) => {
           <div>
 
             <List
-              header={<div>最新日志</div>}
+              // header={<div>最新日志</div>}
               itemLayout="vertical"
               dataSource={mylist}
               renderItem={item => (
@@ -86,9 +86,10 @@ const Home = (list) => {
                       </div>
                       <div className='list-go'>
                         <FileOutlined />
-                        <span><Link href={{pathname: '/Details', query: { id: item.id}}}> 查看全文 > </Link> </span>
+                        <span><Link href={{pathname: '/Details', query: { id: item.id}}}>
+                          <a onClick={changeLoading}>	&nbsp; 查看全文 &gt;</a>
+                          </Link> </span>
                       </div>
-
                     </List.Item>
                   </Card>
                   </Spin>

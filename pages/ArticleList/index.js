@@ -12,10 +12,9 @@ import { serviceUrl } from '../../config/apiUrl'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import './index.css'
 import {
-  HomeOutlined,
-  YoutubeOutlined,
-  ReadOutlined,
-  SmileOutlined
+  CarryOutOutlined,
+  FileOutlined,
+  EyeOutlined
 } from '@ant-design/icons'
 
 
@@ -23,9 +22,16 @@ import {
 const ArticleList = (list) => {
 
   const [mylist, setMylist] = useState([]);
-  const [ isShow, setIsShow ] = useState(true)
+  const [isShow, setIsShow] = useState(true)
+  const [breadName, setBreadName] = useState('ddd')
+  const [ isLoading, setIsLoading ] = useState(false)
+
+  const changeLoading = () =>{
+    setIsLoading(true)
+  }
   useEffect(() => {
     setMylist(list.data)
+    setBreadName(list.data[0].typeName)
   })
   return (
     <div>
@@ -43,27 +49,40 @@ const ArticleList = (list) => {
             <div className="bread-div">
               <Breadcrumb>
                 <Breadcrumb.Item><a href="/">首页</a></Breadcrumb.Item>
-                <Breadcrumb.Item>视频列表</Breadcrumb.Item>
+                <Breadcrumb.Item>{breadName}</Breadcrumb.Item>
               </Breadcrumb>
             </div>
-          <List
+            <List
               itemLayout="vertical"
               dataSource={mylist}
               renderItem={item => (
                 <div>
+                  <Spin spinning={isLoading}>
+                  <Card
+                    hoverable
+                    className='list-item'
+                  >
                   <List.Item>
-                  <div className="list-title">
-                    <Link href={{ pathname: '/Details', query: { id: item.id } }}>
-                      {item.title}
-                    </Link>
-                  </div>
-                  <div className="list-icon">
-                    <span><HomeOutlined /> {item.addTime}</span>
-                    <span><YoutubeOutlined /> {item.typeName}</span>
-                    <span><ReadOutlined />{item.view_count}</span>
-                  </div>
-                  <div className="list-context">{item.introduce}</div>
-                </List.Item>
+                    <div className="list-title">
+                      <Link href={{ pathname: '/Details', query: { id: item.id } }}>
+                        <a onClick={changeLoading}>{item.title}</a>
+                      </Link>
+                    </div>
+                    <div className="list-icon">
+                      <CarryOutOutlined style={{ color: 'orange' }} />{item.addTime}
+                      <FileOutlined style={{ color: 'gold' }} />{item.typeName}
+                      <EyeOutlined style={{ color: '#70AAD5' }} />  {item.view_count}
+                    </div>
+                    <div className="list-context">{item.introduce}</div>
+                    <div className='list-go'>
+                        <FileOutlined />
+                        <span><Link href={{pathname: '/Details', query: { id: item.id}}}>
+                          <a onClick={changeLoading}>	&nbsp; 查看全文 &gt;</a>
+                          </Link> </span>
+                      </div>
+                  </List.Item>
+                  </Card>
+                  </Spin>
                 </div>
               )}
             />
