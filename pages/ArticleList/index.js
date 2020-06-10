@@ -32,7 +32,7 @@ const ArticleList = (list) => {
       <Helmet>
         <meta charSet="utf-8" />
         <title>Evans-blog</title>
-        <body style='background: url(../../../../static/double-bubble-dark.png)'></body>
+        <body style='background: url(../../../../static/floor-tile.png)'></body>
       </Helmet>
       <Header>
         <title>Home</title>
@@ -45,21 +45,13 @@ const ArticleList = (list) => {
                 <Breadcrumb.Item><a href="/">首页</a></Breadcrumb.Item>
                 <Breadcrumb.Item>视频列表</Breadcrumb.Item>
               </Breadcrumb>
-
             </div>
-            <TransitionGroup>
-            <CSSTransition
-            timeout={300}
-            classNames='my-node'
-            unmountOnExit
-            appear={true}
-            key={index}
-          >
           <List
               itemLayout="vertical"
               dataSource={mylist}
               renderItem={item => (
-                <List.Item>
+                <div>
+                  <List.Item>
                   <div className="list-title">
                     <Link href={{ pathname: '/Details', query: { id: item.id } }}>
                       {item.title}
@@ -67,19 +59,14 @@ const ArticleList = (list) => {
                   </div>
                   <div className="list-icon">
                     <span><HomeOutlined /> {item.addTime}</span>
-                    <span><HomeOutlined /> {item.typeName}</span>
-                    <span><HomeOutlined />{item.view_count}</span>
+                    <span><YoutubeOutlined /> {item.typeName}</span>
+                    <span><ReadOutlined />{item.view_count}</span>
                   </div>
                   <div className="list-context">{item.introduce}</div>
                 </List.Item>
+                </div>
               )}
             />
-          </CSSTransition>
-
-            </TransitionGroup>
-          
-            
-
           </div>
         </Col>
 

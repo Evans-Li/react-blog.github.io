@@ -34,14 +34,18 @@ marked.setOptions({
 
 
 const Home = (list) => {
-  const [mylist, setMylist] = useState(list.data)
+  const [ mylist, setMylist ] = useState(list.data)
+  const [ isLoading, setIsLoading ] = useState(false)
+  const changeLoading = ()=>{
+    setIsLoading(true)
+  }
   return (
     <div className='wrap'>
 
       <Helmet>
         <meta charSet="utf-8" />
         <title>Evans-blog</title>
-        <body style='background: url(../../../static/double-bubble-dark.png)'></body>
+        <body style='background: url(../../../static/floor-tile.png)'></body>
       </Helmet>
       <Header>
         <title>Home</title>
@@ -58,6 +62,7 @@ const Home = (list) => {
               dataSource={mylist}
               renderItem={item => (
                 <div >
+                  <Spin spinning={isLoading}>
                   <Card
                     hoverable
                     className='list-item'
@@ -66,21 +71,27 @@ const Home = (list) => {
                     <List.Item>
                       <div className="list-title">
                         <Link href={{ pathname: '/Details', query: { id: item.id } }}>
-                          <a>{item.title}</a>
+                          <a onClick={changeLoading}>{item.title}</a>
                         </Link>
                       </div>
                       <div className="list-icon">
-                        <Tag icon={<CarryOutOutlined />  }color='cyan'>{item.addTime}</Tag>
-                        <Tag icon={<FileOutlined />  }color='gold'>{item.typeName}</Tag>
-                        <Tag icon={<EyeOutlined />  }color='purple'>{item.view_count}</Tag>
+                        <CarryOutOutlined  style={{color:'orange'}}/>{item.addTime}
+                        <FileOutlined style={{color:'gold'}} />{item.typeName}
+                        <EyeOutlined  style={{color:'#70AAD5'}}/>  {item.view_count}
                         {/* <span><FileOutlined /> {item.typeName}</span>
                         <span><EyeOutlined /> {item.view_count}</span> */}
                       </div>
                       <div className="list-context"
-                        dangerouslySetInnerHTML={{ __html: marked(item.introduce) }}
-                      ></div>
+                        dangerouslySetInnerHTML={{ __html: marked(item.introduce) }}>
+                      </div>
+                      <div className='list-go'>
+                        <FileOutlined />
+                        <span><Link href={{pathname: '/Details', query: { id: item.id}}}> 查看全文 > </Link> </span>
+                      </div>
+
                     </List.Item>
                   </Card>
+                  </Spin>
                 </div>
               )}
             />

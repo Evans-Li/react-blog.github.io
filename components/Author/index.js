@@ -13,7 +13,7 @@ const Author = () => {
   return (
     <div className="author-div comm-box">
       <div>
-        <Avatar size={120} src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS3cWSkwI3QjZE3h0bNAXxYxgpUNIEAJLOB6SDXXiREvyrmngRu&usqp=CAU' />
+        <Avatar size={120} src='https://avatars3.githubusercontent.com/u/43921905?s=460&u=a4c5fe768f9afafa78f12d6bd65141c1331bf1fa&v=4' />
         <h4>Evans</h4>
         <p>菜鸟工程师</p>
         <TransitionGroup

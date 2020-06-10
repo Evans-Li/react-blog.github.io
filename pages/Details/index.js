@@ -65,7 +65,7 @@ const Detailed = (props) => {
     <Helmet>
         <meta charSet="utf-8" />
         <title>Evans-blog</title>
-        <body style='background: url(../../../../static/double-bubble-dark.png)'></body>
+        <body style='background: url(../../../../static/floor-tile.png)'></body>
       </Helmet>
       <Head>
         <title>博客详细页</title>

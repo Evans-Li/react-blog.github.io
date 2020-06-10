@@ -54,9 +54,9 @@ code {
  margin:8px  auto ;
 
 }
-.wrap {
+/* .wrap {
   background: url('/static/images/double-bubble-dark.png');
-}
+} */
 
 .list-item{
   /* padding: 10px 10px; */
@@ -70,4 +70,22 @@ code {
 }
 .ant-tag > .anticon + span{
   margin: 0;
+}
+
+.list-icon > span {
+  padding-left: 20px;
+  padding-right: .3125rem;
+}
+
+.ant-card-body:hover{
+  cursor: auto
+}
+.list-icon > span:nth-child(1){
+  padding-left: 7px;
+}
+
+.list-go{
+  text-align: right;
+  color: #bbb;
+  margin-right: 20px;
 }
