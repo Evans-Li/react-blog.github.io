@@ -9,20 +9,20 @@ const { TabPane } = Tabs
 const qqList = [
   {
     href: 'https://shang.qq.com/wpa/qunwpa?idkey=b579b0054e58fea7d7e41e529c2dd415d7e0632c1f95a00c065513d8763a202e',
-    text:  '前端1群:123569 (3000人)'
+    text:  '前端1群:123569(3000人)(点击加入)'
   },
   {
     href: 'https://shang.qq.com/wpa/qunwpa?idkey=b579b0054e58fea7d7e41e529c2dd415d7e0632c1f95a00c065513d8763a202e',
-    text:  '前端1群:123569 (3000人)'
+    text:  '前端1群:123569(3000人)(点击加入)'
   },{
     href: 'https://shang.qq.com/wpa/qunwpa?idkey=b579b0054e58fea7d7e41e529c2dd415d7e0632c1f95a00c065513d8763a202e',
-    text:  '前端1群:123569 (3000人)'
+    text:  '前端1群:123569(3000人)(点击加入)'
   },{
     href: 'https://shang.qq.com/wpa/qunwpa?idkey=b579b0054e58fea7d7e41e529c2dd415d7e0632c1f95a00c065513d8763a202e',
-    text:  '前端1群:123569 (3000人)'
+    text:  '前端1群:123569(3000人)(点击加入)'
   },{
     href: 'https://shang.qq.com/wpa/qunwpa?idkey=b579b0054e58fea7d7e41e529c2dd415d7e0632c1f95a00c065513d8763a202e',
-    text:  '前端1群:123569 (3000人)'
+    text:  '前端1群:123569(3000人)(点击加入)'
   },
 ]
 
@@ -30,10 +30,7 @@ const HomeTab = () => {
   return (
     <div className='comm-box home-tab'>
       <Tabs defaultActiveKey="1">
-        <TabPane tab="公众号" key="1">
-
-        </TabPane>
-        <TabPane tab="QQ群" key="2">
+      <TabPane tab="QQ群" key="1">
           <p className='qq-tips'>加入QQ群一起学习!!</p>
           {
             qqList.map(item => (
@@ -41,8 +38,16 @@ const HomeTab = () => {
             ))
           }
         </TabPane>
-        <TabPane tab="Tab 3" key="3">
-          Content of Tab Pane 3
+        <TabPane tab="公众号" key="2">
+          <div>
+            敬请期待...
+          </div>
+        </TabPane>
+        
+        <TabPane tab="小密圈" key="3">
+          <div>
+            敬请期待...
+          </div>
         </TabPane>
       </Tabs>
 

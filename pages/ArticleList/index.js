@@ -17,7 +17,28 @@ import {
   FileOutlined,
   EyeOutlined
 } from '@ant-design/icons'
+import marked from 'marked'
+import hljs from "highlight.js";
 
+
+
+const renderer = new marked.Renderer();
+marked.setOptions({
+  renderer: renderer,
+  gfm: true,
+  pedantic: false,
+  sanitize: false,
+  tables: true,
+  breaks: false,
+  smartLists: true,
+  smartypants: false,
+  sanitize: false,
+  xhtml: false,
+  highlight: function (code) {
+    return hljs.highlightAuto(code).value;
+  }
+
+});
 
 
 const ArticleList = (list) => {
@@ -74,7 +95,9 @@ const ArticleList = (list) => {
                       <FileOutlined style={{ color: 'gold' }} />{item.typeName}
                       <EyeOutlined style={{ color: '#70AAD5' }} />  {item.view_count}
                     </div>
-                    <div className="list-context">{item.introduce}</div>
+                    <div className="list-context"
+                      dangerouslySetInnerHTML={{__html: marked(item.introduce)}}
+                    ></div>
                     <div className='list-go'>
                         <FileOutlined />
                         <span><Link href={{pathname: '/Details', query: { id: item.id}}}>

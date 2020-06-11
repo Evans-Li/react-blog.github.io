@@ -49,9 +49,9 @@ const Author = () => {
       </div>
       <div className="author-introduction">
         <Divider>社交账号</Divider>
-        <Tooltip placement='bottom' title={<a href='https://github.com/LXxxx1/'>https://github.com/LXxxx1/</a>}><a href='https://github.com/LXxxx1/'><Avatar icon={<GithubOutlined />} size={28} className="account" ></Avatar></a></Tooltip>
-        <Tooltip placement='bottom' title={<img width='150pxpx' height='200px' alt="qq" src="https://github.com/LXxxx1/Files/blob/master/qq.JPG?raw=true" />}><Avatar size={28} icon={< QqOutlined />} className="account" /></Tooltip>
-        <Tooltip placement='bottom' title={<img width='150pxpx' height='200px' alt="wechat" src="https://github.com/LXxxx1/Files/blob/master/wechat.JPG?raw=true" />}><Avatar size={28} icon={< WechatOutlined />} className="account" /></Tooltip>
+        <Tooltip placement='bottom' title={<a target='_blank' href='https://github.com/LXxxx1/'>https://github.com/LXxxx1/</a>}><a target='view_window' href='https://github.com/LXxxx1/'><Avatar icon={<GithubOutlined />} size={28} className="account" ></Avatar></a></Tooltip>
+        <Tooltip placement='bottom' title={<img width='150pxpx' height='200px' alt="qq" src="../../static/qq.jpeg" />}><Avatar size={28} icon={< QqOutlined />} className="account" /></Tooltip>
+        <Tooltip placement='bottom' title={<img width='150pxpx' height='200px' alt="wechat" src="../../static/wechat.jpeg" />}><Avatar size={28} icon={< WechatOutlined />} className="account" /></Tooltip>
       </div>
       
 
