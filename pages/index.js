@@ -5,6 +5,7 @@ import '../static/style/pages/index.css'
 import Author from '../components/Author'
 import Advert from '../components/Advert'
 import Footer from '../components/Footer'
+import HomeTab from '../components/HomeTab'
 import axios from 'axios'
 import Link from 'next/link'
 import { serviceUrl } from '../config/apiUrl'
@@ -104,6 +105,7 @@ const Home = (list) => {
 
         <Col className="comm-right" xs={0} sm={0} md={7} lg={5} xl={4}>
           <Author />
+          <HomeTab />
           <Advert />
         </Col>
       </Row>

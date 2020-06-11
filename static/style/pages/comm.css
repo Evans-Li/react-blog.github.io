@@ -34,3 +34,8 @@ body{
   display: inline-block;
   padding: 0 10px;
 }
+
+::selection{
+  background: #D1E5C6 !important;
+  /* color: aqua !important; */
+}

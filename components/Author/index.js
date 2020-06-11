@@ -1,6 +1,6 @@
-import { Avatar, Divider, Tooltip, Card, Tag } from 'antd'
+import { Avatar, Divider, Tooltip, Card, Tag, Tabs } from 'antd'
 import { CSSTransition, TransitionGroup, Transition } from 'react-transition-group'
-
+const { TabPane } = Tabs;
 import './index.css'
 
 import {
@@ -17,28 +17,28 @@ const Author = () => {
         <h4>Evans</h4>
         <p>菜鸟工程师</p>
         <TransitionGroup
-        in={true}
-        classNames='my-node'
-        timeout={1000}
-        appear={true}
+          in={true}
+          classNames='my-node'
+          timeout={1000}
+          appear={true}
         >
-        {/* <CSSTransition
+          {/* <CSSTransition
           in={true}
           classNames='my-node'
           timeout={1000}
           appear={true}
         > */}
           <div>
-          <Tag color="magenta">React Hooks</Tag>
-          <Tag color="red">Axios</Tag>
-          <Tag color="volcano">Next.js</Tag>
-          <Tag color="orange">Antd Design</Tag>
-          <Tag color="gold">markdown</Tag>
-          <Tag color="lime">mysql</Tag>
-          <Tag color="green">CSS</Tag>
-          <Tag color="cyan">egg.js</Tag>
-        </div>
-        {/* </CSSTransition> */}
+            <Tag color="magenta">React Hooks</Tag>
+            <Tag color="red">Axios</Tag>
+            <Tag color="volcano">Next.js</Tag>
+            <Tag color="orange">Antd Design</Tag>
+            <Tag color="gold">markdown</Tag>
+            <Tag color="lime">mysql</Tag>
+            <Tag color="green">CSS</Tag>
+            <Tag color="cyan">egg.js</Tag>
+          </div>
+          {/* </CSSTransition> */}
         </TransitionGroup>
 
 
@@ -53,6 +53,11 @@ const Author = () => {
         <Tooltip placement='bottom' title={<img width='150pxpx' height='200px' alt="qq" src="https://github.com/LXxxx1/Files/blob/master/qq.JPG?raw=true" />}><Avatar size={28} icon={< QqOutlined />} className="account" /></Tooltip>
         <Tooltip placement='bottom' title={<img width='150pxpx' height='200px' alt="wechat" src="https://github.com/LXxxx1/Files/blob/master/wechat.JPG?raw=true" />}><Avatar size={28} icon={< WechatOutlined />} className="account" /></Tooltip>
       </div>
+      
+
+
+
+
     </div>
 
   )

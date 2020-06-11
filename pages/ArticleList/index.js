@@ -6,6 +6,7 @@ import Header from '../../components/Header'
 import Author from '../../components/Author/index.js'
 import Advert from '../../components/Advert/index.js'
 import Footer from '../../components/Footer'
+import HomeTab from '../../components/HomeTab'
 import axios from 'axios'
 import { Helmet } from 'react-helmet'
 import { serviceUrl } from '../../config/apiUrl'
@@ -91,6 +92,7 @@ const ArticleList = (list) => {
 
         <Col className="comm-right" xs={0} sm={0} md={7} lg={5} xl={4}>
           <Author />
+          <HomeTab />
           <Advert />
         </Col>
       </Row>

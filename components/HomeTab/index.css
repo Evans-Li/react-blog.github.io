@@ -1,0 +1,15 @@
+.ant-tabs-nav .ant-tabs-tab{
+  margin: 0 25px;
+}
+.home-tab p{
+  padding-left: .9375rem;
+  /* text-align: center; */
+}
+.home-tab .text{
+  color:#999 ;
+}
+.home-tab .qq-tips{
+  font-size: .625rem;
+  padding-left: 6.25rem;
+  color: #1890ff;
+}
