@@ -6,3 +6,11 @@
     margin-bottom: .2rem;
     overflow: hidden;
 }
+
+.ad-img{
+  padding: 20vh 0;
+}
+
+.ad-div img{
+  padding: 5vh 0;
+}
