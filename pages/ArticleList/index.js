@@ -19,6 +19,8 @@ import {
 } from '@ant-design/icons'
 import marked from 'marked'
 import hljs from "highlight.js";
+import Butterfly from '../../components/Pendant/Butterfly'
+import BackTopBtn from '../../components/BackTopBtn'
 
 
 
@@ -120,6 +122,8 @@ const ArticleList = (list) => {
         </Col>
       </Row>
       <Footer />
+      <Butterfly />
+      <BackTopBtn />
     </div>
   )
 

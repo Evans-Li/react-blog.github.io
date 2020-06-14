@@ -16,6 +16,10 @@ import Tocify from '../../components/tocify.tsx'
 import Footer from '../../components/Footer'
 import { serviceUrl } from '../../config/apiUrl'
 import { Helmet } from 'react-helmet'
+import Butterfly from '../../components/Pendant/Butterfly'
+import BackTopBtn from '../../components/BackTopBtn'
+
+
 
 import {
   HomeOutlined,
@@ -118,6 +122,8 @@ const Detailed = (props) => {
         </Col>
       </Row>
       <Footer />
+      <Butterfly />
+      <BackTopBtn />
 
     </>
   )

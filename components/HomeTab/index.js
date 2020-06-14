@@ -40,13 +40,13 @@ const HomeTab = () => {
         </TabPane>
         <TabPane tab="公众号" key="2">
           <div>
-            敬请期待...
+            <h3 className='tab-h'>即将上线...</h3>
           </div>
         </TabPane>
         
         <TabPane tab="小密圈" key="3">
           <div>
-            敬请期待...
+            <h3 className='tab-h'>即将上线...</h3>
           </div>
         </TabPane>
       </Tabs>

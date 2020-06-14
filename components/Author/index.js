@@ -1,21 +1,45 @@
+
+import React, { useRef, useState } from 'react'
 import { Avatar, Divider, Tooltip, Card, Tag, Tabs } from 'antd'
 import { CSSTransition, TransitionGroup, Transition } from 'react-transition-group'
 const { TabPane } = Tabs;
 import './index.css'
+// import '../../static/badge.jpeg'
 
 import {
   GithubOutlined,
   QqOutlined,
   WechatOutlined
 } from '@ant-design/icons'
+import { tuple } from 'antd/lib/_util/type';
 const Author = () => {
+  const [ isPlay, setIsPlay ] = useState(true)
+
+  const playerEl = useRef(null)
+  const isPlayer = ()=>{
+    console.log(playerEl.current.pause)
+    if(isPlay){
+      playerEl.current.pause()
+      setIsPlay(false)
+    }else{
+      playerEl.current.play()
+      setIsPlay(true)
+    }
+  }
 
   return (
     <div className="author-div comm-box">
       <div>
-        <Avatar size={120} src='https://avatars3.githubusercontent.com/u/43921905?s=460&u=a4c5fe768f9afafa78f12d6bd65141c1331bf1fa&v=4' />
+        <div className='audiol'>
+          <i onClick={isPlayer}></i>
+          <Avatar size={120} src={'../../static/badge.jpeg'} />
+          <audio autoPlay={true}  ref={playerEl} controls hidden loop>
+            <source src={'../../static/home.m4a'} type="audio/mpeg"></source>
+          </audio>
+        </div>
+
         <h4>Evans</h4>
-        <p>菜鸟工程师</p>
+        <p>-- 入门程序员 --</p>
         <TransitionGroup
           in={true}
           classNames='my-node'
@@ -53,7 +77,7 @@ const Author = () => {
         <Tooltip placement='bottom' title={<img width='150pxpx' height='200px' alt="qq" src="../../static/qq.jpeg" />}><Avatar size={28} icon={< QqOutlined />} className="account" /></Tooltip>
         <Tooltip placement='bottom' title={<img width='150pxpx' height='200px' alt="wechat" src="../../static/wechat.jpeg" />}><Avatar size={28} icon={< WechatOutlined />} className="account" /></Tooltip>
       </div>
-      
+
 
 
 

@@ -1,23 +1,62 @@
-.author-div{
-    text-align: center;
-    padding: 1rem;
+.author-div {
+  text-align: center;
+  padding: 1rem;
 
 }
-.author-div div{
-    margin-bottom: 1rem;
 
+.author-div div {
+  margin-bottom: 1rem;
 }
-.author-introduction{
-    font-size:.8rem;
-    color: #999;
+
+.author-div p {
+  font-size: 12px;
 }
-.account{
-    background-color: #999;
-    margin-left: .5rem;
-    margin-right: .5rem;
+
+.author-introduction {
+  font-size: .8rem;
+  color: #999;
 }
-.ant-tag{
+
+.account {
+  background-color: #999;
+  margin-left: .5rem;
+  margin-right: .5rem;
+}
+
+.ant-tag {
   margin: 5px 3px;
+}
+
+.audiol {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+}
+
+.avatar-img {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  /* background-image: url(../../static//badge.jpeg); */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+}
+
+.audiol i{
+  width: 10px;
+  height: 10px;
+  background: #000;
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  z-index: 5;
 }
 
 
@@ -25,20 +64,25 @@
 .my-node-enter {
   opacity: 0;
 }
+
 .my-node-enter-active {
   opacity: 1;
   transition: opacity 200ms ease-in;
 }
+
 .my-node-exit {
   opacity: 1;
 }
+
 .my-node-exit-active {
   opacity: 0;
   transition: opacity 200ms ease-in;
 }
+
 .my-node-appear {
   opacity: 0.01;
 }
+
 .group-appear-active {
   opacity: 1;
   transition: all 10000ms ease-out;

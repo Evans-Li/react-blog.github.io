@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Header from '../components/Header'
-import { Row, Col, List, Spin, Card, Tag } from 'antd'
+import { Row, Col, List, Spin, Card, Tag, BackTop } from 'antd'
 import '../static/style/pages/index.css'
 import Author from '../components/Author'
 import Advert from '../components/Advert'
@@ -14,6 +14,9 @@ import hljs from "highlight.js";
 import 'highlight.js/styles/monokai-sublime.css';
 import { Helmet } from 'react-helmet'
 import { EyeOutlined, FileOutlined, CarryOutOutlined} from '@ant-design/icons'
+import Butterfly from '../components/Pendant/Butterfly'
+import BackTopBtn from '../components/BackTopBtn'
+import APlayerS from '../components/Pendant/APlayer'
 
 const renderer = new marked.Renderer();
 marked.setOptions({
@@ -54,9 +57,7 @@ const Home = (list) => {
       <Row className="comm-main" type="flex" justify="center">
 
         <Col className="comm-left" xs={24} sm={24} md={16} lg={18} xl={14}  >
-          {/* <Spin spinning={true} size={"large"}> */}
           <div>
-
             <List
               // header={<div>最新日志</div>}
               itemLayout="vertical"
@@ -68,7 +69,6 @@ const Home = (list) => {
                     hoverable
                     className='list-item'
                   >
-
                     <List.Item>
                       <div className="list-title">
                         <Link href={{ pathname: '/Details', query: { id: item.id } }}>
@@ -79,8 +79,6 @@ const Home = (list) => {
                         <CarryOutOutlined  style={{color:'orange'}}/>{item.addTime}
                         <FileOutlined style={{color:'gold'}} />{item.typeName}
                         <EyeOutlined  style={{color:'#70AAD5'}}/>  {item.view_count}
-                        {/* <span><FileOutlined /> {item.typeName}</span>
-                        <span><EyeOutlined /> {item.view_count}</span> */}
                       </div>
                       <div className="list-context"
                         dangerouslySetInnerHTML={{ __html: marked(item.introduce) }}>
@@ -97,12 +95,8 @@ const Home = (list) => {
                 </div>
               )}
             />
-
           </div>
-          {/* </Spin> */}
-
         </Col>
-
         <Col className="comm-right" xs={0} sm={0} md={7} lg={5} xl={4}>
           <Author />
           <HomeTab />
@@ -110,7 +104,9 @@ const Home = (list) => {
         </Col>
       </Row>
       <Footer />
-
+      <Butterfly />
+      <BackTopBtn />
+      <APlayerS />
     </div>
 
   )
@@ -119,7 +115,6 @@ Home.getInitialProps = async () => {
   const promise = new Promise((resolve, reject) => {
     axios(serviceUrl.getArticleList).then(
       (res) => {
-        // console.log('------',res.data);
         resolve(res.data)
       }
     )
