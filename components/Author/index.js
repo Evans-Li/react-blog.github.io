@@ -76,7 +76,7 @@ const Author = () => {
         <div className='audiol'  >
           <div className='pl-contro' onClick={isPlayeIng}>
             <div className='mask' ref={maskEl}></div>
-            {isPlay ? <Beat /> : null}
+            {isPlay ? <Beat /> : null} 
             <div className='rotate-div' ref={rotateEl}>
               <Avatar size={120} src={'../../static/self.JPG'} />
               <audio autoPlay={false} ref={playerEl} controls hidden loop>
@@ -119,4 +119,4 @@ const Author = () => {
 
 }
 
-export default Author
+export default React.memo(Author)
