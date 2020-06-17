@@ -11,14 +11,14 @@ const Advert = () => {
       <img src={'../../static/guanggao.jpeg'} alt="" width='100%' />
       <img src={'../../static/guanggao.jpeg'} alt="" width='100%' />
       <img src={'../../static/guanggao.jpeg'} alt="" width='100%' />
-      {
+      {/* {
         imgUrlList.map(url => (
 
           <div>
             <img src={url} alt="" width='100%' />
           </div>
         ))
-      }
+      } */}
     </div>
   )
 }

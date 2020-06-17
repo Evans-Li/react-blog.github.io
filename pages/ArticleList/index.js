@@ -93,9 +93,7 @@ const ArticleList = (list) => {
                       </Link>
                     </div>
                     <div className="list-icon">
-                      <CarryOutOutlined style={{ color: 'orange' }} />{item.addTime}
-                      <FileOutlined style={{ color: 'gold' }} />{item.typeName}
-                      <EyeOutlined style={{ color: '#70AAD5' }} />  {item.view_count}
+                    
                     </div>
                     <div className="list-context"
                       dangerouslySetInnerHTML={{__html: marked(item.introduce)}}

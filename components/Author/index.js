@@ -86,15 +86,8 @@ const Author = () => {
 
           </div>
         </div>
-
         <h4>Evans</h4>
         <p>-- 入门程序员 --</p>
-        <TransitionGroup
-          in={true}
-          classNames='my-node'
-          timeout={1000}
-          appear={true}
-        >
           <div>
             <Tag color="magenta">React Hooks</Tag>
             <Tag color="red">Axios</Tag>
@@ -105,7 +98,6 @@ const Author = () => {
             <Tag color="green">CSS</Tag>
             <Tag color="cyan">egg.js</Tag>
           </div>
-        </TransitionGroup>
       </div>
       <div className="author-introduction">
         <Divider>社交账号</Divider>

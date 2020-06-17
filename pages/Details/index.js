@@ -18,19 +18,15 @@ import { serviceUrl } from '../../config/apiUrl'
 import { Helmet } from 'react-helmet'
 import Butterfly from '../../components/Pendant/Butterfly'
 import BackTopBtn from '../../components/BackTopBtn'
-
-
-
-import {
-  HomeOutlined,
-  YoutubeOutlined,
-  ReadOutlined,
-  SmileOutlined
-} from '@ant-design/icons'
+import ListIcon from '../../components/ListIcon'
+import CommentForm from '../../components/CommentForm'
 
 const Detailed = (props) => {
-
   let articleContent = props.article_content
+  const dataProps = {
+    art_id: props.id,
+    add_time: parseInt(new Date() / 1000),
+  }
 
   const tocify = new Tocify()
   const renderer = new marked.Renderer();
@@ -40,9 +36,7 @@ const Detailed = (props) => {
   };
 
   marked.setOptions({
-
     renderer: renderer,
-
     gfm: true,
     pedantic: false,
     sanitize: false,
@@ -50,23 +44,15 @@ const Detailed = (props) => {
     breaks: false,
     smartLists: true,
     smartypants: false,
-
     highlight: function (code) {
       return hljs.highlightAuto(code).value;
     }
-
   });
 
-
-
   let html = marked(props.article_content)
-
-
-
-
   return (
     <>
-    <Helmet>
+      <Helmet>
         <meta charSet="utf-8" />
         <title>Evans-blog</title>
         <body style='background: url(../../../../static/floor-tile.png)'></body>
@@ -87,22 +73,15 @@ const Detailed = (props) => {
             </div>
 
             <div>
-                <div className="detailed-title">
-                  {props.title}
-                </div>
-
-                <div className="list-icon center">
-                  <span><HomeOutlined />{props.addTime}</span>
-                  <span><HomeOutlined /> {props.typeName}</span>
-                  <span><HomeOutlined /> {props.view_count}</span>
-                </div>
-                <div className="detailed-content"
-                  dangerouslySetInnerHTML={{ __html: html }}   >
-                </div>
-
-
+              <div className="detailed-title">
+                {props.title}
+              </div>
+              <ListIcon item={props} className='center' />
+              <div className="detailed-content"
+                dangerouslySetInnerHTML={{ __html: html }}   >
+              </div>
             </div>
-
+            <CommentForm  dataProps={dataProps}/>
           </div>
         </Col>
 
