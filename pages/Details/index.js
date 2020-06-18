@@ -20,16 +20,13 @@ import Butterfly from '../../components/Pendant/Butterfly'
 import BackTopBtn from '../../components/BackTopBtn'
 import ListIcon from '../../components/ListIcon'
 import CommentForm from '../../components/CommentForm'
+import CommentList from '../../components/CommentList/index'
 
 const Detailed = (props) => {
-  let articleContent = props.article_content
-  const dataProps = {
-    art_id: props.id,
-    add_time: parseInt(new Date() / 1000),
-  }
-
   const tocify = new Tocify()
   const renderer = new marked.Renderer();
+  const [commentKey, setCommentKey] = useState(Math.random());
+
   renderer.heading = function (text, level, raw) {
     const anchor = tocify.add(text, level);
     return `<a id="${anchor}" href="#${anchor}" class="anchor-fix"><h${level}>${text}</h${level}></a>\n`;
@@ -48,6 +45,33 @@ const Detailed = (props) => {
       return hljs.highlightAuto(code).value;
     }
   });
+
+
+
+  //  提交评论
+  const upComment = async (values) => {
+    let formData = values.comm
+    let dataProps = {
+      art_id: props.id,
+      add_time: parseInt(new Date() / 1000),
+    };
+    Object.assign(dataProps, formData)
+
+    console.log(dataProps)
+    const res = await axios({
+      method: "post",
+      url: serviceUrl.addComment,
+      header: { "Access-Control-Allow-Origin": "*" },
+      data: dataProps,
+      withCredentials: true
+    })
+    const isSuccess = res.status == 200;
+    if (isSuccess) {
+      setCommentKey(Math.random());
+    } else {
+    }
+    return isSuccess;
+  };
 
   let html = marked(props.article_content)
   return (
@@ -81,7 +105,10 @@ const Detailed = (props) => {
                 dangerouslySetInnerHTML={{ __html: html }}   >
               </div>
             </div>
-            <CommentForm  dataProps={dataProps}/>
+            <div>
+              <CommentList artId={props.id} listKey={commentKey} upComment={upComment} ></CommentList>
+              <CommentForm onOk={upComment} />
+            </div>
           </div>
         </Col>
 

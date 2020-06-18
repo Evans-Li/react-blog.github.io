@@ -11,9 +11,8 @@ const buttonStyle = {
 }
 
 
-const CommentForm = ({ onCancel, dataProps,isReply = false }) => {
+const CommentForm = ({ onCancel, onOk,isReply = false }) => {
   const [isLoading, setIsLoading ] = useState(false)
-  const [commentKey, setCommentKey] = useState(Math.random());
 
   const formRef = useRef(null)
   //  表单验证信息
@@ -28,30 +27,7 @@ const CommentForm = ({ onCancel, dataProps,isReply = false }) => {
     },
   };
 
-  //  提交评论
-  const upComment = async (values) => {
-    let aa = values.comm
-    Object.assign(dataProps,aa)
-
-    console.log(dataProps)
-    setIsLoading(true)
-    const res = await axios({
-      method: "post",
-      url: serviceUrl.addComment,
-      header: { "Access-Control-Allow-Origin": "*" },
-      data: dataProps,
-      withCredentials: true
-    })
-    setIsLoading(false)
-    const isSuccess = res.status == 200;
-    if (isSuccess) {
-      message.success("评论成功");
-      setCommentKey(Math.random());
-    } else {
-      message.error("评论失败");
-    }
-    return isSuccess;
-  };
+  
 
   const onFinishFailed = e => {
     console.log('评论失败', e)
@@ -59,9 +35,12 @@ const CommentForm = ({ onCancel, dataProps,isReply = false }) => {
 
   // 表单验证数据成功后, 清空form表单值
   const onFinish = (values) => {
-    upComment(values).then(res =>{
+    setIsLoading(true)
+    onOk(values).then(res =>{
       //  清空表单
+      message.success("评论成功");
       !!res && formRef.current.resetFields()
+      setIsLoading(false)
     }).catch((e)=>{
       message.error('评论失败!')
       console.log('评论失败',e)

@@ -6,5 +6,5 @@ export const serviceUrl = {
   getTypeInfo: ipUrl + 'getTypeInfo',       // 文航类别
   getListById: ipUrl + 'getListById/',        // 根据类别获取文章列表
   addComment:ipUrl + 'addComment', // 添加评论
-
+  getCommentListById:ipUrl + 'getCommentListById/', // 根据文章ID获取评论
 } 

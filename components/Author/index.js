@@ -1,9 +1,7 @@
 
 import React, { useRef, useState } from 'react'
 import { Avatar, Divider, Tooltip, Card, Tag, Tabs } from 'antd'
-import { CSSTransition, TransitionGroup, Transition } from 'react-transition-group'
 import './index.css'
-// import Aperture from '../aperture'
 
 import {
   GithubOutlined,
@@ -24,16 +22,11 @@ const Author = () => {
 
   const Beat = () => (
     <div className='mm' >
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
+      {
+        [0,1,2,3,4,5,6,7,8,9].map(item =>(
+          <span key={item}></span>
+        ))
+      }
     </div>
   )
 
@@ -78,7 +71,7 @@ const Author = () => {
             <div className='mask' ref={maskEl}></div>
             {isPlay ? <Beat /> : null} 
             <div className='rotate-div' ref={rotateEl}>
-              <Avatar size={120} src={'../../static/self.JPG'} />
+              <Avatar size={120} src={'../../static/IMG_1231.JPG'} />
               <audio autoPlay={false} ref={playerEl} controls hidden loop>
                 <source src={'../../static/home.m4a'} type="audio/mpeg"></source>
               </audio>
