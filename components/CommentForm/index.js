@@ -17,9 +17,9 @@ const CommentForm = ({ onCancel, onOk,isReply = false }) => {
   const formRef = useRef(null)
   //  表单验证信息
   const validateMessages = {
-    required: '${label} 不能为空!',
+    required: '${label}不能为空!',
     types: {
-      email: '${label} 格式不正确!',
+      email: '${label}格式不正确!',
       number: '${label} is not a validate number!',
     },
     number: {
@@ -38,7 +38,7 @@ const CommentForm = ({ onCancel, onOk,isReply = false }) => {
     setIsLoading(true)
     onOk(values).then(res =>{
       //  清空表单
-      message.success("评论成功");
+      message.success("留言成功");
       !!res && formRef.current.resetFields()
       setIsLoading(false)
     }).catch((e)=>{
@@ -52,13 +52,13 @@ const CommentForm = ({ onCancel, onOk,isReply = false }) => {
       <Divider style={{ color: '#1890ff' }}>留言板</Divider>
       <Spin tip="Loading..." spinning={isLoading}>
         <Form layout='horizontal' ref={formRef}  onFinish={onFinish} validateMessages={validateMessages} >
-          <Form.Item name={['comm', 'com_name']} label="昵称" rules={[{ required: true }]} >
+          <Form.Item name={'com_name'} label="昵称" rules={[{ required: true }]} >
             <Input placeholder='请输入昵称' />
           </Form.Item>
-          <Form.Item name={['comm', 'email']} label="邮箱" rules={[{ type: 'email'}]} style={{marginLeft: '10px'}}>
-            <Input  placeholder='请输入邮箱' />
+          <Form.Item name={'email'} label="邮箱" rules={[{ type: 'email'}]} style={{marginLeft: '10px'}}>
+            <Input  placeholder='请留下您的联系方式 QQ/微信/邮箱等 (不会公开)' />
           </Form.Item>
-          <Form.Item name={['comm', 'comment']} label="留言" rules={[{ required: true }]}>
+          <Form.Item name={'comment'} label="留言" rules={[{ required: true }]}>
             <Input.TextArea rows={5} placeholder={`请输入您${ isReply ? '的回复' : '想说的,稍后会有更多人看到您的留言.'}`} />
           </Form.Item>
 
@@ -66,7 +66,7 @@ const CommentForm = ({ onCancel, onOk,isReply = false }) => {
             {isReply && (
               <Button style={buttonStyle} onClick={onCancel}> 取消 </Button>
             )}
-            <Button type="primary" htmlType="submit"> 提交{isReply ? '' : '留言'} </Button>
+            <Button type="primary" htmlType="submit"> 提交{isReply ? '回复' : '留言'} </Button>
           </Form.Item>
         </Form >
 

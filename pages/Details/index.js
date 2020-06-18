@@ -50,14 +50,12 @@ const Detailed = (props) => {
 
   //  提交评论
   const upComment = async (values) => {
-    let formData = values.comm
     let dataProps = {
+      ...values,
       art_id: props.id,
       add_time: parseInt(new Date() / 1000),
     };
-    Object.assign(dataProps, formData)
 
-    console.log(dataProps)
     const res = await axios({
       method: "post",
       url: serviceUrl.addComment,
@@ -69,6 +67,7 @@ const Detailed = (props) => {
     if (isSuccess) {
       setCommentKey(Math.random());
     } else {
+      
     }
     return isSuccess;
   };
@@ -137,14 +136,10 @@ const Detailed = (props) => {
 }
 
 Detailed.getInitialProps = async (context) => {
-
-  // console.log(context.query.id)
   let id = context.query.id
   const promise = new Promise((resolve) => {
-
     axios(serviceUrl.getArticleById + id).then(
       (res) => {
-        // console.log(title)
         resolve(res.data.data[0])
       }
     )

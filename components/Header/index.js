@@ -26,7 +26,6 @@ const Header = () => {
     }
     fetchType()
   }, [])
-  // console.log(typeInfo);
 
   const handleClick = (e)=>{
     if(e.key == '0'){
@@ -42,7 +41,7 @@ const Header = () => {
       <div className="header">
         <Row type="flex" justify="center" >
           <Col xs={24} sm={24} md={10} lg={15} xl={12}>
-            <span className="header-logo">Evans</span>
+            <span className="header-logo"><a href='/'>Evans</a></span>
             <span className="header-txt">--入门程序员</span>
           </Col>
 
@@ -62,18 +61,6 @@ const Header = () => {
               <Menu.Item key={3}>
                 <SmileOutlined/> 快乐生活
               </Menu.Item>
-                  
-                {/* {
-                  typeInfo.map((item)=>{
-                    return(
-                      <Menu.Item key={item.Id}>
-                        
-                        {item.typeName}
-                      </Menu.Item>
-                    )
-                  })
-                } */}
-
             </Menu>
           </Col>
         </Row>

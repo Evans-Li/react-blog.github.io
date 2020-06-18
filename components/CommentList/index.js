@@ -41,12 +41,12 @@ const CommentList = ({ artId, listKey, upComment }) => {
   }
 
   const submitReply = (values) => {
-    const options = {
+    const option = {
+      ...values,
       is_reply: 1,
       reply_id: drawerOptions.item.id,
-      ...values
     }
-    upComment(options)
+    upComment(option)
     cancelReply()
     return false
   }
@@ -61,7 +61,6 @@ const CommentList = ({ artId, listKey, upComment }) => {
   }
 
   useEffect(() => {
-    
     fetchData()
   }, [artId, listKey])
 
@@ -86,9 +85,10 @@ const CommentList = ({ artId, listKey, upComment }) => {
       <Drawer
         title="回复"
         placement="right"
-        width='50%'
+        width='30%'
         destroyOnClose
         closable={false}
+        maskClosable={false}
         onClose={cancelReply}
         visible={drawerOptions.visible}
       >

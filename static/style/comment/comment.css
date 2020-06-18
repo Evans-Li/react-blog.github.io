@@ -9,7 +9,8 @@
 /* 一个评论-大框 */
 .ant-comment {
   position: relative;
-  background-color: rgba(255,255,255);
+  background-color: rgba(228,240,253, .4);
+  /* background-color: #E4F0FD; */
   border-radius: 1rem;
   margin: 0.5rem 1rem;
   padding: .5rem;
@@ -25,7 +26,9 @@
 }
 /* 二级评论-小框 */
 .ant-comment-nested .ant-comment{
-  background-color: rgba(100,100,100);
+  background-color: rgba(228,240,253, .8);
+
+
 }
 
 /* 分割线 */

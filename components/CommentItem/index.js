@@ -8,7 +8,7 @@ const CommentItem = ({ item, handleReply, ...rest }) => {
   return (
     <div>
       <Comment
-        action={handleReply && [<span key='reply' onClick={handleReply}>回复</span>]}
+        actions={handleReply && [<span key="reply" onClick={handleReply}>回复</span>]}
         author={<a>{item.com_name}</a>}
         avatar={item.avatar || defaultAvatar}
         content={<p>{item.comment}</p>}
