@@ -2,6 +2,8 @@ import React, { useState, useEffect} from 'react'
 
 const ViewCount = (value) => {
   const [count, setCount ] = useState(0)
+  const step1 = 501
+  const step2 = 21
   const style = {
     width: '60px',
     padding:'0 0'
@@ -16,16 +18,16 @@ const ViewCount = (value) => {
     const timer = ()=>{
       let time = setInterval(() => {
         if(c>10000){
-          if(i+101>c){
+          if(i+step1>c){
             i++
           }else{
-            i+=101
+            i+=step1
           }
         }else if(c>1000){
-          if(i+11>c){
+          if(i+step2>c){
             i++;
           }else{
-            i+=11
+            i+=step2
           }
         }else{
           i++;
@@ -36,7 +38,7 @@ const ViewCount = (value) => {
           return
         }
         setCount(i)
-      }, 10);
+      }, 3);
     }
     //调用定时器
     timer()

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Header from '../components/Header'
-import { Row, Col, List, Spin, Card, Tag, BackTop } from 'antd'
+import { Row, Col, List, Spin, Card, Tag, BackTop, Affix } from 'antd'
 import '../static/style/pages/index.css'
 import Author from '../components/Author'
 import Advert from '../components/Advert'
@@ -52,12 +52,15 @@ const Home = (list) => {
         <title>Evans-blog</title>
         <body style='background: url(../../../static/floor-tile.png)'></body>
       </Helmet>
-      <Header>
-        <title>Home</title>
-      </Header>
+      <Affix offsetTop={0}>
+        <Header>
+          <title>Home</title>
+        </Header>
+      </Affix>
+
       <Row className="comm-main" type="flex" justify="center">
 
-        <Col className="comm-left" xs={24} sm={24} md={16} lg={18} xl={14}  >
+        <Col className="comm-left" xs={24} sm={24} md={16} lg={18} xl={12}   >
           <div>
             <List
               // header={<div>最新日志</div>}
@@ -96,8 +99,11 @@ const Home = (list) => {
         </Col>
         <Col className="comm-right" xs={0} sm={0} md={7} lg={5} xl={4}>
           <Author />
-          <HomeTab />
-          <Advert />
+          <Affix offsetTop={70}>
+            <HomeTab />
+            <Advert />
+          </Affix>
+
         </Col>
       </Row>
       <Footer />

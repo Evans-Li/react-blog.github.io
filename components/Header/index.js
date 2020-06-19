@@ -40,12 +40,12 @@ const Header = () => {
     
       <div className="header">
         <Row type="flex" justify="center" >
-          <Col xs={24} sm={24} md={10} lg={15} xl={12}>
+          <Col xs={24} sm={24} md={10} lg={15} xl={10}>
             <span className="header-logo"><a href='/'>Evans</a></span>
             <span className="header-txt">--入门程序员</span>
           </Col>
 
-          <Col className="memu-div" xs={0} sm={0} md={14} lg={8} xl={6}>
+          <Col className="memu-div" xs={2} sm={2} md={14} lg={8} xl={6}>
             <Menu mode="horizontal"
               onClick={handleClick}
             >
