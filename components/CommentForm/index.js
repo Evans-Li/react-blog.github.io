@@ -43,6 +43,7 @@ const CommentForm = ({ onCancel, onOk,isReply = false }) => {
       setIsLoading(false)
     }).catch((e)=>{
       message.error('评论失败!')
+      setIsLoading(false)
       console.log('评论失败',e)
     })
    
@@ -53,13 +54,13 @@ const CommentForm = ({ onCancel, onOk,isReply = false }) => {
       <Spin tip="Loading..." spinning={isLoading}>
         <Form layout='horizontal' ref={formRef}  onFinish={onFinish} validateMessages={validateMessages} >
           <Form.Item name={'com_name'} label="昵称" rules={[{ required: true }]} >
-            <Input placeholder='请输入昵称' />
+            <Input placeholder='我叫你什么好呢?' />
           </Form.Item>
-          <Form.Item name={'email'} label="邮箱" rules={[{ type: 'email'}]} style={{marginLeft: '10px'}}>
-            <Input  placeholder='请留下您的联系方式 QQ/微信/邮箱等 (不会公开)' />
+          <Form.Item name={'email'} label="邮箱" rules={[{ type: 'email',required: true}]} >
+            <Input  placeholder='请留下您的联系方式 QQ/微信/邮箱等 (不公开)' />
           </Form.Item>
           <Form.Item name={'comment'} label="留言" rules={[{ required: true }]}>
-            <Input.TextArea rows={5} placeholder={`请输入您${ isReply ? '的回复' : '想说的,稍后会有更多人看到您的留言.'}`} />
+            <Input.TextArea maxLength={400} rows={5} placeholder={`请输入您${ isReply ? '的回复' : '想说的,稍后会有更多人看到您的留言.'}`} />
           </Form.Item>
 
           <Form.Item style={{ textAlign: "center" }}>

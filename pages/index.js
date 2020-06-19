@@ -13,10 +13,11 @@ import marked from 'marked'
 import hljs from "highlight.js";
 import 'highlight.js/styles/monokai-sublime.css';
 import { Helmet } from 'react-helmet'
-import { EyeOutlined, FileOutlined, CarryOutOutlined} from '@ant-design/icons'
+import { FileOutlined, CarryOutOutlined, FireTwoTone } from '@ant-design/icons'
 import Butterfly from '../components/Pendant/Butterfly'
 import BackTopBtn from '../components/BackTopBtn'
 import APlayerS from '../components/Pendant/APlayer'
+import ListIcon from '../components/ListIcon'
 
 const renderer = new marked.Renderer();
 marked.setOptions({
@@ -38,9 +39,9 @@ marked.setOptions({
 
 
 const Home = (list) => {
-  const [ mylist, setMylist ] = useState(list.data)
-  const [ isLoading, setIsLoading ] = useState(false)
-  const changeLoading = ()=>{
+  const [mylist, setMylist] = useState(list.data)
+  const [isLoading, setIsLoading] = useState(false)
+  const changeLoading = () => {
     setIsLoading(true)
   }
   return (
@@ -65,32 +66,28 @@ const Home = (list) => {
               renderItem={item => (
                 <div >
                   <Spin spinning={isLoading}>
-                  <Card
-                    hoverable
-                    className='list-item'
-                  >
-                    <List.Item>
-                      <div className="list-title">
-                        <Link href={{ pathname: '/Details', query: { id: item.id } }}>
-                          <a onClick={changeLoading}>{item.title}</a>
-                        </Link>
-                      </div>
-                      <div className="list-icon">
-                        <CarryOutOutlined  style={{color:'orange'}}/>{item.addTime}
-                        <FileOutlined style={{color:'gold'}} />{item.typeName}
-                        <EyeOutlined  style={{color:'#70AAD5'}}/>  {item.view_count}
-                      </div>
-                      <div className="list-context"
-                        dangerouslySetInnerHTML={{ __html: marked(item.introduce) }}>
-                      </div>
-                      <div className='list-go'>
-                        <FileOutlined />
-                        <span><Link href={{pathname: '/Details', query: { id: item.id}}}>
-                          <a onClick={changeLoading}>	&nbsp; 查看全文 &gt;</a>
+                    <Card
+                      hoverable
+                      className='list-item'
+                    >
+                      <List.Item>
+                        <div className="list-title">
+                          <Link href={{ pathname: '/Details', query: { id: item.id } }}>
+                            <a onClick={changeLoading}>{item.title}</a>
+                          </Link>
+                        </div>
+                        <ListIcon item={item} className='list-icon' />
+                        <div className="list-context"
+                          dangerouslySetInnerHTML={{ __html: marked(item.introduce) }}>
+                        </div>
+                        <div className='list-go'>
+                          <FileOutlined />
+                          <span><Link href={{ pathname: '/Details', query: { id: item.id } }}>
+                            <a onClick={changeLoading}>	&nbsp; 查看全文 &gt;</a>
                           </Link> </span>
-                      </div>
-                    </List.Item>
-                  </Card>
+                        </div>
+                      </List.Item>
+                    </Card>
                   </Spin>
                 </div>
               )}

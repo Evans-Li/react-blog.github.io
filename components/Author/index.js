@@ -1,7 +1,10 @@
 
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import { Avatar, Divider, Tooltip, Card, Tag, Tabs } from 'antd'
 import './index.css'
+import { serviceUrl } from '../../config/apiUrl'
+import axios from 'axios'
+import ViewCount from '../ViewCount'
 
 import {
   GithubOutlined,
@@ -11,19 +14,23 @@ import {
 
 
 
-const Author = () => {
+const Author = (data) => {
+  const [all_part_count, setAll_part_count] = useState(0);  //总文章数
+  const [all_view_count, setAll_view_count] = useState(0);  //总浏览数
   const [isPlay, setIsPlay] = useState(false)
   const playerEl = useRef(null) // audio
   const rotateEl = useRef(null)  // 控制播放暂停元素
   const maskEl = useRef(null)
   let [t, setT] = useState(0)
   var i = 0;
-
+  // useEffect(()=>{
+  //   console.log(data)
+  // },[])
 
   const Beat = () => (
     <div className='mm' >
       {
-        [0,1,2,3,4,5,6,7,8,9].map(item =>(
+        [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(item => (
           <span key={item}></span>
         ))
       }
@@ -63,13 +70,26 @@ const Author = () => {
       maskEl.current.style.background = `rgba(0, 0, 0, 0)`;
     }
   }
+
+
+  //获取总浏览数与文章数
+  const fetchData = async () => {
+    const result = await axios(serviceUrl.getAllPartCount).then(res => {
+      return res.data.data;
+    })
+    setAll_part_count(result[0].total);
+    setAll_view_count(result[0].all_view_count);
+  }
+  useEffect(() => {
+    fetchData()
+  }, [])
   return (
     <div className="author-div comm-box">
       <div>
         <div className='audiol'  >
           <div className='pl-contro' onClick={isPlayeIng}>
             <div className='mask' ref={maskEl}></div>
-            {isPlay ? <Beat /> : null} 
+            {isPlay ? <Beat /> : null}
             <div className='rotate-div' ref={rotateEl}>
               <Avatar size={120} src={'../../static/IMG_1231.JPG'} />
               <audio autoPlay={false} ref={playerEl} controls hidden loop>
@@ -81,16 +101,16 @@ const Author = () => {
         </div>
         <h4>Evans</h4>
         <p>-- 入门程序员 --</p>
-          <div>
-            <Tag color="magenta">React Hooks</Tag>
-            <Tag color="red">Axios</Tag>
-            <Tag color="volcano">Next.js</Tag>
-            <Tag color="orange">Antd Design</Tag>
-            <Tag color="gold">markdown</Tag>
-            <Tag color="lime">mysql</Tag>
-            <Tag color="green">CSS</Tag>
-            <Tag color="cyan">egg.js</Tag>
-          </div>
+        <div>
+          <Tag color="magenta">WEB前端</Tag>
+          <Tag color="red">入门程序员</Tag>
+          <Tag color="green">菜鸟程序员</Tag>
+          <Tag color="gold">没有经验</Tag>
+          <Tag color='cyan'>文章共{all_part_count ? <ViewCount value={all_part_count} /> : null}篇</Tag>
+          <Tag color='blue'>总被访问{all_view_count ? <ViewCount value={all_view_count} /> : null}次</Tag>
+
+
+        </div>
       </div>
       <div className="author-introduction">
         <Divider>社交账号</Divider>
@@ -104,4 +124,17 @@ const Author = () => {
 
 }
 
-export default React.memo(Author)
+// Author.getInitialProps = async (context) => {
+//   const promise = new Promise((resolve) => {
+//     axios(serviceUrl.getAllPartCount).then(()=>{
+//       res =>{
+//         resolve(res.data.data)
+//       }
+//     })
+//   })
+//   console.log(111)
+
+//   return await promise
+// }
+
+export default Author

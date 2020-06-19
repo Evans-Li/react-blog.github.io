@@ -21,6 +21,7 @@ import marked from 'marked'
 import hljs from "highlight.js";
 import Butterfly from '../../components/Pendant/Butterfly'
 import BackTopBtn from '../../components/BackTopBtn'
+import ListIcon from '../../components/ListIcon'
 
 
 
@@ -48,9 +49,9 @@ const ArticleList = (list) => {
   const [mylist, setMylist] = useState([]);
   const [isShow, setIsShow] = useState(true)
   const [breadName, setBreadName] = useState('ddd')
-  const [ isLoading, setIsLoading ] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
-  const changeLoading = () =>{
+  const changeLoading = () => {
     setIsLoading(true)
   }
   useEffect(() => {
@@ -82,30 +83,28 @@ const ArticleList = (list) => {
               renderItem={item => (
                 <div>
                   <Spin spinning={isLoading}>
-                  <Card
-                    hoverable
-                    className='list-item'
-                  >
-                  <List.Item>
-                    <div className="list-title">
-                      <Link href={{ pathname: '/Details', query: { id: item.id } }}>
-                        <a onClick={changeLoading}>{item.title}</a>
-                      </Link>
-                    </div>
-                    <div className="list-icon">
-                    
-                    </div>
-                    <div className="list-context"
-                      dangerouslySetInnerHTML={{__html: marked(item.introduce)}}
-                    ></div>
-                    <div className='list-go'>
-                        <FileOutlined />
-                        <span><Link href={{pathname: '/Details', query: { id: item.id}}}>
-                          <a onClick={changeLoading}>	&nbsp; 查看全文 &gt;</a>
+                    <Card
+                      hoverable
+                      className='list-item'
+                    >
+                      <List.Item>
+                        <div className="list-title">
+                          <Link href={{ pathname: '/Details', query: { id: item.id } }}>
+                            <a onClick={changeLoading}>{item.title}</a>
+                          </Link>
+                        </div>
+                        <ListIcon item={item} className='list-icon' />
+                        <div className="list-context"
+                          dangerouslySetInnerHTML={{ __html: marked(item.introduce) }}
+                        ></div>
+                        <div className='list-go'>
+                          <FileOutlined />
+                          <span><Link href={{ pathname: '/Details', query: { id: item.id } }}>
+                            <a onClick={changeLoading}>	&nbsp; 查看全文 &gt;</a>
                           </Link> </span>
-                      </div>
-                  </List.Item>
-                  </Card>
+                        </div>
+                      </List.Item>
+                    </Card>
                   </Spin>
                 </div>
               )}

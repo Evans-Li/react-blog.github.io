@@ -17,7 +17,7 @@ const commentFormat = list => {
     }
   })
   commentList.forEach(v => {
-    v.children = replyList.filter(reply => +reply.reply_id === v.id).sort((a, b) => a.add_time - b.add_time);
+    v.children = replyList.filter(reply => +reply.reply_id === v.id).sort((a, b) => b.add_time - a.add_time);
   })
   return commentList
 }
