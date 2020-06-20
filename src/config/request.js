@@ -3,8 +3,8 @@ import axios from 'axios'
 export const requestGet = (url,data)=>{
   return axios({
     method: 'get',
-    url: url,
-    data: data,
+    url,
+    data,
     withCredentials: true,
     // header: { 'Access-Control-Allow-Origin': '*' },
   })
@@ -12,9 +12,9 @@ export const requestGet = (url,data)=>{
 export const requestPost = (url,data)=>{
   return axios({
     method: 'post',
-    url: url,
-    data: data,
+    url,
+    data,
     withCredentials: true,
-    header: { 'Access-Control-Allow-Origin': 'http://localhost:3000' },
+    // header: { 'Access-Control-Allow-Origin': 'http://localhost:3000' },
   })
 }
