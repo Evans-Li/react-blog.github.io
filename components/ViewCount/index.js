@@ -5,8 +5,8 @@ const ViewCount = (value) => {
   const step1 = 501
   const step2 = 21
   const style = {
-    width: '60px',
-    padding:'0 0'
+    // width: '60px',
+    padding:'0 5px 0 0'
   }
 
   useEffect(()=>{
@@ -45,7 +45,7 @@ const ViewCount = (value) => {
   },[])
   return (
     <>
-      <span >
+      <span style={style} >
         {count}
       </span>
     </>

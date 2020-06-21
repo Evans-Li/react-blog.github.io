@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import { TransitionGroup, CSSTransition } from 'react-transition-group'
+import React, { useState, useEffect } from 'react'
 
 import Header from '../components/Header'
 import { Row, Col, List, Spin, Card, Tag, BackTop, Affix } from 'antd'
@@ -18,7 +17,6 @@ import { Helmet } from 'react-helmet'
 import { FileOutlined, CarryOutOutlined, FireTwoTone } from '@ant-design/icons'
 import Butterfly from '../components/Pendant/Butterfly'
 import BackTopBtn from '../components/BackTopBtn'
-import APlayerS from '../components/Pendant/APlayer'
 import ListIcon from '../components/ListIcon'
 import Transition from '../components/Transtion'
 
@@ -38,22 +36,87 @@ marked.setOptions({
   highlight: function (code) {
     return hljs.highlightAuto(code).value;
   }
-
 });
-
 
 const Home = (list) => {
   const [mylist, setMylist] = useState(list.data)
+  const [topList, setTopList] = useState([])
+  console.log(topList)
   const [isLoading, setIsLoading] = useState(false)
   const changeLoading = () => {
     setIsLoading(true)
   }
 
+  useEffect(() => {
+    // 置顶文章数据
+    let artArr = [], topArr = [];
+    list.data.map((item, key) => {
+      if (item.is_top) {
+        topArr.push(item)
+      } else {
+        artArr.push(item)
+      }
+    })
+    setMylist(artArr)
+    setTopList(topArr)
+  }, [])
+
+
+  const renderTopList = () => {
+    return (
+      <div>
+        {
+          topList.length ?
+            <div>
+              <List
+                // header={<div></div>}
+                itemLayout="vertical"
+                dataSource={topList}
+                renderItem={(item, index) => (
+                  <div >
+                    <Spin spinning={isLoading}>
+                      <Card
+                        hoverable
+                        className='list-item'
+                      >
+                        <List.Item>
+                          <div className="list-title">
+                            <Link href={{ pathname: '/Details', query: { id: item.id } }}>
+                              <a onClick={changeLoading}>{item.title}</a>
+                            </Link>
+                          </div>
+                          <ListIcon item={item} className='list-icon' isTop />
+                          <div className="list-context"
+                            dangerouslySetInnerHTML={{ __html: marked(item.introduce) }}>
+                          </div>
+                          <div className='list-go'>
+                            <FileOutlined />
+                            <span><Link href={{ pathname: '/Details', query: { id: item.id } }}>
+                              <a onClick={changeLoading}>	&nbsp; 查看全文 &gt;</a>
+                            </Link> </span>
+                          </div>
+                        </List.Item>
+                      </Card>
+                    </Spin>
+
+                  </div>
+                )}
+              />
+            </div>
+            :
+            null
+        }
+
+      </div>
+    )
+  }
+
   const renderItem = () => {
     return (
       <div>
+         {renderTopList()}
         <List
-          header={<div>最新日志</div>}
+          header={<div style={{padding: '20px 0 0 20px'}}>最新日志</div>}
           itemLayout="vertical"
           dataSource={mylist}
           renderItem={(item, index) => (
@@ -86,7 +149,6 @@ const Home = (list) => {
             </div>
           )}
         />
-
       </div>
 
     )
@@ -122,10 +184,8 @@ const Home = (list) => {
         </Col>
       </Row>
       <Footer />
-      <Butterfly />
+      {/* <Butterfly /> */}
       <BackTopBtn />
-      <APlayerS />
-
     </div>
 
   )

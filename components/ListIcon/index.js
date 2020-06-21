@@ -1,19 +1,25 @@
 import React from 'react';
 import CountTo from 'react-count-to';
+import { Tag } from 'antd'
 import ViewCount from '../../components/ViewCount'
 import './index.css'
 import {
-  CarryOutOutlined,
+  CalendarOutlined ,
   FileOutlined,
   FireTwoTone
 } from '@ant-design/icons'
 
-const ListIcon = ({ item, className = '' }) => {
+const style = {
+  display: 'inline-block',
+  padding: '0 10px'
+}
+const ListIcon = ({ item, className = '',isTop = false }) => {
   return (
     <div className={`list-icon ${className}`}>
+      { isTop ? <Tag style={style} color='red'>置顶</Tag> : null}
       <span>
         {/* <CarryOutOutlined style={{ color: '#4091F7' }} />{item.addTime} */}
-        <CarryOutOutlined />{item.addTime}
+        <CalendarOutlined />{item.addTime}
         
       </span>
       <span>

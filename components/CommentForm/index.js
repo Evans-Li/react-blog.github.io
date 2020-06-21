@@ -35,6 +35,7 @@ const CommentForm = ({ onCancel, onOk,isReply = false }) => {
 
   // 表单验证数据成功后, 清空form表单值
   const onFinish = (values) => {
+    
     setIsLoading(true)
     onOk(values).then(res =>{
       //  清空表单
@@ -56,11 +57,11 @@ const CommentForm = ({ onCancel, onOk,isReply = false }) => {
           <Form.Item name={'com_name'} label="昵称" rules={[{ required: true }]} >
             <Input placeholder='我叫你什么好呢?' />
           </Form.Item>
-          <Form.Item name={'email'} label="邮箱" rules={[{ type: 'email',required: true}]} >
-            <Input  placeholder='请留下您的联系方式 QQ/微信/邮箱等 (不公开)' />
+          <Form.Item name={'email'} label="邮箱" rules={[{ type: 'email' ,required: true}]} >
+            <Input  placeholder='必填(不公开)' />
           </Form.Item>
           <Form.Item name={'comment'} label="留言" rules={[{ required: true }]}>
-            <Input.TextArea maxLength={400} rows={5} placeholder={`请输入您${ isReply ? '的回复' : '想说的,稍后会有更多人看到您的留言.'}`} />
+            <Input.TextArea maxLength={400} rows={5} placeholder={`请写下您${ isReply ? '的回复' : '的留言,目前不支持任何编码格式.'}`} />
           </Form.Item>
 
           <Form.Item style={{ textAlign: "center" }}>

@@ -1,18 +1,18 @@
 /* fly */
 .fly-enter {
-  opacity: 0.1;
+  opacity: 0.01;
 }
 .fly-appear {
-  opacity: 0.1;
+  opacity: 0.01;
 }
 
 .fly-enter.fly-enter-active {
   opacity: 1;
-  transition: opacity 1s ease-in;
+  transition: opacity .6s ease-in;
 }
 .fly-appear.fly-appear-active {
   opacity: 1;
-  transition: opacity 1s ease-in;
+  transition: opacity .6s ease-in;
 }
 .fly-leave {
   opacity: 1;

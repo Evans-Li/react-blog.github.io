@@ -138,7 +138,7 @@ const Detailed = (props) => {
         </Col>
       </Row>
       <Footer />
-      <Butterfly />
+      {/* <Butterfly /> */}
       <BackTopBtn />
     </>
   )

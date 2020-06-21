@@ -126,7 +126,7 @@ const ArticleList = (list) => {
         </Col>
       </Row>
       <Footer />
-      <Butterfly />
+      {/* <Butterfly /> */}
       <BackTopBtn />
     </div>
   )

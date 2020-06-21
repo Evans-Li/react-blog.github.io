@@ -1,3 +1,7 @@
 .list-icon span:nth-child(1){
   padding-left: 3px;
 }
+
+.list-icon span {
+  font-size: 12px;
+}
