@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import './index.css'
+import ReactCSSTransitionGroup from 'react-transition-group'; // ES6
+
 import Router from 'next/router'
 import { Row, Col, Menu, Spin } from 'antd'
 import axios from 'axios'
 import { serviceUrl } from '../../config/apiUrl'
+import './index.css'
 import {
   HomeOutlined,
   YoutubeOutlined,
@@ -31,13 +33,13 @@ const Header = () => {
     if(e.key == '0'){
       Router.push('/index')
     }else{
-      Router.push('/ArticleList?id=' + e.key)
+      Router.push('/list?id=' + e.key)
     }
   }
 
   return (
   <div>
-    
+
       <div className="header">
         <Row type="flex" justify="center" >
           <Col xs={24} sm={24} md={10} lg={15} xl={10}>

@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import Head from 'next/head'
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
+
 import { Row, Col, Affix, Breadcrumb, Card } from 'antd'
 import Header from '../../components/Header'
 import Author from '../../components/Author'
 import Advert from '../../components/Advert'
-// import ReactMarkdown from 'react-markdown'
 import MarkNav from 'markdown-navbar';
 import 'markdown-navbar/dist/navbar.css';
 import axios from 'axios';
@@ -21,6 +22,7 @@ import BackTopBtn from '../../components/BackTopBtn'
 import ListIcon from '../../components/ListIcon'
 import CommentForm from '../../components/CommentForm'
 import CommentList from '../../components/CommentList/index'
+import Transition from '../../components/Transtion'
 
 const Detailed = (props) => {
   const tocify = new Tocify()
@@ -46,8 +48,6 @@ const Detailed = (props) => {
     }
   });
 
-
-
   //  提交评论
   const upComment = async (values) => {
     let dataProps = {
@@ -67,12 +67,19 @@ const Detailed = (props) => {
     if (isSuccess) {
       setCommentKey(Math.random());
     } else {
-      
     }
     return isSuccess;
   };
-
   let html = marked(props.article_content)
+  const renderItem = () => {
+    return (
+      <div>
+        <div className="detailed-content"
+          dangerouslySetInnerHTML={{ __html: html }}   >
+        </div>
+      </div>
+    )
+  }
   return (
     <>
       <Helmet>
@@ -85,7 +92,7 @@ const Detailed = (props) => {
       </Head>
       <Header />
       <Row className="comm-main" type="flex" justify="center">
-        <Col className="comm-left" xs={24} sm={24} md={16} lg={18} xl={14}  >
+        <Col className="comm-left" xs={24} sm={24} md={16} lg={18} xl={12}   >
           <div>
             <div className="bread-div">
               <Breadcrumb>
@@ -94,23 +101,29 @@ const Detailed = (props) => {
                 <Breadcrumb.Item> {props.title}</Breadcrumb.Item>
               </Breadcrumb>
             </div>
-
-            <div>
-              <div className="detailed-title">
-                {props.title}
+              <div>
+                <div>
+                  <div className="detailed-title">
+                    {props.title}
+                  </div>
+                  <ListIcon item={props} className='center' />
+                  <Transition
+                    in={true}
+                    timeout={1500}
+                    classNames={"fly"}
+                    appear={true}
+                    unmountOnExit={true}
+                    item={renderItem}
+                  >
+                  </Transition>
+                </div>
+                <div>
+                  <CommentList artId={props.id} listKey={commentKey} upComment={upComment} ></CommentList>
+                  <CommentForm onOk={upComment} />
+                </div>
               </div>
-              <ListIcon item={props} className='center' />
-              <div className="detailed-content"
-                dangerouslySetInnerHTML={{ __html: html }}   >
-              </div>
-            </div>
-            <div>
-              <CommentList artId={props.id} listKey={commentKey} upComment={upComment} ></CommentList>
-              <CommentForm onOk={upComment} />
-            </div>
           </div>
         </Col>
-
         <Col className="comm-right" xs={0} sm={0} md={7} lg={5} xl={4}>
           <Author />
           <Advert />
@@ -120,19 +133,15 @@ const Detailed = (props) => {
               <div className="toc-list">
                 {tocify && tocify.render()}
               </div>
-
             </div>
           </Affix>
-
         </Col>
       </Row>
       <Footer />
       <Butterfly />
       <BackTopBtn />
-
     </>
   )
-
 }
 
 Detailed.getInitialProps = async (context) => {

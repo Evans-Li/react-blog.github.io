@@ -85,7 +85,7 @@ const CommentList = ({ artId, listKey, upComment }) => {
       <Drawer
         title="回复"
         placement="right"
-        width='30%'
+        width='34%'
         destroyOnClose
         closable={false}
         maskClosable={false}

@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { TransitionGroup, CSSTransition } from 'react-transition-group'
+
 import Header from '../components/Header'
 import { Row, Col, List, Spin, Card, Tag, BackTop, Affix } from 'antd'
 import '../static/style/pages/index.css'
@@ -18,6 +20,8 @@ import Butterfly from '../components/Pendant/Butterfly'
 import BackTopBtn from '../components/BackTopBtn'
 import APlayerS from '../components/Pendant/APlayer'
 import ListIcon from '../components/ListIcon'
+import Transition from '../components/Transtion'
+
 
 const renderer = new marked.Renderer();
 marked.setOptions({
@@ -44,9 +48,51 @@ const Home = (list) => {
   const changeLoading = () => {
     setIsLoading(true)
   }
+
+  const renderItem = () => {
+    return (
+      <div>
+        <List
+          header={<div>最新日志</div>}
+          itemLayout="vertical"
+          dataSource={mylist}
+          renderItem={(item, index) => (
+            <div >
+              <Spin spinning={isLoading}>
+                <Card
+                  hoverable
+                  className='list-item'
+                >
+                  <List.Item>
+                    <div className="list-title">
+                      <Link href={{ pathname: '/Details', query: { id: item.id } }}>
+                        <a onClick={changeLoading}>{item.title}</a>
+                      </Link>
+                    </div>
+                    <ListIcon item={item} className='list-icon' />
+                    <div className="list-context"
+                      dangerouslySetInnerHTML={{ __html: marked(item.introduce) }}>
+                    </div>
+                    <div className='list-go'>
+                      <FileOutlined />
+                      <span><Link href={{ pathname: '/Details', query: { id: item.id } }}>
+                        <a onClick={changeLoading}>	&nbsp; 查看全文 &gt;</a>
+                      </Link> </span>
+                    </div>
+                  </List.Item>
+                </Card>
+              </Spin>
+
+            </div>
+          )}
+        />
+
+      </div>
+
+    )
+  }
   return (
     <div className='wrap'>
-
       <Helmet>
         <meta charSet="utf-8" />
         <title>Evans-blog</title>
@@ -57,59 +103,29 @@ const Home = (list) => {
           <title>Home</title>
         </Header>
       </Affix>
-
       <Row className="comm-main" type="flex" justify="center">
-
         <Col className="comm-left" xs={24} sm={24} md={16} lg={18} xl={12}   >
-          <div>
-            <List
-              // header={<div>最新日志</div>}
-              itemLayout="vertical"
-              dataSource={mylist}
-              renderItem={item => (
-                <div >
-                  <Spin spinning={isLoading}>
-                    <Card
-                      hoverable
-                      className='list-item'
-                    >
-                      <List.Item>
-                        <div className="list-title">
-                          <Link href={{ pathname: '/Details', query: { id: item.id } }}>
-                            <a onClick={changeLoading}>{item.title}</a>
-                          </Link>
-                        </div>
-                        <ListIcon item={item} className='list-icon' />
-                        <div className="list-context"
-                          dangerouslySetInnerHTML={{ __html: marked(item.introduce) }}>
-                        </div>
-                        <div className='list-go'>
-                          <FileOutlined />
-                          <span><Link href={{ pathname: '/Details', query: { id: item.id } }}>
-                            <a onClick={changeLoading}>	&nbsp; 查看全文 &gt;</a>
-                          </Link> </span>
-                        </div>
-                      </List.Item>
-                    </Card>
-                  </Spin>
-                </div>
-              )}
-            />
-          </div>
+          <Transition
+            timeout={3000}
+            classNames={'fly'}
+            appear={true}
+            unmountOnExit={true}
+            item={renderItem}
+          />
         </Col>
         <Col className="comm-right" xs={0} sm={0} md={7} lg={5} xl={4}>
           <Author />
-          <Affix offsetTop={70}>
+          <Affix offsetTop={50}>
             <HomeTab />
             <Advert />
           </Affix>
-
         </Col>
       </Row>
       <Footer />
       <Butterfly />
       <BackTopBtn />
       <APlayerS />
+
     </div>
 
   )

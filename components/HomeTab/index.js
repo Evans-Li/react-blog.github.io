@@ -9,20 +9,25 @@ const { TabPane } = Tabs
 const qqList = [
   {
     href: 'https://shang.qq.com/wpa/qunwpa?idkey=b579b0054e58fea7d7e41e529c2dd415d7e0632c1f95a00c065513d8763a202e',
-    text:  '前端1群:123569(3000人)(点击加入)'
+    text:  '前端1群:创造404(3000人)'
   },
   {
     href: 'https://shang.qq.com/wpa/qunwpa?idkey=b579b0054e58fea7d7e41e529c2dd415d7e0632c1f95a00c065513d8763a202e',
-    text:  '前端1群:123569(3000人)(点击加入)'
+    text:  '前端2群:创造404(3000人)'
+
   },{
     href: 'https://shang.qq.com/wpa/qunwpa?idkey=b579b0054e58fea7d7e41e529c2dd415d7e0632c1f95a00c065513d8763a202e',
-    text:  '前端1群:123569(3000人)(点击加入)'
+    text:  '前端3群:创造404(3000人)'
+
   },{
     href: 'https://shang.qq.com/wpa/qunwpa?idkey=b579b0054e58fea7d7e41e529c2dd415d7e0632c1f95a00c065513d8763a202e',
-    text:  '前端1群:123569(3000人)(点击加入)'
+    text:  '前端4群:创造404(3000人)'
+
   },{
+
     href: 'https://shang.qq.com/wpa/qunwpa?idkey=b579b0054e58fea7d7e41e529c2dd415d7e0632c1f95a00c065513d8763a202e',
-    text:  '前端1群:123569(3000人)(点击加入)'
+    text:  '前端5群:创造404(3000人)'
+
   },
 ]
 

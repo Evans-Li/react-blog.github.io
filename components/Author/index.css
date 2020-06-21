@@ -41,9 +41,11 @@
   position: relative;
   overflow: hidden;
 }
-/* .pl-contro:hover .mm{
-  display: block;
-} */
+.pl-contro:hover {
+  /* cursor: url('http://www.dabaoku.com/gif/017/gif010.gif') 4 4, auto; */
+  /* cursor: url(../../static/music.gif); */
+  /* cursor: url(/static/music.gif); */
+}
 .aperture{
   position: absolute;
   left: 50%;
