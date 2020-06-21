@@ -5,53 +5,9 @@ import { requestPost, requestGet } from '../../config/request'
 import { servicePath } from '../../config/apiUrl'
 
 
-const colList = [
-  {
-    span: 4,
-    test: '标题'
-  },
-  {
-    span: 4,
-    test: '类别'
-  },{
-    span: 4,
-    test: '发布时间'
-  },{
-    span: 4,
-    test: '集数'
-  },{
-    span: 4,
-    test: '浏览量'
-  },{
-    span: 4,
-    test: '操作'
-  },
-]
-const { confirm } = Modal
 
-const ArticleListAll = ({list, getArticleList,props}) => {
+const ArticleListAll = ({list, colList, toUpdataArticle, delArticle}) => {
 
-  const delArticle = (id) => {  //删除文章
-    confirm({
-      title: '确定删除文章吗?',
-      content: '删除后无法恢复!!!',
-      onOk() {
-        requestGet(servicePath.delArticle + id)
-          .then(res => {
-            console.log(res);
-            message.success('文章删除成功!')
-            getArticleList()
-          })
-      },
-      onCancel() {
-        message.success('取消操作')
-      }
-    })
-  }
-
-  const toUpdataArticle = (id)=>{ // 跳转修改文章页面
-    props.history.push('/index/add/'+id)
-  }
   return (
     <div>
       <List
@@ -63,7 +19,6 @@ const ArticleListAll = ({list, getArticleList,props}) => {
               ))
             }
           </Row>
-
         }
         bordered
         dataSource={list}

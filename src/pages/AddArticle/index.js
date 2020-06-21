@@ -22,7 +22,7 @@ function AddArticle(props) {
   const [showDate, setShowDate] = useState()   //发布日期
   const [updateDate, setUpdateDate] = useState() //修改日志的日期
   const [typeInfo, setTypeInfo] = useState([]) // 文章类别信息
-  const [selectedType, setSelectType] = useState('请选择类别') //选择的文章类别
+  const [selectedType, setSelectType] = useState() //选择的文章类别
   const [viewCount, setViewCount ] = useState(0)
   const [isTop, setIsTop] = useState(0)
   const [isLoading, setIsLoading] = useState(false) //  发布文章loading
@@ -43,20 +43,6 @@ function AddArticle(props) {
     smartLists: true,
     smartypants: false,
   });
-
-  //  重置
-  // const resetForm = () => {
-  //   setArticleTitle('')
-  //   setArticleContent('')
-  //   setIntroducemd('')
-  //   setShowDate()
-  //   setSelectType('请选择类别')
-  //   setIntroducehtml('等待编辑')
-  //   setIsTop('是否置顶')
-  //   setMarkdownContent('预览内容')
-  //   setDateValue(new Date())
-  //   forceupdate()
-  // }
 
   const changeArticleContent = (e) => { //文章预览
     setArticleContent(e.target.value)
@@ -91,6 +77,7 @@ function AddArticle(props) {
   }
 
   const selectTypeHandler = (value) => {  //文章类别
+    console.log(value)
     setSelectType(value)
   }
   const changeShowDate = (data) => {  //发布时间
@@ -197,7 +184,7 @@ function AddArticle(props) {
                     {
                       typeInfo.map((item, key) => {
                         return (
-                          <Option value={item.id} key={key}>{item.typeName}</Option>
+                          <Option value={item.Id} key={key}>{item.typeName}</Option>
                         )
                       })
                     }

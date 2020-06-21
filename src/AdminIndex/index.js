@@ -6,6 +6,7 @@ import AddArticle from '../pages/AddArticle/index.js'
 import ArticleList from '../pages/ArticleList/index.js'
 import Echart from '../pages/EchartsTest'
 import { ArticleManagement } from '../config/menuItem'
+import './index.scss'
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
