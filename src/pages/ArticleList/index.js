@@ -3,6 +3,7 @@ import { List, Row, Col, Modal, message, Button } from 'antd'
 import ArticleListAll from '../../components/ArticleListAll'
 import TopArticleList from '../../components/TopArticleList'
 import './index.scss'
+import '../../comm.scss'
 import { requestPost, requestGet } from '../../config/request'
 import { Tabs } from 'antd';
 import { servicePath } from '../../config/apiUrl'
@@ -13,26 +14,25 @@ const { confirm } = Modal
 const colList = [
   {
     span: 4,
-    test: '标题'
+    test: '标题',
   },
   {
     span: 4,
     test: '类别'
-  },{
+  }, {
     span: 4,
     test: '发布时间'
-  },{
+  }, {
     span: 4,
     test: '集数'
-  },{
+  }, {
     span: 4,
     test: '浏览量'
-  },{
+  }, {
     span: 4,
     test: '操作'
   },
 ]
-
 
 function ArticleList(props) {
   const [list, setList] = useState([])
@@ -52,6 +52,7 @@ function ArticleList(props) {
     confirm({
       title: '确定删除文章吗?',
       content: '删除后无法恢复!!!',
+      cancelText: '点错了!不删除!',
       onOk() {
         requestGet(servicePath.delArticle + id)
           .then(res => {
@@ -66,8 +67,8 @@ function ArticleList(props) {
     })
   }
 
-  const toUpdataArticle = (id)=>{ // 跳转修改文章页面
-    props.history.push('/index/add/'+id)
+  const toUpdataArticle = (id) => { // 跳转修改文章页面
+    props.history.push('/index/add/' + id)
   }
 
   useEffect(() => {
@@ -77,14 +78,20 @@ function ArticleList(props) {
     <div>
       <Tabs type='card' animated>
         <TabPane tab='所有文章' key={1}>
-          <ArticleListAll props={props} colList={colList} list={list} getArticleList={getArticleList} delArticle={delArticle} toUpdataArticle={toUpdataArticle}/>
+          <ArticleListAll
+            list={list}
+            delArticle={delArticle}
+            toUpdataArticle={toUpdataArticle}
+            />
         </TabPane>
         <TabPane tab='置顶文章' key={2}>
-          <TopArticleList props={props} colList={colList} topList={topList} getArticleList={getArticleList} toUpdataArticle={toUpdataArticle} delArticle={delArticle} />
+          <TopArticleList
+            colList={colList}
+            topList={topList}
+            toUpdataArticle={toUpdataArticle}
+            delArticle={delArticle} />
         </TabPane>
       </Tabs>
-
-
     </div>
   )
 

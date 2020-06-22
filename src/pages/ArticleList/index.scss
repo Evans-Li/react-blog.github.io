@@ -1,3 +1,9 @@
-.list-div{
-  width: 100%;
+// .list-div{
+//   width: 100%;
+// }
+
+.ant-modal-confirm-btns {
+  &.ant-btn-primar {
+    background: #ccc !important;
+  }
 }

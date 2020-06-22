@@ -5,6 +5,7 @@ import { Row, Col, Input, Select, Button, DatePicker, message, Spin } from 'antd
 import { servicePath } from '../../config/apiUrl'
 import { articleType } from '../../config/articleType'
 import { requestGet, requestPost } from '../../config/request'
+import '../../comm.scss'
 
 const { Option } = Select;
 const { TextArea } = Input
