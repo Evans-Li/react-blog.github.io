@@ -13,6 +13,29 @@ import '../comm.scss'
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 
+const menuList = [
+  {
+    title: '文章管理',
+    key: '文章管理',
+    icon: <AppstoreOutlined />,
+    childrens: [
+      {
+        key: ArticleManagement.addArticle,
+        title: '添加文章',
+      },
+      {
+        key: ArticleManagement.articleList,
+        title: '文章列表',
+      }
+    ]
+  },
+  {
+    title: '留言管理',
+    key: '留言管理',
+    icon: <AppstoreOutlined />,
+  }
+]
+
 function AdminIndex(props) {
   const [collapsed, setCollapsed] = useState(false)
   const onCollapse = (collapsed) => {
@@ -35,8 +58,37 @@ function AdminIndex(props) {
     <Layout style={{ minHeight: '100vh' }}>
       <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
         <div className="logo"><h4 className="logo-title">Blog System</h4></div>
-        <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-          <SubMenu
+        {/* <Menu theme="dark" defaultSelectedKeys={['文章管理']} mode="inline"> */}
+          {
+            menuList.map(i => (
+              <Menu defaultSelectedKeys={['文章管理']} mode="inline">
+                {
+                  !!i.childrens ?
+                    <SubMenu
+                      key={i.key}
+                      onClick={handleClickArticle}
+                      title={
+                        <span>
+                          <span>{i.icon}{i.title}</span>
+                        </span>
+                      }
+                    >
+                      {
+                        i.childrens.map(children => (
+                          <Menu.Item key={children.key}>{children.title}</Menu.Item>
+                        ))
+                      }
+                    </SubMenu>
+                    :
+                    <Menu.Item key={i.key}>{i.icon}{i.title}</Menu.Item>
+                }
+            </Menu>
+
+            )
+
+            )
+          }
+          {/* <SubMenu
             key="1"
             onClick={handleClickArticle}
             title={
@@ -48,8 +100,9 @@ function AdminIndex(props) {
           >
             <Menu.Item key={ArticleManagement.addArticle}>添加文章</Menu.Item>
             <Menu.Item key={ArticleManagement.articleList}>文章列表</Menu.Item>
-          </SubMenu>
-          <SubMenu
+          </SubMenu> */}
+
+
 
           {/* <Menu.Item
             onClick={()=>(props.history.push('/index/echarts/'))}
@@ -61,12 +114,14 @@ function AdminIndex(props) {
             <TeamOutlined />
             <span>文章管理</span>
           </Menu.Item> */}
-        </Menu>
+
+
+        {/* // </Menu> */}
       </Sider>
       <Layout>
-        <Header style={{ background: '#fff', padding: "0",  }}>
-          <ToolBarArt props={props}/>
-          </Header>
+        <Header style={{ background: '#fff', padding: "0", }}>
+          <ToolBarArt props={props} />
+        </Header>
         <Content style={{ margin: '0 16px' }}>
           <Breadcrumb style={{ margin: '16px 0' }}>
             <Breadcrumb.Item>{}</Breadcrumb.Item>
