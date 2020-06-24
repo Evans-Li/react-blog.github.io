@@ -94,7 +94,7 @@ const Comment = () => {
                 null
             }
             <a className='del' target={record.id} onClick={delComment}>删除</a>
-            <a className='details' target={record.id} onClick={deteilsComm}>查看</a>
+            <a className='details' target={record.id} onClick={deteilsComm}>详情</a>
           </div>
 
         )
