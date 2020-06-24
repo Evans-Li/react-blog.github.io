@@ -6,4 +6,7 @@
   &>span{
     cursor: pointer;
   }
+  &.anticon-logout:hover{
+    color: red;
+  }
 }
