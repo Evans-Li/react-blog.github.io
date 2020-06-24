@@ -4,6 +4,7 @@ import { requestGet, requestPost } from '../../config/request'
 import { servicePath } from '../../config/apiUrl'
 import { ExclamationCircleOutlined } from '@ant-design/icons'
 import './index.scss'
+import Transition from '../../components/Transition'
 
 const { confirm } = Modal;
 
@@ -103,11 +104,11 @@ const Comment = () => {
   ];
 
   //  删除留言
-  const delComment = (e)=>{
-    let data = { 
+  const delComment = (e) => {
+    let data = {
       id: e.target.target,
       type: 'delete',
-     }
+    }
     confirm({
       title: '确定删除这条留言吗?',
       icon: <ExclamationCircleOutlined />,
@@ -120,30 +121,30 @@ const Comment = () => {
           if (res.data.isSuccess) {
             message.success(res.data.msg)
             fetchData()
-          }else{
+          } else {
             message.error('删除失败')
           }
-        }).catch((e)=>{
+        }).catch((e) => {
           message.error('删除失败, 请重试!')
-          console.log('删除失败',e)
+          console.log('删除失败', e)
         })
       },
       onCancel() {
 
       },
     });
-    
+
   }
 
-  const deteilsComm =()=>{
+  const deteilsComm = () => {
 
   }
   //  审核通过
   const passComment = (e) => {
-    let data = { 
+    let data = {
       id: e.target.target,
       type: 'pass',
-     }
+    }
     confirm({
       title: '通过这条留言吗?',
       icon: <ExclamationCircleOutlined />,
@@ -156,24 +157,39 @@ const Comment = () => {
           if (res.data.isSuccess) {
             message.success(res.data.msg)
             fetchData()
-          }else{
+          } else {
             message.error('操作失败')
           }
-        }).catch((e)=>{
+        }).catch((e) => {
           message.error('操作失败, 请重试!')
-          console.log('操作失败',e)
+          console.log('操作失败', e)
         })
       },
       onCancel() {
 
       },
     });
-    
+
   }
 
   function onChange(pagination, filters, sorter, extra) {
     // console.log('params', pagination, filters, sorter, extra);
   }
+
+
+  const rederTable = () => (
+    <div>
+      <Table
+        key='table'
+        columns={columns}
+        dataSource={list}
+        onChange={onChange}
+        size='small'
+        loading={isLoaidng}
+        bordered
+      />
+    </div>
+  )
 
   useEffect(() => {
     fetchData()
@@ -181,13 +197,13 @@ const Comment = () => {
 
   return (
     <div>
-      <Table
-        columns={columns}
-        dataSource={list}
-        onChange={onChange}
-        size='small'
-        loading={isLoaidng}
-        bordered
+      <Transition
+        in={true}
+        timeout={1500}
+        classNames={"fly"}
+        appear={true}
+        unmountOnExit={true}
+        item={rederTable}
       />
     </div>
   )

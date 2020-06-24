@@ -9,5 +9,6 @@ export const servicePath = {
   delArticle: apiUrl+'delArticle/'  ,// 删除文章
   getArticleById: apiUrl+'getArticleById/',//修改文章
   getArticleComment: apiUrl+'getArticleComment', //获取全部
-  upPassComment: apiUrl+'upPassComment' //审核留言
+  upPassComment: apiUrl+'upPassComment', //审核留言
+  signOut: apiUrl+'signOut'
 } 

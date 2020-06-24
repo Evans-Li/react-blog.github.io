@@ -7,6 +7,7 @@ import '../../comm.scss'
 import { requestPost, requestGet } from '../../config/request'
 import { Tabs } from 'antd';
 import { servicePath } from '../../config/apiUrl'
+import Transition from '../../components/Transition'
 const { TabPane } = Tabs;
 const { confirm } = Modal
 
@@ -71,27 +72,39 @@ function ArticleList(props) {
     props.history.push('/index/add/' + id)
   }
 
+  // 渲染页面
+  const renderPage = () => (
+    <Tabs animated defaultActiveKey='1'>
+      <TabPane tab='所有文章' key={1} forceRender={false}>
+        <ArticleListAll
+          list={list}
+          delArticle={delArticle}
+          toUpdataArticle={toUpdataArticle}
+        />
+      </TabPane>
+      <TabPane tab='置顶文章' key={2}>
+        <TopArticleList
+          colList={colList}
+          topList={topList}
+          toUpdataArticle={toUpdataArticle}
+          delArticle={delArticle} />
+      </TabPane>
+    </Tabs>
+  )
+
   useEffect(() => {
     getArticleList()
   }, [])
   return (
     <div>
-      <Tabs type='card' animated>
-        <TabPane tab='所有文章' key={1}>
-          <ArticleListAll
-            list={list}
-            delArticle={delArticle}
-            toUpdataArticle={toUpdataArticle}
-            />
-        </TabPane>
-        <TabPane tab='置顶文章' key={2}>
-          <TopArticleList
-            colList={colList}
-            topList={topList}
-            toUpdataArticle={toUpdataArticle}
-            delArticle={delArticle} />
-        </TabPane>
-      </Tabs>
+      <Transition
+        in={true}
+        timeout={1500}
+        classNames={"fly"}
+        appear={true}
+        unmountOnExit={true}
+        item={renderPage}
+      />
     </div>
   )
 

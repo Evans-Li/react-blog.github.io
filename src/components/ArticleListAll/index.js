@@ -3,6 +3,7 @@ import { Button, Input, Table,Pagination, Spin } from 'antd'
 import Highlighter from 'react-highlight-words';
 import { SearchOutlined } from '@ant-design/icons';
 import './index.scss'
+import Transition from '../../components/Transition'
 
 const ArticleListAll = ({ list, toUpdataArticle, delArticle }) => {
 
@@ -132,9 +133,21 @@ const ArticleListAll = ({ list, toUpdataArticle, delArticle }) => {
     )
   }
 
+  const renderTable = () =>(
+    renderList()
+  )
+
 
   return (
     <div>
+      {/* <Transition
+        in={true}
+        timeout={1500}
+        classNames={"fly"}
+        appear={true}
+        unmountOnExit={true}
+        item={renderTable}
+      /> */}
       {renderList()}
     </div>
   )

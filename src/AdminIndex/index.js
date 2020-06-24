@@ -21,7 +21,6 @@ function AdminIndex(props) {
   }
     //  点击菜单跳转页面
   const handleClickArticle = (e) => {
-    console.log(e)
     props.history.push(e.key)
   }
   //  渲染MenuList

@@ -5,6 +5,7 @@ import { Row, Col, Input, Select, Button, DatePicker, message, Spin } from 'antd
 import { servicePath } from '../../config/apiUrl'
 import { requestGet, requestPost } from '../../config/request'
 import '../../comm.scss'
+import Transition from '../../components/Transition'
 
 const { Option } = Select;
 const { TextArea } = Input
@@ -23,7 +24,7 @@ function AddArticle(props) {
   const [updateDate, setUpdateDate] = useState() //修改日志的日期
   const [typeInfo, setTypeInfo] = useState([]) // 文章类别信息
   const [selectedType, setSelectType] = useState() //选择的文章类别
-  const [viewCount, setViewCount ] = useState(0)
+  const [viewCount, setViewCount] = useState(0)
   const [isTop, setIsTop] = useState(0)
   const [isLoading, setIsLoading] = useState(false) //  发布文章loading
 
@@ -103,7 +104,7 @@ function AddArticle(props) {
     } else if (!showDate) {
       message.error('发布日期不能为空')
       return false
-    } 
+    }
 
     setIsLoading(true)
     let dataProps = {}
@@ -158,17 +159,8 @@ function AddArticle(props) {
         setViewCount(article.view_count)
       })
   }
-  useEffect(() => {
-    getTypeInfo();
-    let id = props.match.params.id
-    if (id) {
-      setArticleId(id)
-      getArticleById(id)
-    }
-  }, [])
 
-
-  return (
+  const renderPage = () => (
     <div>
       <Spin spinning={isLoading}>
 
@@ -180,7 +172,7 @@ function AddArticle(props) {
               </Col>
               <Col span={4}>
                 <div ref={categoryRef}>
-                  <Select placeholder='请选择类别' value={ selectedType }  onChange={selectTypeHandler} size="middle">
+                  <Select placeholder='请选择类别' value={selectedType} onChange={selectTypeHandler} size="middle">
                     {
                       typeInfo.map((item, key) => {
                         return (
@@ -274,6 +266,29 @@ function AddArticle(props) {
           </Col>
         </Row>
       </Spin>
+    </div>
+
+  )
+  useEffect(() => {
+    getTypeInfo();
+    let id = props.match.params.id
+    if (id) {
+      setArticleId(id)
+      getArticleById(id)
+    }
+  }, [])
+
+
+  return (
+    <div>
+      <Transition
+        in={true}
+        timeout={1500}
+        classNames={"fly"}
+        appear={true}
+        unmountOnExit={true}
+        item={renderPage}
+      />
     </div>
   )
 }

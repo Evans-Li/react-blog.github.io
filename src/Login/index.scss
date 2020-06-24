@@ -1,8 +1,16 @@
+.wrap{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: no-repeat center/100% 100% url('https://img.zcool.cn/community/01d46d5d1ca689a801213763ef5aa9.jpg@1280w_1l_0o_100sh.jpg');
+}
+
 .login-div{
  margin: 12.5rem auto;
  padding: 0 auto;
  width: 400px; 
-//  height: 25rem;
 }
 .ant-card-body > span{
   margin: 0 0 15px 0;
