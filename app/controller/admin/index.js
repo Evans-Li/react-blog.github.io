@@ -16,12 +16,10 @@ class MainController extends Controller {
     if (res.length > 0) {
       let openId = new Date().getTime()
       this.ctx.session = { "openId": openId }
-      // this.ctx.cookies.set('openId','openId');
-
-      // console.log('openId', this.ctx.session.openId)
+      this.ctx.cookies.set('openId', openId)
       this.ctx.body = {
         'data': '登录成功',
-        'openId': openId
+        // 'openId': openId
       }
     } else {
       this.ctx.body = {
@@ -29,6 +27,26 @@ class MainController extends Controller {
       }
     }
     console.log('checkLogin被访问了' + new Date())
+  }
+
+  //  退出
+  async signOut() {
+    // this.ctx.session.openId = null
+    this.ctx.cookies.set('openId', null)
+    let cookie = this.ctx.cookies.get('openId')
+    let isSuccess = (!cookie)
+    if (isSuccess) {
+      this.ctx.body = {
+        isSuccess: isSuccess,
+        msg: '退出成功'
+      }
+    } else {
+      this.ctx.body = {
+        isSuccess: isSuccess,
+        msg: '退出失败'
+      }
+    }
+
   }
   //获取分类
   async getTypeInfo() {
@@ -134,15 +152,15 @@ class MainController extends Controller {
       let isSuccess = result.affectedRows == 1
       this.ctx.body = {
         isSuccess: isSuccess,
-        msg:'已通过'
+        msg: '已通过'
       }
-    } 
-    if(type === 'delete') {
+    }
+    if (type === 'delete') {
       let result = await this.app.mysql.delete('artcomment', { "id": id })
       let isSuccess = result.affectedRows == 1
       this.ctx.body = {
         isSuccess: isSuccess,
-        msg:'已删除'
+        msg: '已删除'
       }
     }
   }
