@@ -89,6 +89,55 @@
   {
     "name": null,
     "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/default/addComment",
+    "regexp": "/^\\/default\\/addComment(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "HEAD",
+      "GET"
+    ],
+    "paramNames": [
+      {
+        "name": "id",
+        "prefix": "/",
+        "delimiter": "/",
+        "optional": false,
+        "repeat": false,
+        "partial": false,
+        "asterisk": false,
+        "pattern": "[^\\/]+?"
+      }
+    ],
+    "path": "/default/getCommentListById/:id",
+    "regexp": "/^\\/default\\/getCommentListById\\/((?:[^\\/]+?))(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "HEAD",
+      "GET"
+    ],
+    "paramNames": [],
+    "path": "/default/getAllPartCount",
+    "regexp": "/^\\/default\\/getAllPartCount(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
       "HEAD",
       "GET"
     ],
@@ -192,6 +241,20 @@
       "HEAD",
       "GET"
     ],
+    "paramNames": [],
+    "path": "/admin/getArticleComment",
+    "regexp": "/^\\/admin\\/getArticleComment(?:\\/(?=$))?$/",
+    "stack": [
+      "adminauth",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "HEAD",
+      "GET"
+    ],
     "paramNames": [
       {
         "name": "id",
@@ -206,6 +269,18 @@
     ],
     "path": "/admin/getArticleById/:id",
     "regexp": "/^\\/admin\\/getArticleById\\/((?:[^\\/]+?))(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/upPassComment",
+    "regexp": "/^\\/admin\\/upPassComment(?:\\/(?=$))?$/",
     "stack": [
       "wrappedController"
     ]

@@ -1,315 +1,307 @@
 {
-  "keys": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/config/config.default.js",
-  "middleware": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/config/config.default.js",
+  "keys": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/config/config.default.js",
+  "middleware": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/config/config.default.js",
   "mysql": {
     "client": {
-      "host": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/config/config.default.js",
-      "port": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/config/config.default.js",
-      "user": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/config/config.default.js",
-      "password": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/config/config.default.js",
-      "database": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/config/config.default.js"
+      "host": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/config/config.default.js",
+      "port": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/config/config.default.js",
+      "user": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/config/config.default.js",
+      "password": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/config/config.default.js",
+      "database": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/config/config.default.js"
     },
-    "app": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/config/config.default.js",
-    "agent": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/config/config.default.js",
+    "app": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/config/config.default.js",
+    "agent": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/config/config.default.js",
     "default": {
-      "database": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-mysql/config/config.default.js",
-      "connectionLimit": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-mysql/config/config.default.js"
+      "database": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-mysql/config/config.default.js",
+      "connectionLimit": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-mysql/config/config.default.js"
     }
   },
   "security": {
     "csrf": {
-      "enable": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/config/config.default.js",
-      "type": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-security/config/config.default.js",
-      "ignoreJSON": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-security/config/config.default.js",
-      "useSession": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-security/config/config.default.js",
-      "cookieName": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-security/config/config.default.js",
-      "sessionName": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-security/config/config.default.js",
-      "headerName": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-security/config/config.default.js",
-      "bodyName": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-security/config/config.default.js",
-      "queryName": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-security/config/config.default.js",
-      "refererWhiteList": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-security/config/config.default.js"
+      "enable": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/config/config.default.js",
+      "type": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-security/config/config.default.js",
+      "ignoreJSON": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-security/config/config.default.js",
+      "useSession": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-security/config/config.default.js",
+      "cookieName": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-security/config/config.default.js",
+      "sessionName": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-security/config/config.default.js",
+      "headerName": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-security/config/config.default.js",
+      "bodyName": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-security/config/config.default.js",
+      "queryName": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-security/config/config.default.js",
+      "refererWhiteList": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-security/config/config.default.js"
     },
-    "domainWhiteList": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/config/config.default.js",
-    "protocolWhiteList": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-security/config/config.default.js",
-    "defaultMiddleware": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-security/config/config.default.js",
+    "domainWhiteList": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/config/config.default.js",
+    "protocolWhiteList": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-security/config/config.default.js",
+    "defaultMiddleware": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-security/config/config.default.js",
     "xframe": {
-      "enable": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-security/config/config.default.js",
-      "value": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-security/config/config.default.js"
+      "enable": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-security/config/config.default.js",
+      "value": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-security/config/config.default.js"
     },
     "hsts": {
-      "enable": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-security/config/config.local.js",
-      "maxAge": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-security/config/config.default.js",
-      "includeSubdomains": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-security/config/config.default.js"
+      "enable": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-security/config/config.default.js",
+      "maxAge": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-security/config/config.default.js",
+      "includeSubdomains": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-security/config/config.default.js"
     },
     "dta": {
-      "enable": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-security/config/config.default.js"
+      "enable": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-security/config/config.default.js"
     },
     "methodnoallow": {
-      "enable": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-security/config/config.default.js"
+      "enable": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-security/config/config.default.js"
     },
     "noopen": {
-      "enable": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-security/config/config.default.js"
+      "enable": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-security/config/config.default.js"
     },
     "nosniff": {
-      "enable": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-security/config/config.default.js"
+      "enable": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-security/config/config.default.js"
     },
     "referrerPolicy": {
-      "enable": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-security/config/config.default.js",
-      "value": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-security/config/config.default.js"
+      "enable": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-security/config/config.default.js",
+      "value": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-security/config/config.default.js"
     },
     "xssProtection": {
-      "enable": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-security/config/config.default.js",
-      "value": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-security/config/config.default.js"
+      "enable": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-security/config/config.default.js",
+      "value": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-security/config/config.default.js"
     },
     "csp": {
-      "enable": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-security/config/config.default.js",
-      "policy": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-security/config/config.default.js"
+      "enable": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-security/config/config.default.js",
+      "policy": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-security/config/config.default.js"
     },
     "ssrf": {
-      "ipBlackList": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-security/config/config.default.js",
-      "checkAddress": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-security/config/config.default.js"
+      "ipBlackList": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-security/config/config.default.js",
+      "checkAddress": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-security/config/config.default.js"
     }
   },
   "cors": {
-    "credentials": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/config/config.default.js",
-    "origin": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/config/config.default.js",
-    "allowMethods": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/config/config.default.js"
+    "credentials": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/config/config.default.js",
+    "origin": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/config/config.default.js",
+    "allowMethods": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/config/config.default.js"
   },
   "session": {
-    "maxAge": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-session/config/config.default.js",
-    "key": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-session/config/config.default.js",
-    "httpOnly": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-session/config/config.default.js",
-    "encrypt": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-session/config/config.default.js"
+    "maxAge": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-session/config/config.default.js",
+    "key": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-session/config/config.default.js",
+    "httpOnly": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-session/config/config.default.js",
+    "encrypt": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-session/config/config.default.js"
   },
   "helper": {
-    "shtml": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-security/config/config.default.js"
+    "shtml": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-security/config/config.default.js"
   },
   "jsonp": {
-    "limit": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-jsonp/config/config.default.js",
-    "callback": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-jsonp/config/config.default.js",
-    "csrf": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-jsonp/config/config.default.js"
+    "limit": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-jsonp/config/config.default.js",
+    "callback": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-jsonp/config/config.default.js",
+    "csrf": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-jsonp/config/config.default.js"
   },
   "onerror": {
-    "errorPageUrl": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-onerror/config/config.default.js",
-    "appErrorFilter": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-onerror/config/config.default.js",
-    "templatePath": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-onerror/config/config.default.js"
+    "errorPageUrl": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-onerror/config/config.default.js",
+    "appErrorFilter": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-onerror/config/config.default.js",
+    "templatePath": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-onerror/config/config.default.js"
   },
   "i18n": {
-    "defaultLocale": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-i18n/config/config.default.js",
-    "dirs": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-i18n/config/config.default.js",
-    "queryField": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-i18n/config/config.default.js",
-    "cookieField": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-i18n/config/config.default.js",
-    "cookieDomain": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-i18n/config/config.default.js",
-    "cookieMaxAge": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-i18n/config/config.default.js"
+    "defaultLocale": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-i18n/config/config.default.js",
+    "dirs": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-i18n/config/config.default.js",
+    "queryField": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-i18n/config/config.default.js",
+    "cookieField": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-i18n/config/config.default.js",
+    "cookieDomain": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-i18n/config/config.default.js",
+    "cookieMaxAge": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-i18n/config/config.default.js"
   },
   "watcher": {
-    "type": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-watcher/config/config.local.js",
+    "type": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-watcher/config/config.default.js",
     "eventSources": {
-      "default": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-watcher/config/config.default.js",
-      "development": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-watcher/config/config.default.js"
+      "default": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-watcher/config/config.default.js",
+      "development": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-watcher/config/config.default.js"
     }
   },
   "customLogger": {
     "scheduleLogger": {
-      "consoleLevel": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-schedule/config/config.default.js",
-      "file": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-schedule/config/config.default.js"
+      "consoleLevel": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-schedule/config/config.default.js",
+      "file": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-schedule/config/config.default.js"
     }
   },
   "schedule": {
-    "directory": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-schedule/config/config.default.js"
+    "directory": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-schedule/config/config.default.js"
   },
   "multipart": {
-    "mode": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-multipart/config/config.default.js",
-    "autoFields": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-multipart/config/config.default.js",
-    "defaultCharset": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-multipart/config/config.default.js",
-    "fieldNameSize": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-multipart/config/config.default.js",
-    "fieldSize": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-multipart/config/config.default.js",
-    "fields": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-multipart/config/config.default.js",
-    "fileSize": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-multipart/config/config.default.js",
-    "files": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-multipart/config/config.default.js",
-    "fileExtensions": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-multipart/config/config.default.js",
-    "whitelist": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-multipart/config/config.default.js",
-    "tmpdir": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-multipart/config/config.default.js",
+    "mode": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-multipart/config/config.default.js",
+    "autoFields": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-multipart/config/config.default.js",
+    "defaultCharset": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-multipart/config/config.default.js",
+    "fieldNameSize": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-multipart/config/config.default.js",
+    "fieldSize": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-multipart/config/config.default.js",
+    "fields": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-multipart/config/config.default.js",
+    "fileSize": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-multipart/config/config.default.js",
+    "files": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-multipart/config/config.default.js",
+    "fileExtensions": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-multipart/config/config.default.js",
+    "whitelist": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-multipart/config/config.default.js",
+    "tmpdir": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-multipart/config/config.default.js",
     "cleanSchedule": {
-      "cron": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-multipart/config/config.default.js"
+      "cron": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-multipart/config/config.default.js"
     }
   },
-  "development": {
-    "watchDirs": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-development/config/config.default.js",
-    "ignoreDirs": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-development/config/config.default.js",
-    "fastReady": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-development/config/config.default.js",
-    "reloadOnDebug": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-development/config/config.default.js",
-    "overrideDefault": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-development/config/config.default.js"
-  },
   "logrotator": {
-    "filesRotateByHour": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-logrotator/config/config.default.js",
-    "hourDelimiter": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-logrotator/config/config.default.js",
-    "filesRotateBySize": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-logrotator/config/config.default.js",
-    "maxFileSize": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-logrotator/config/config.default.js",
-    "maxFiles": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-logrotator/config/config.default.js",
-    "rotateDuration": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-logrotator/config/config.default.js",
-    "maxDays": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-logrotator/config/config.default.js"
+    "filesRotateByHour": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-logrotator/config/config.default.js",
+    "hourDelimiter": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-logrotator/config/config.default.js",
+    "filesRotateBySize": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-logrotator/config/config.default.js",
+    "maxFileSize": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-logrotator/config/config.default.js",
+    "maxFiles": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-logrotator/config/config.default.js",
+    "rotateDuration": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-logrotator/config/config.default.js",
+    "maxDays": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-logrotator/config/config.default.js"
   },
   "static": {
-    "prefix": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-static/config/config.default.js",
-    "dir": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-static/config/config.default.js",
-    "dynamic": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-static/config/config.default.js",
-    "preload": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-static/config/config.default.js",
-    "buffer": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-static/config/config.default.js",
-    "maxFiles": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-static/config/config.default.js"
+    "prefix": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-static/config/config.default.js",
+    "dir": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-static/config/config.default.js",
+    "dynamic": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-static/config/config.default.js",
+    "preload": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-static/config/config.default.js",
+    "buffer": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-static/config/config.prod.js",
+    "maxFiles": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-static/config/config.default.js",
+    "maxAge": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-static/config/config.prod.js"
   },
   "view": {
-    "root": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-view/config/config.default.js",
-    "cache": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-view/config/config.local.js",
-    "defaultExtension": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-view/config/config.default.js",
-    "defaultViewEngine": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-view/config/config.default.js",
-    "mapping": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg-view/config/config.default.js"
+    "root": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-view/config/config.default.js",
+    "cache": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-view/config/config.default.js",
+    "defaultExtension": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-view/config/config.default.js",
+    "defaultViewEngine": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-view/config/config.default.js",
+    "mapping": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-view/config/config.default.js"
   },
-  "env": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-  "name": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-  "cookies": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-  "proxy": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-  "maxIpsCount": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-  "maxProxyCount": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-  "protocolHeaders": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-  "ipHeaders": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-  "hostHeaders": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
+  "env": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+  "name": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+  "cookies": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+  "proxy": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+  "maxIpsCount": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+  "maxProxyCount": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+  "protocolHeaders": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+  "ipHeaders": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+  "hostHeaders": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
   "pkg": {
-    "name": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-    "version": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-    "description": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-    "private": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
+    "name": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+    "version": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+    "description": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+    "private": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
     "egg": {
-      "declarations": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js"
+      "declarations": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js"
     },
     "dependencies": {
-      "egg": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-      "egg-cors": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-      "egg-mysql": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-      "egg-scripts": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js"
+      "egg": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+      "egg-cors": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+      "egg-mysql": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+      "egg-scripts": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js"
     },
     "devDependencies": {
-      "autod": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-      "autod-egg": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-      "egg-bin": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-      "egg-ci": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-      "egg-mock": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-      "eslint": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-      "eslint-config-egg": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js"
+      "autod": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+      "autod-egg": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+      "egg-bin": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+      "egg-ci": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+      "egg-mock": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+      "eslint": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+      "eslint-config-egg": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js"
     },
     "engines": {
-      "node": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js"
+      "node": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js"
     },
     "scripts": {
-      "start": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-      "stop": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-      "dev": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-      "debug": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-      "test": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-      "test-local": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-      "cov": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-      "lint": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-      "ci": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-      "autod": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js"
+      "start": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+      "stop": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+      "dev": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+      "debug": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+      "test": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+      "test-local": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+      "cov": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+      "lint": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+      "ci": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+      "autod": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js"
     },
     "ci": {
-      "version": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js"
+      "version": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js"
     },
     "repository": {
-      "type": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-      "url": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js"
+      "type": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+      "url": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js"
     },
-    "author": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-    "license": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js"
+    "author": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+    "license": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js"
   },
-  "baseDir": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-  "HOME": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-  "rundir": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
+  "baseDir": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+  "HOME": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+  "rundir": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
   "dump": {
-    "ignore": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js"
+    "ignore": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js"
   },
   "confusedConfigurations": {
-    "bodyparser": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-    "notFound": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-    "sitefile": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-    "middlewares": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-    "httpClient": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js"
+    "bodyparser": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+    "notFound": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+    "sitefile": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+    "middlewares": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+    "httpClient": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js"
   },
   "notfound": {
-    "pageUrl": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js"
+    "pageUrl": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js"
   },
   "siteFile": {
-    "/favicon.ico": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js"
+    "/favicon.ico": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js"
   },
   "bodyParser": {
-    "enable": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-    "encoding": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-    "formLimit": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-    "jsonLimit": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-    "textLimit": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-    "strict": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
+    "enable": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+    "encoding": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+    "formLimit": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+    "jsonLimit": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+    "textLimit": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+    "strict": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
     "queryString": {
-      "arrayLimit": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-      "depth": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-      "parameterLimit": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js"
+      "arrayLimit": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+      "depth": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+      "parameterLimit": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js"
     },
-    "onerror": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js"
+    "onerror": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js"
   },
   "logger": {
-    "dir": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-    "encoding": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-    "env": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-    "level": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-    "consoleLevel": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-    "disableConsoleAfterReady": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-    "outputJSON": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-    "buffer": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-    "appLogName": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-    "coreLogName": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-    "agentLogName": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-    "errorLogName": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-    "coreLogger": {
-      "consoleLevel": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.local.js"
-    },
-    "allowDebugAtProd": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js"
+    "dir": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+    "encoding": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+    "env": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+    "level": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+    "consoleLevel": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+    "disableConsoleAfterReady": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+    "outputJSON": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+    "buffer": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+    "appLogName": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+    "coreLogName": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+    "agentLogName": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+    "errorLogName": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+    "coreLogger": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+    "allowDebugAtProd": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js"
   },
   "httpclient": {
-    "enableDNSCache": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-    "dnsCacheLookupInterval": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-    "dnsCacheMaxLength": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
+    "enableDNSCache": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+    "dnsCacheLookupInterval": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+    "dnsCacheMaxLength": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
     "request": {
-      "timeout": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js"
+      "timeout": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js"
     },
     "httpAgent": {
-      "keepAlive": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-      "freeSocketTimeout": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-      "maxSockets": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-      "maxFreeSockets": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js"
+      "keepAlive": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+      "freeSocketTimeout": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+      "maxSockets": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+      "maxFreeSockets": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js"
     },
     "httpsAgent": {
-      "keepAlive": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-      "freeSocketTimeout": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-      "maxSockets": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-      "maxFreeSockets": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js"
+      "keepAlive": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+      "freeSocketTimeout": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+      "maxSockets": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+      "maxFreeSockets": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js"
     }
   },
   "meta": {
-    "enable": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-    "logging": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js"
+    "enable": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+    "logging": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js"
   },
-  "coreMiddleware": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-  "workerStartTimeout": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-  "serverTimeout": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
+  "coreMiddleware": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+  "workerStartTimeout": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+  "serverTimeout": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
   "cluster": {
     "listen": {
-      "path": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-      "port": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-      "hostname": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js"
+      "path": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+      "port": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+      "hostname": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js"
     }
   },
   "clusterClient": {
-    "maxWaitTime": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js",
-    "responseTimeout": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js"
+    "maxWaitTime": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js",
+    "responseTimeout": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js"
   },
-  "onClientError": "/Users/libing/Desktop/Code/react_blog.github.io/blog_service/node_modules/egg/config/config.default.js"
+  "onClientError": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/config.default.js"
 }
