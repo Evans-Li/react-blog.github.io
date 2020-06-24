@@ -45,11 +45,11 @@ module.exports = appInfo => {
   };
   config.security = {
     csrf: {enable: false},
-    domainWhiteList: ['http://localhost:3000']
+    domainWhiteList: ['http://localhost:3000','http://localhost:4000','http://jsv5.tk:3000','http://jsv5.tk:4000']
   };
   config.cors = {
     credentials: true,  
-    origin: 'http://localhost:3000',
+    // origin: 'http://localhost:3000',
     allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS'
   };
 

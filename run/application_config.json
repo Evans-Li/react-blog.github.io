@@ -14,7 +14,10 @@
     },
     "security": {
       "domainWhiteList": [
-        "http://localhost:3000"
+        "http://localhost:3000",
+        "http://localhost:4000",
+        "http://jsv5.tk:3000",
+        "http://jsv5.tk:4000"
       ],
       "protocolWhiteList": [],
       "defaultMiddleware": "csrf,hsts,methodnoallow,noopen,nosniff,csp,xssProtection,xframe,dta",
@@ -102,6 +105,7 @@
         "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-watcher/config/locales",
         "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-schedule/config/locales",
         "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-multipart/config/locales",
+        "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-development/config/locales",
         "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-logrotator/config/locales",
         "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-static/config/locales",
         "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-view/config/locales",
@@ -117,7 +121,7 @@
       "functionName": "__"
     },
     "watcher": {
-      "type": "default",
+      "type": "development",
       "eventSources": {
         "default": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-watcher/lib/event-sources/default",
         "development": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-watcher/lib/event-sources/development"
@@ -148,6 +152,13 @@
         "cron": "0 30 4 * * *"
       }
     },
+    "development": {
+      "watchDirs": [],
+      "ignoreDirs": [],
+      "fastReady": false,
+      "reloadOnDebug": true,
+      "overrideDefault": false
+    },
     "logrotator": {
       "filesRotateByHour": null,
       "hourDelimiter": "-",
@@ -162,13 +173,12 @@
       "dir": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/app/public",
       "dynamic": true,
       "preload": false,
-      "buffer": true,
-      "maxFiles": 1000,
-      "maxAge": 31536000
+      "buffer": false,
+      "maxFiles": 1000
     },
     "view": {
       "root": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/app/view",
-      "cache": true,
+      "cache": false,
       "defaultExtension": ".html",
       "defaultViewEngine": "",
       "mapping": {}
@@ -190,10 +200,10 @@
     },
     "cors": {
       "credentials": true,
-      "origin": "http://localhost:3000",
-      "allowMethods": "GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS"
+      "allowMethods": "GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS",
+      "origin": "<Function corsOrigin>"
     },
-    "env": "prod",
+    "env": "local",
     "name": "blog_service",
     "keys": "<String len: 31>",
     "cookies": {},
@@ -285,19 +295,21 @@
       "returnRawBody": true
     },
     "logger": {
-      "dir": "/Users/libing/logs/blog_service",
+      "dir": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/logs/blog_service",
       "encoding": "utf8",
-      "env": "prod",
+      "env": "local",
       "level": "INFO",
       "consoleLevel": "INFO",
-      "disableConsoleAfterReady": true,
+      "disableConsoleAfterReady": false,
       "outputJSON": false,
       "buffer": true,
       "appLogName": "blog_service-web.log",
       "coreLogName": "egg-web.log",
       "agentLogName": "egg-agent.log",
       "errorLogName": "common-error.log",
-      "coreLogger": {},
+      "coreLogger": {
+        "consoleLevel": "WARN"
+      },
       "allowDebugAtProd": false,
       "type": "application"
     },
@@ -335,7 +347,8 @@
       "overrideMethod",
       "session",
       "securities",
-      "i18n"
+      "i18n",
+      "eggLoaderTrace"
     ],
     "workerStartTimeout": 600000,
     "serverTimeout": null,
@@ -464,6 +477,21 @@
       "from": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/plugin.js",
       "path": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-multipart",
       "version": "2.10.3"
+    },
+    "development": {
+      "enable": true,
+      "package": "egg-development",
+      "name": "development",
+      "dependencies": [
+        "watcher"
+      ],
+      "optionalDependencies": [],
+      "env": [
+        "local"
+      ],
+      "from": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg/config/plugin.js",
+      "path": "/Users/libing/Desktop/Code/app/react-blog.github.io/service/react-blog.github.io/node_modules/egg-development",
+      "version": "2.5.0"
     },
     "logrotator": {
       "enable": true,
