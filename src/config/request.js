@@ -1,10 +1,9 @@
 import axios from 'axios'
 
-export const requestGet = (url,data)=>{
+export const requestGet = (url)=>{
   return axios({
     method: 'get',
     url,
-    data,
     withCredentials: true,
     // header: { 'Access-Control-Allow-Origin': '*' },
   })

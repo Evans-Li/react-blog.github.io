@@ -1,0 +1,12 @@
+.comment-action-div a{
+  margin-right: 8px;
+  &.pass{
+    color: #26cc17;
+  }
+  &.del{
+    color: orangered;
+  }
+  &.details{
+    
+  }
+}

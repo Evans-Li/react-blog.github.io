@@ -4,119 +4,59 @@ import { Route } from 'react-router-dom'
 import { TeamOutlined, FileOutlined, AppstoreOutlined } from '@ant-design/icons'
 import AddArticle from '../pages/AddArticle/index.js'
 import ArticleList from '../pages/ArticleList/index.js'
+import Comment from '../pages/Comment'
 import Echart from '../pages/EchartsTest'
 import ToolBarArt from '../components/ToolBarArt/index.js'
-import { ArticleManagement } from '../config/menuItem'
+import { urlList, menuList } from '../config/utils'
 import './index.scss'
 import '../comm.scss'
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 
-const menuList = [
-  {
-    title: '文章管理',
-    key: '文章管理',
-    icon: <AppstoreOutlined />,
-    childrens: [
-      {
-        key: ArticleManagement.addArticle,
-        title: '添加文章',
-      },
-      {
-        key: ArticleManagement.articleList,
-        title: '文章列表',
-      }
-    ]
-  },
-  {
-    title: '留言管理',
-    key: '留言管理',
-    icon: <AppstoreOutlined />,
-  }
-]
-
 function AdminIndex(props) {
   const [collapsed, setCollapsed] = useState(false)
   const onCollapse = (collapsed) => {
     setCollapsed(collapsed)
   }
-
+    //  点击菜单跳转页面
   const handleClickArticle = (e) => {
-    switch (e.key) {
-      case ArticleManagement.addArticle:
-        props.history.push('/index/add/')
-        break
-      case ArticleManagement.articleList:
-        props.history.push('/index/list/')
-        break
-      default:
-        return
-    }
+    console.log(e)
+    props.history.push(e.key)
+  }
+  //  渲染MenuList
+  const renderMenuList = (dataList) => {
+    return (
+      dataList.map((i, index) => {
+        if (i.childrens) {
+          return (
+            <SubMenu
+              key={i.key}
+              onClick={handleClickArticle}
+              title={
+                <span>
+                  <span>{i.icon}{i.title}</span>
+                </span>
+              }
+            >
+              {renderMenuList(i.childrens)}
+            </SubMenu>
+          )
+        } else {
+          return (
+            <Menu.Item onClick={handleClickArticle} key={i.key}>{i.icon}{i.title}</Menu.Item>
+          )
+        }
+      })
+    )
   }
   return (
     <Layout style={{ minHeight: '100vh' }}>
       <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
         <div className="logo"><h4 className="logo-title">Blog System</h4></div>
-        {/* <Menu theme="dark" defaultSelectedKeys={['文章管理']} mode="inline"> */}
-          {
-            menuList.map(i => (
-              <Menu defaultSelectedKeys={['文章管理']} mode="inline">
-                {
-                  !!i.childrens ?
-                    <SubMenu
-                      key={i.key}
-                      onClick={handleClickArticle}
-                      title={
-                        <span>
-                          <span>{i.icon}{i.title}</span>
-                        </span>
-                      }
-                    >
-                      {
-                        i.childrens.map(children => (
-                          <Menu.Item key={children.key}>{children.title}</Menu.Item>
-                        ))
-                      }
-                    </SubMenu>
-                    :
-                    <Menu.Item key={i.key}>{i.icon}{i.title}</Menu.Item>
-                }
-            </Menu>
-
-            )
-
-            )
-          }
-          {/* <SubMenu
-            key="1"
-            onClick={handleClickArticle}
-            title={
-              <span>
-                <AppstoreOutlined />
-                <span>文章管理</span>
-              </span>
-            }
-          >
-            <Menu.Item key={ArticleManagement.addArticle}>添加文章</Menu.Item>
-            <Menu.Item key={ArticleManagement.articleList}>文章列表</Menu.Item>
-          </SubMenu> */}
-
-
-
-          {/* <Menu.Item
-            onClick={()=>(props.history.push('/index/echarts/'))}
-            key={ArticleManagement.echarts}>
-            <FileOutlined />
-            <span>Echarts测试</span>
-          </Menu.Item> */}
-          {/* <Menu.Item key="5">
-            <TeamOutlined />
-            <span>文章管理</span>
-          </Menu.Item> */}
-
-
-        {/* // </Menu> */}
+        <Menu theme='dark' mode="inline">
+          {renderMenuList(menuList)}
+        </Menu>
       </Sider>
       <Layout>
         <Header style={{ background: '#fff', padding: "0", }}>
@@ -130,16 +70,15 @@ function AdminIndex(props) {
           <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
             <div>
               <Route path="/index" exact component={AddArticle} />
-              <Route path="/index/add/" exact component={AddArticle} />
-              <Route path="/index/add/:id" component={AddArticle} />
-              <Route path="/index/list/" component={ArticleList} />
-              <Route path="/index/echarts/" component={Echart} />
-
-
+              <Route path={urlList.addArticle} exact component={AddArticle} />
+              <Route path={`${urlList.addArticle}:id`} component={AddArticle} />
+              <Route path={urlList.articleList} component={ArticleList} />
+              <Route path={urlList.echarts} component={Echart} />
+              <Route path={urlList.comment} component={Comment} />
             </div>
           </div>
         </Content>
-        <Footer style={{ textAlign: 'center' }}>lixing</Footer>
+        <Footer style={{ textAlign: 'center' }}>深入技术, 看看世界</Footer>
       </Layout>
     </Layout >
   );

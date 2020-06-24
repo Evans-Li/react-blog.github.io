@@ -1,1 +1,0 @@
-export const articleType = ['请选择类别','视频教程','比比叨','快乐生活']

@@ -1,10 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Button, Input, Table } from 'antd'
+import { Button, Input, Table,Pagination, Spin } from 'antd'
 import Highlighter from 'react-highlight-words';
 import { SearchOutlined } from '@ant-design/icons';
 import './index.scss'
-
-
 
 const ArticleListAll = ({ list, toUpdataArticle, delArticle }) => {
 
@@ -129,7 +127,7 @@ const ArticleListAll = ({ list, toUpdataArticle, delArticle }) => {
     ]
     return (
       <div>
-        <Table columns={TableCols} dataSource={list} bordered />
+        <Table columns={TableCols} dataSource={list} size='middle'  bordered />
       </div>
     )
   }

@@ -7,6 +7,7 @@ export const servicePath = {
   updateArticle: apiUrl+'updateArticle',  //  更新文章
   getArticleList: apiUrl+'getArticleList' , //  获取文章列表
   delArticle: apiUrl+'delArticle/'  ,// 删除文章
-  getArticleById: apiUrl+'getArticleById/' //修改文章
-
+  getArticleById: apiUrl+'getArticleById/',//修改文章
+  getArticleComment: apiUrl+'getArticleComment', //获取全部
+  upPassComment: apiUrl+'upPassComment' //审核留言
 } 
