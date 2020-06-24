@@ -72,6 +72,7 @@ const Home = (list) => {
                 // header={<div></div>}
                 itemLayout="vertical"
                 dataSource={topList}
+                
                 renderItem={(item, index) => (
                   <div >
                     <Spin spinning={isLoading}>
