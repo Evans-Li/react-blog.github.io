@@ -183,6 +183,7 @@
     "path": "/admin/addArticle",
     "regexp": "/^\\/admin\\/addArticle(?:\\/(?=$))?$/",
     "stack": [
+      "adminauth",
       "wrappedController"
     ]
   },
@@ -195,6 +196,7 @@
     "path": "/admin/updateArticle",
     "regexp": "/^\\/admin\\/updateArticle(?:\\/(?=$))?$/",
     "stack": [
+      "adminauth",
       "wrappedController"
     ]
   },
@@ -208,6 +210,7 @@
     "path": "/admin/getArticleList",
     "regexp": "/^\\/admin\\/getArticleList(?:\\/(?=$))?$/",
     "stack": [
+      "adminauth",
       "wrappedController"
     ]
   },
@@ -232,6 +235,7 @@
     "path": "/admin/delArticle/:id",
     "regexp": "/^\\/admin\\/delArticle\\/((?:[^\\/]+?))(?:\\/(?=$))?$/",
     "stack": [
+      "adminauth",
       "wrappedController"
     ]
   },
@@ -270,6 +274,7 @@
     "path": "/admin/getArticleById/:id",
     "regexp": "/^\\/admin\\/getArticleById\\/((?:[^\\/]+?))(?:\\/(?=$))?$/",
     "stack": [
+      "adminauth",
       "wrappedController"
     ]
   },
@@ -281,6 +286,19 @@
     "paramNames": [],
     "path": "/admin/upPassComment",
     "regexp": "/^\\/admin\\/upPassComment(?:\\/(?=$))?$/",
+    "stack": [
+      "adminauth",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/signOut",
+    "regexp": "/^\\/admin\\/signOut(?:\\/(?=$))?$/",
     "stack": [
       "wrappedController"
     ]

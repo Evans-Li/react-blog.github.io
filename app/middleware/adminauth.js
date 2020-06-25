@@ -5,15 +5,11 @@ module.exports = options => {
   return async function adminauth(ctx, next) {
     let cookie = ctx.cookies.get('openId')
     let session = ctx.session.openId
-    console.log('cookie',cookie)
-    console.log('session',session)
-    
     if (cookie == session) {
       await next()
     } else {
       ctx.body = { data: '未登录' }
     }
-     
   }
 }
 

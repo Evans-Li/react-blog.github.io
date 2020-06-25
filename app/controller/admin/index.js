@@ -26,7 +26,7 @@ class MainController extends Controller {
         'data': '登录失败'
       }
     }
-    console.log('checkLogin被访问了' + new Date())
+    console.log('[ok] checkLogin ')
   }
 
   //  退出
