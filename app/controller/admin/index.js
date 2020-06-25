@@ -31,13 +31,10 @@ class MainController extends Controller {
 
   //  退出系统
   async signOut() {
-    // this.ctx.session.openId = null
-    this.ctx.cookies.set('openId', null)
-    const getCookid = await this.ctx.cookies.get('openId')
-    console.log('getCookid', getCookid)
+    //  清空浏览器 cookies
+    const r = await this.ctx.cookies.set('openId', null)
+    const getCookid = this.ctx.cookies.get('openId')
     let isSuccess = (!getCookid)
-    console.log('issuccess', isSuccess)
-
     if (isSuccess) {
       this.ctx.body = {
         isSuccess: isSuccess,
