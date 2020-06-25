@@ -61,7 +61,7 @@ class HomeController extends Controller {
   async getTypeInfo() { // 获取header 类别
     let result = await this.app.mysql.select('type')
     this.ctx.body = { data: result }
-    console.log(' [ok] getTypeInfo被访问了!');
+    console.log(' [ok] getTypeInfo!');
 
   }
 
@@ -76,7 +76,7 @@ class HomeController extends Controller {
       'FROM article LEFT JOIN type ON article.type_id = type.Id ' +
       'WHERE type_id=' + id
     const result = await this.app.mysql.query(sql)
-    console.log(`[ok] getListById被访问了!`)
+    console.log(`[ok] getListById`)
     this.ctx.body = { data: result }
 
   }
