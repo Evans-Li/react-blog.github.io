@@ -2,12 +2,8 @@ const Controller = require('egg').Controller
 
 class MainController extends Controller {
 
-  async index() {
-    //首页的文章列表数据
-    this.ctx.body = 'hi api'
-    console.log("index")
-  }
-  async checkLogin() { //登录验证
+  //登录验证
+  async checkLogin() {
     let userName = this.ctx.request.body.userName
     let password = this.ctx.request.body.password
     const sql = " SELECT userName FROM admin_user WHERE userName = '" + userName +
@@ -16,7 +12,11 @@ class MainController extends Controller {
     if (res.length > 0) {
       let openId = new Date().getTime()
       this.ctx.session = { "openId": openId }
-      this.ctx.cookies.set('openId', openId)
+      this.ctx.cookies.set('openId', openId, {
+        // maxAge: 1000 * 3600 * 12, // cookie存储一天 设置过期时间后关闭浏览器重新打开cookie还存在
+        httpOnly: true, // 仅允许服务获取,不允许js获取
+        signed: true, // 对cookie进行签名 防止用户修改cookie
+      })
       this.ctx.body = {
         'data': '登录成功',
         // 'openId': openId
@@ -29,12 +29,15 @@ class MainController extends Controller {
     console.log('[ok] checkLogin ')
   }
 
-  //  退出
+  //  退出系统
   async signOut() {
     // this.ctx.session.openId = null
     this.ctx.cookies.set('openId', null)
-    let cookie = this.ctx.cookies.get('openId')
-    let isSuccess = (!cookie)
+    const getCookid = await this.ctx.cookies.get('openId')
+    console.log('getCookid', getCookid)
+    let isSuccess = (!getCookid)
+    console.log('issuccess', isSuccess)
+
     if (isSuccess) {
       this.ctx.body = {
         isSuccess: isSuccess,
@@ -52,7 +55,7 @@ class MainController extends Controller {
   async getTypeInfo() {
     let result = await this.app.mysql.select('type')
     this.ctx.body = { data: result }
-    console.log('getTypeInfo被访问了!')
+    console.log('[ok] getTypeInfo')
   }
 
   async addArticle() {  // 添加文章
@@ -64,7 +67,7 @@ class MainController extends Controller {
       isSuccess: isSuccess,
       insertId: insertId
     }
-    console.log('addArticle!被访问了!')
+    console.log('[ok] addArticle')
 
   }
 
@@ -76,7 +79,7 @@ class MainController extends Controller {
     this.ctx.body = {
       isSuccess: isUpdataSuccess
     }
-    console.log('updateArticle!被访问了!')
+    console.log('[ok] updateArticle')
   }
 
   async getArticleList() { // 文章列表
@@ -138,6 +141,7 @@ class MainController extends Controller {
     const failResult = await this.app.mysql.query(sql2)
 
     this.ctx.body = { list: result, failList: failResult }
+    console.log('[ok] getArticleComment')
 
   }
 
@@ -163,6 +167,7 @@ class MainController extends Controller {
         msg: '已删除'
       }
     }
+    console.log('[ok] upPassComment')
   }
 }
 module.exports = MainController
