@@ -8,32 +8,10 @@ import { requestPost, requestGet } from '../../config/request'
 import { Tabs } from 'antd';
 import { servicePath } from '../../config/apiUrl'
 import Transition from '../../components/Transition'
+import { urlList } from '../../config/utils'
 const { TabPane } = Tabs;
 const { confirm } = Modal
 
-
-const colList = [
-  {
-    span: 4,
-    test: '标题',
-  },
-  {
-    span: 4,
-    test: '类别'
-  }, {
-    span: 4,
-    test: '发布时间'
-  }, {
-    span: 4,
-    test: '集数'
-  }, {
-    span: 4,
-    test: '浏览量'
-  }, {
-    span: 4,
-    test: '操作'
-  },
-]
 
 function ArticleList(props) {
   const [list, setList] = useState([])
@@ -69,7 +47,7 @@ function ArticleList(props) {
   }
 
   const toUpdataArticle = (id) => { // 跳转修改文章页面
-    props.history.push('/index/add/' + id)
+    props.history.push(urlList.addArticle + id)
   }
 
   // 渲染页面
@@ -82,9 +60,8 @@ function ArticleList(props) {
           toUpdataArticle={toUpdataArticle}
         />
       </TabPane>
-      <TabPane tab='置顶文章' key={2}>
+      <TabPane tab='置顶文章' key={2} forceRender={false}>
         <TopArticleList
-          colList={colList}
           topList={topList}
           toUpdataArticle={toUpdataArticle}
           delArticle={delArticle} />

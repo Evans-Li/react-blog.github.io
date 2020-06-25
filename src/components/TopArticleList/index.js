@@ -1,8 +1,30 @@
 import React from 'react';
-import { List, Row, Col, Modal, message, Button } from 'antd'
+import { List, Row, Col, Button } from 'antd'
 
+const colList = [
+  {
+    span: 4,
+    test: '标题',
+  },
+  {
+    span: 4,
+    test: '类别'
+  }, {
+    span: 4,
+    test: '发布时间'
+  }, {
+    span: 4,
+    test: '集数'
+  }, {
+    span: 4,
+    test: '浏览量'
+  }, {
+    span: 4,
+    test: '操作'
+  },
+]
 
-const TopArticleList = ({topList,toUpdataArticle,delArticle, colList}) => {
+const TopArticleList = ({topList,toUpdataArticle,delArticle}) => {
   const list = topList[0]
   return (
     <div>
@@ -49,4 +71,4 @@ const TopArticleList = ({topList,toUpdataArticle,delArticle, colList}) => {
   )
 }
 
-export default TopArticleList
+export default React.memo(TopArticleList) 

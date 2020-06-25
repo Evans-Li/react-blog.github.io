@@ -36,9 +36,11 @@ function Login(props) {
       .then((res) => {
         if (res.data.data === '登录成功') {
           setIsLoading(false)
+          
           // localStorage.setItem("openId", res.data.openId)
           // cookie.save('openId', res.data.openId,{SameSite:'none'})
           props.history.push('/index')
+          message.success('登录成功!')
         } else if (res.data.data === '登录失败') {
           message.error('用户名或密码错误!')
           setTimeout(() => {
@@ -54,7 +56,7 @@ function Login(props) {
     <>
       <div className='wrap'>
         <div className='login-div'>
-          <Spin tip='isLoading...' spinning={isLoading} size='large'>
+          <Spin tip='请稍后...' spinning={isLoading} size='large'>
             <Card title='Blog System' bordered={true} style={{ width: 400 }}>
               <Input
                 id="userName"

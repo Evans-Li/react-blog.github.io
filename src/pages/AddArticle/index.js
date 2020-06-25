@@ -166,12 +166,12 @@ function AddArticle(props) {
 
         <Row gutter={5}>
           <Col span={18}>
-            <Row gutter={10}>
+            <Row >
               <Col span={20}>
                 <Input size="middle" placeholder="请输入博客标题" onChange={(e) => { changeArticleTitle(e.target.value) }} value={articleTitle} />
               </Col>
               <Col span={4}>
-                <div ref={categoryRef}>
+                <div style={{ textAlign:'right'}} ref={categoryRef}>
                   <Select placeholder='请选择类别' value={selectedType} onChange={selectTypeHandler} size="middle">
                     {
                       typeInfo.map((item, key) => {
@@ -208,12 +208,11 @@ function AddArticle(props) {
           </Col>
           <Col span={6}>
             <Row>
-              <Col span={8}>
-                <Button type="default" >暂存文章</Button>
-
+              <Col style={{width: '100%'}} span={12}>
+                <Button  style={{width: '100%'}} type="default" >暂存文章</Button>
               </Col>
-              <Col span={8}>
-                <Button type="primary" onClick={saveArticle}>发布文章</Button>
+              <Col span={12}>
+                <Button   style={{width: '100%'}}  type="primary" onClick={saveArticle}>发布文章</Button>
               </Col>
             </Row>
             <br />

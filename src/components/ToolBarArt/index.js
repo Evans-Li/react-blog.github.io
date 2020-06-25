@@ -24,7 +24,9 @@ const ToolBarArt = ({ props }) => {
     confirm({
       title: '退出系统?',
       onOk() {
-        requestPost(servicePath.signOut, {}).then(res => {
+        requestPost(servicePath.signOut, {
+          date: new Date().getTime()
+        }).then(res => {
           if (res.data.isSuccess == true) {
             props.history.push('/')
             message.success('成功退出')
