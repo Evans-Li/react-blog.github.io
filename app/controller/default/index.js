@@ -11,7 +11,7 @@ class HomeController extends Controller {
     }
   }
   async getArticleList() {  // 获取博客首页数据
-   
+
 
     let sql = 'SELECT article.id as id ,' +
       'article.title as title ,' +
@@ -37,9 +37,9 @@ class HomeController extends Controller {
   async getArticleById() {  // 点击首页文章标题 获取文章数据
     //先配置路由的动态传值，然后再接收值
     let id = this.ctx.params.id
-     // 增加阅读数
-     let sql2 = "update article set view_count = view_count + 1 where id =" + id;
-     const result2 = await this.app.mysql.query(sql2);
+    // 增加阅读数
+    let sql2 = "update article set view_count = view_count + 1 where id =" + id;
+    const result2 = await this.app.mysql.query(sql2);
 
     let sql = 'SELECT article.id as id,' +
       'article.title as title,' +
@@ -117,11 +117,28 @@ class HomeController extends Controller {
       FROM_UNIXTIME(artcomment.add_time,'%Y-%m-%d' ) as add_time,
       artcomment.comment as comment 
       FROM artcomment LEFT JOIN article ON artcomment.art_id = article.Id 
-      WHERE article.id = ${id}
+      WHERE article.id = ${id} AND is_pass=1 ORDER BY add_time desc
     `;
 
+    let sql2 = `
+    SELECT artcomment.id as id,
+    artcomment.art_id as art_id,
+    artcomment.com_name as com_name,
+    artcomment.is_reply as is_reply,
+    artcomment.reply_id as reply_id,
+    FROM_UNIXTIME(artcomment.add_time,'%Y-%m-%d' ) as add_time,
+    artcomment.comment as comment 
+    FROM artcomment LEFT JOIN article ON artcomment.art_id = article.Id 
+    WHERE article.id = ${id} AND is_reply=1 ORDER BY add_time desc
+  `;
+
+
     const result = await this.app.mysql.query(sql);
-    this.ctx.body = { data: result };
+    const result2 = await this.app.mysql.query(sql2);
+    this.ctx.body = {
+      commList: result,
+      replyList:result2
+    };
     console.log(`[ok] getCommentListById`)
   }
 
