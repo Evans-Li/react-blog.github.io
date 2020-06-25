@@ -53,6 +53,7 @@ const Detailed = (props) => {
     let dataProps = {
       ...values,
       art_id: props.id,
+      is_pass: 0,
       add_time: parseInt(new Date() / 1000),
     };
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Drawer } from 'antd'
+import { Drawer,Divider } from 'antd'
 import CommentForm from '../CommentForm';
 import axios from 'axios'
 import { serviceUrl } from '../../config/apiUrl'
@@ -17,7 +17,7 @@ const commentFormat = list => {
     }
   })
   commentList.forEach(v => {
-    v.children = replyList.filter(reply => +reply.reply_id === v.id).sort((a, b) => b.add_time - a.add_time);
+    v.children = replyList.filter(reply => reply.reply_id === v.id).sort((a, b) => a.add_time - b.add_time);
   })
   return commentList
 }
@@ -52,9 +52,19 @@ const CommentList = ({ artId, listKey, upComment }) => {
   }
   const fetchData = async () => {
     const result = await axios(serviceUrl.getCommentListById + artId);
-    const list = result.data.data;
-    if (!list || !list.length) {
+    let tmplist = result.data.commList
+    if (!tmplist || !tmplist.length) {
       return
+    }
+    let list = []
+    // 最多显示15条评论
+    let max = tmplist.length < 14 ? tmplist.length : 14
+    for(let i = 0; i<max; i++){
+      list.push(tmplist[i])
+    }
+    let replyList = result.data.replyList
+    for(let i in replyList){
+      list.push(replyList[i])
     }
     const commentList = commentFormat(list);
     setList(commentList)
@@ -70,6 +80,7 @@ const CommentList = ({ artId, listKey, upComment }) => {
   }
   return (
     <div>
+      <Divider>最新留言</Divider>
       {list.map(item => (
         <CommentItem
           key={item.id}

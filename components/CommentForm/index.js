@@ -39,7 +39,7 @@ const CommentForm = ({ onCancel, onOk,isReply = false }) => {
     setIsLoading(true)
     onOk(values).then(res =>{
       //  清空表单
-      message.success("留言成功");
+      message.success("提交成功");
       !!res && formRef.current.resetFields()
       setIsLoading(false)
     }).catch((e)=>{
@@ -61,7 +61,7 @@ const CommentForm = ({ onCancel, onOk,isReply = false }) => {
             <Input  placeholder='必填(不公开)' />
           </Form.Item>
           <Form.Item name={'comment'} label="留言" rules={[{ required: true }]}>
-            <Input.TextArea maxLength={400} rows={5} placeholder={`请写下您${ isReply ? '的回复' : '的留言,目前不支持任何编码格式.'}`} />
+            <Input.TextArea maxLength={400} rows={5} placeholder={`请写下您${ isReply ? '的回复' : '的留言,作者审核后会显示在评论区.目前不支持任何编码格式.'}`} />
           </Form.Item>
 
           <Form.Item style={{ textAlign: "center" }}>
