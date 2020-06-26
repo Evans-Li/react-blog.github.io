@@ -12,11 +12,6 @@ const style = (istop = false) => ({
     display: 'inline-block',
     padding: '0 20px',
   })
-  
-
-
-
-
 const ListIcon = ({ item, className = '', isTop = false }) => {
   return (
     <div className={`list-icon ${className}`}>
@@ -24,7 +19,6 @@ const ListIcon = ({ item, className = '', isTop = false }) => {
       <span>
         {/* <CarryOutOutlined style={{ color: '#4091F7' }} />{item.addTime} */}
         <CalendarOutlined />{item.addTime}
-
       </span>
       <span>
         {/* <FileOutlined style={{ color: 'gold' }} />{item.typeName} */}
@@ -40,4 +34,4 @@ const ListIcon = ({ item, className = '', isTop = false }) => {
 
 
 
-export default React.memo(ListIcon)
+export default ListIcon

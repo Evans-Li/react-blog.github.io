@@ -41,7 +41,6 @@ marked.setOptions({
 const Home = (list) => {
   const [mylist, setMylist] = useState(list.data)
   const [topList, setTopList] = useState([])
-  console.log(topList)
   const [isLoading, setIsLoading] = useState(false)
   const changeLoading = () => {
     setIsLoading(true)
@@ -66,7 +65,7 @@ const Home = (list) => {
     return (
       <div>
         {
-          topList.length ?
+          !!topList.length ?
             <div>
               <List
                 // header={<div></div>}

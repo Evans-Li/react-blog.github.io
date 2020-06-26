@@ -18,8 +18,8 @@ const Author = (data) => {
   const [all_part_count, setAll_part_count] = useState(0);  //总文章数
   const [all_view_count, setAll_view_count] = useState(0);  //总浏览数
   const [isPlay, setIsPlay] = useState(false)
-  const playerEl = useRef(null) // audio
-  const rotateEl = useRef(null)  // 控制播放暂停元素
+  let playerEl = useRef(null) // audio
+  let rotateEl = useRef(null)  // 控制播放暂停元素
   const maskEl = useRef(null)
   let [t, setT] = useState(0)
   var i = 0;
@@ -37,8 +37,10 @@ const Author = (data) => {
     </div>
   )
 
-  //  头像旋转定时器
-  const timer = function () {
+  
+
+  
+  var time =()=>{
     let time = setInterval(function () {
       if (i === 360) {
         i = 0;
@@ -54,6 +56,12 @@ const Author = (data) => {
         console.log('定时器清除')
       }
     }, 30);
+  } 
+
+    
+  //  头像旋转定时器
+  let timer = function () {
+    time()
   }
   //  音乐播放暂停
   const isPlayeIng = () => {
@@ -62,8 +70,8 @@ const Author = (data) => {
       i = t;
       setIsPlay(true)
       //调用定时器 , 使头像旋转
-      timer();
       playerEl.current.play()
+      timer();
     } else {  // 暂停
       playerEl.current.pause()
       setIsPlay(false)
@@ -82,6 +90,10 @@ const Author = (data) => {
   }
   useEffect(() => {
     fetchData()
+    return() =>{
+      // clearInterval(aa)
+
+    }
   }, [])
   return (
     <div className="author-div comm-box">
@@ -105,8 +117,8 @@ const Author = (data) => {
           <Tag color="magenta">WEB前端</Tag>
           <Tag color="red">入门程序员</Tag>
           {/* <Tag color="gold">没有经验</Tag> */}
-          <Tag color='cyan'>文章共{all_part_count ? <ViewCount value={all_part_count} /> : null}篇</Tag>
-          <Tag color='blue'>总被访问{all_view_count ? <ViewCount value={all_view_count} /> : null}次</Tag>
+          <Tag color='cyan'>文章共{all_part_count ? <ViewCount value={all_part_count} /> : 0}篇</Tag>
+          <Tag color='blue'>总被访问{all_view_count ? <ViewCount value={all_view_count} /> : 0}次</Tag>
 
 
         </div>
@@ -136,4 +148,4 @@ const Author = (data) => {
 //   return await promise
 // }
 
-export default Author
+export default React.memo(Author)
