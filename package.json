@@ -11,6 +11,7 @@
   "dependencies": {
     "@ant-design/icons": "^4.1.0",
     "@zeit/next-css": "^1.0.1",
+    "@zeit/next-sass": "^1.0.1",
     "antd": "^4.2.4",
     "aplayer": "^1.10.1",
     "axios": "^0.19.2",
@@ -23,7 +24,10 @@
     "markdown-navbar": "^1.4.0",
     "marked": "^0.8.0",
     "next": "9.2.1",
+    "node-sass": "^4.14.1",
+    "qrcode.react": "^1.0.0",
     "react": "16.12.0",
+    "react-cookie": "^4.0.3",
     "react-count-to": "^0.12.0",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.0.0",

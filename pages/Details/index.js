@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 
@@ -16,6 +16,7 @@ import './index.css'
 import Tocify from '../../components/tocify.tsx'
 import Footer from '../../components/Footer'
 import { serviceUrl } from '../../config/apiUrl'
+import { $GET, $POST } from '../../config/request'
 import { Helmet } from 'react-helmet'
 import Butterfly from '../../components/Pendant/Butterfly'
 import BackTopBtn from '../../components/BackTopBtn'
@@ -23,6 +24,7 @@ import ListIcon from '../../components/ListIcon'
 import CommentForm from '../../components/CommentForm'
 import CommentList from '../../components/CommentList/index'
 import Transition from '../../components/Transtion'
+import Share from '../../components/Share'
 
 const Detailed = (props) => {
   const tocify = new Tocify()
@@ -33,6 +35,12 @@ const Detailed = (props) => {
     const anchor = tocify.add(text, level);
     return `<a id="${anchor}" href="#${anchor}" class="anchor-fix"><h${level}>${text}</h${level}></a>\n`;
   };
+
+  
+
+  useEffect(() => {
+    // fetchCommCount()
+  },[])
 
   marked.setOptions({
     renderer: renderer,
@@ -92,6 +100,7 @@ const Detailed = (props) => {
         <title>博客详细页</title>
       </Head>
       <Header />
+
       <Row className="comm-main" type="flex" justify="center">
         <Col className="comm-left" xs={24} sm={24} md={16} lg={18} xl={12}   >
           <div>
@@ -102,27 +111,27 @@ const Detailed = (props) => {
                 <Breadcrumb.Item> {props.title}</Breadcrumb.Item>
               </Breadcrumb>
             </div>
+            <div>
               <div>
-                <div>
-                  <div className="detailed-title">
-                    {props.title}
-                  </div>
-                  <ListIcon item={props} className='center' />
-                  <Transition
-                    in={true}
-                    timeout={1500}
-                    classNames={"fly"}
-                    appear={true}
-                    unmountOnExit={true}
-                    item={renderItem}
-                  >
-                  </Transition>
+                <div className="detailed-title">
+                  {props.title}
                 </div>
-                <div>
-                  <CommentList artId={props.id} listKey={commentKey} upComment={upComment} ></CommentList>
-                  <CommentForm onOk={upComment} />
-                </div>
+                <ListIcon item={props} className='center' />
+                <Transition
+                  in={true}
+                  timeout={1500}
+                  classNames={"fly"}
+                  appear={true}
+                  unmountOnExit={true}
+                  item={renderItem}
+                >
+                </Transition>
               </div>
+              <div id='comment-box'>
+                <CommentList artId={props.id} listKey={commentKey} upComment={upComment} ></CommentList>
+                <CommentForm onOk={upComment} />
+              </div>
+            </div>
           </div>
         </Col>
         <Col className="comm-right" xs={0} sm={0} md={7} lg={5} xl={4}>
@@ -141,6 +150,8 @@ const Detailed = (props) => {
       <Footer />
       {/* <Butterfly /> */}
       <BackTopBtn />
+      <Share props={props} />
+
     </>
   )
 }
