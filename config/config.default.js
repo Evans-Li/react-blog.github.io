@@ -52,6 +52,13 @@ module.exports = appInfo => {
     // origin: 'http://localhost:3000',
     allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS'
   };
+  config.session = {
+    key: 'EGG_SESS',  // 设置session cookie里面的key
+    maxAge: 24 * 3600 * 1000, // 设置过期时间
+    httpOnly: true,
+    encrypt: true,
+    renew: true         // renew等于true 那么每次刷新页面的时候 session都会被延期
+  }
 
   return {
     ...config,

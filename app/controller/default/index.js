@@ -1,6 +1,7 @@
 
 // 'use strict';
 const Controller = require('egg').Controller
+const ms = require('ms');
 
 class HomeController extends Controller {
   async index() {
@@ -131,8 +132,6 @@ class HomeController extends Controller {
     FROM artcomment LEFT JOIN article ON artcomment.art_id = article.Id 
     WHERE article.id = ${id} AND is_reply=1 ORDER BY add_time desc
   `;
-
-
     const result = await this.app.mysql.query(sql);
     const result2 = await this.app.mysql.query(sql2);
     this.ctx.body = {
@@ -140,6 +139,57 @@ class HomeController extends Controller {
       replyList:result2
     };
     console.log(`[ok] getCommentListById`)
+  }
+  // 根据id获取文章点赞数
+  async getLikeCount(){
+    let id = this.ctx.params.id
+    let sql = `
+      SELECT article.id as id,
+      article.like_count as like_count
+      FROM article WHERE article.id = ${id}
+    `
+    let result = await this.app.mysql.query(sql)
+    this.ctx.body = {
+      data: result
+    }
+    console.log('[ok] getLikeCount')
+  }
+  // 点赞
+  async doLike(){
+    let sessionId = new Date().getTime()
+    let id = this.ctx.request.body.id
+    this.ctx.cookies.set('isLike', sessionId, {
+      maxAge: 1000 * 3600 * 2, // cookie存储一天 设置过期时间后关闭浏览器重新打开cookie还存在
+      httpOnly: true, // 仅允许服务获取,不允许js获取
+      signed: true, // 对cookie进行签名 防止用户修改cookie
+      overwrite: false, //设置 key 相同的键值对如何处理，如果设置为 true，则后设置的值会覆盖前面设置的，否则将会发送两个 set-cookie 响应头。
+      renew: true   // 快过期时重置时间
+    })
+    this.ctx.session.like = sessionId
+    this.ctx.session.maxAge = ms('1d')
+    this.ctx.session.renew = true
+    console.log(this.ctx.session)
+    let sql = `update article set like_count = like_count + 1 where id =${id}`
+    let result = await this.app.mysql.query(sql)
+    let isSuccess = result.affectedRows == 1
+    this.ctx.body = {
+      isSuccess:isSuccess
+    }
+    console.log('[ok] doLike')
+  }
+  // 根据id获取文章评论数
+  async getArticleCommentCountById(){
+    let id = this.ctx.params.id
+    let sql = `
+      SELECT COUNT(art_id) AS count FROM artcomment
+      WHERE art_id=${id} AND is_reply=0 AND is_pass=1
+    `
+    let result = await this.app.mysql.query(sql)
+    this.ctx.body = {
+      data: result
+    }
+    console.log('[ok] getArticleCommentCountById')
+    
   }
 
 }

@@ -4,6 +4,8 @@ const Controller = require('egg').Controller
 module.exports = options => {
   return async function adminauth(ctx, next) {
     let cookie = ctx.cookies.get('openId')
+    let like = ctx.cookies.get('isLike')
+    console.log(like)
     let session = ctx.session.openId
     if (cookie == session) {
       await next()
