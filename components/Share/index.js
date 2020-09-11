@@ -38,7 +38,7 @@ const Share = ({ props }) => {
   if (process.env.NODE_ENV == 'development') {
     shareQQData.baseUrl = `http://jsv5.tk:3000${props.url.asPath}`
   } else if (process.env.NODE_ENV == 'production') {
-    shareQQData.baseUrl = `http://jsvt.tk${props.url.asPath}`
+    shareQQData.baseUrl = `http://jsv5.tk:3000${props.url.asPath}`
   }
 
   let shareQQUrl = `http://connect.qq.com/widget/shareqq/index.html?url=${shareQQData.baseUrl}&sharesource=qzone&title=${shareQQData.title}&pics=${shareQQData.pics}&summary=${shareQQData.desc}`

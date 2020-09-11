@@ -71,7 +71,7 @@ const Home = (list) => {
                 // header={<div></div>}
                 itemLayout="vertical"
                 dataSource={topList}
-                
+
                 renderItem={(item, index) => (
                   <div >
                     <Spin spinning={isLoading}>
@@ -114,9 +114,9 @@ const Home = (list) => {
   const renderItem = () => {
     return (
       <div>
-         {renderTopList()}
+        {renderTopList()}
         <List
-          header={<div style={{padding: '20px 0 0 20px'}}>最新日志</div>}
+          header={<div style={{ padding: '20px 0 0 20px' }}>最新日志</div>}
           itemLayout="vertical"
           dataSource={mylist}
           renderItem={(item, index) => (
@@ -155,11 +155,14 @@ const Home = (list) => {
   }
   return (
     <div className='wrap'>
+    
+
       <Helmet>
         <meta charSet="utf-8" />
         <title>Evans-blog</title>
-        <body style='background: url(../../../static/floor-tile.png)'></body>
+        {/* <body style='background: url(../../../static/floor-tile.png)'></body> */}
       </Helmet>
+     
       <Affix offsetTop={0}>
         <Header>
           <title>Home</title>
@@ -186,6 +189,8 @@ const Home = (list) => {
       <Footer />
       {/* <Butterfly /> */}
       <BackTopBtn />
+      {/* <canvas id="canvas">很抱歉，您当前的浏览器暂不支持Canvas标签，查看最佳效果请您先升级当前浏览器或使用其他浏览器。</canvas> */}
+       {/* <script async src='../static/js/fireworks.js'></script> */}
     </div>
 
   )

@@ -1,4 +1,4 @@
-export const withCss = require('@zeit/next-css')
+ const withCss = require('@zeit/next-css')
 // export const withSass = require('@zeit/next-sass')
 
 if(typeof require !== 'undefined'){
