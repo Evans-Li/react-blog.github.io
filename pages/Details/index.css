@@ -87,3 +87,10 @@ iframe{
 .ant-anchor-wrapper{
   padding: 5px !important;
 }
+
+
+@media only all and (max-width: 1200px){
+  #share{
+    display: none;
+  }
+}

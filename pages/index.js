@@ -15,7 +15,6 @@ import hljs from "highlight.js";
 import 'highlight.js/styles/monokai-sublime.css';
 import { Helmet } from 'react-helmet'
 import { FileOutlined, CarryOutOutlined, FireTwoTone } from '@ant-design/icons'
-import Butterfly from '../components/Pendant/Butterfly'
 import BackTopBtn from '../components/BackTopBtn'
 import ListIcon from '../components/ListIcon'
 import Transition from '../components/Transtion'
@@ -64,6 +63,7 @@ const Home = (list) => {
   const renderTopList = () => {
     return (
       <div>
+        {/* 置顶列表 */}
         {
           !!topList.length ?
             <div>
@@ -71,7 +71,6 @@ const Home = (list) => {
                 // header={<div></div>}
                 itemLayout="vertical"
                 dataSource={topList}
-
                 renderItem={(item, index) => (
                   <div >
                     <Spin spinning={isLoading}>
@@ -98,7 +97,6 @@ const Home = (list) => {
                         </List.Item>
                       </Card>
                     </Spin>
-
                   </div>
                 )}
               />
@@ -106,7 +104,6 @@ const Home = (list) => {
             :
             null
         }
-
       </div>
     )
   }
@@ -120,12 +117,12 @@ const Home = (list) => {
           itemLayout="vertical"
           dataSource={mylist}
           renderItem={(item, index) => (
-            <div >
+            <div className='list-item-warp' >
               <Spin spinning={isLoading}>
-                <Card
+                {/* <Card
                   hoverable
                   className='list-item'
-                >
+                > */}
                   <List.Item>
                     <div className="list-title">
                       <Link href={{ pathname: '/Details', query: { id: item.id } }}>
@@ -143,7 +140,7 @@ const Home = (list) => {
                       </Link> </span>
                     </div>
                   </List.Item>
-                </Card>
+                {/* </Card> */}
               </Spin>
 
             </div>
@@ -155,12 +152,10 @@ const Home = (list) => {
   }
   return (
     <div className='wrap'>
-    
-
       <Helmet>
         <meta charSet="utf-8" />
         <title>Evans-blog</title>
-        {/* <body style='background: url(../../../static/floor-tile.png)'></body> */}
+        <body style='background: url(../../../static/floor-tile.png)'></body>
       </Helmet>
      
       <Affix offsetTop={0}>

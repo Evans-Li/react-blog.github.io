@@ -34,6 +34,8 @@
   display: inline-block;
   width: 100%;
   border-radius: 50%;
+  /* position: absolute; */
+  /* top:0; */
 }
 
 .share-wechat:hover{
@@ -43,6 +45,7 @@
 
 /* 按钮样式 */
 .btn{
+  position: relative;
   display: inline-block;
   height: 40px;
   margin-bottom: 14px;
@@ -72,4 +75,18 @@
 .btn-hover{
   color: #8C939F;
   /* color: red; */
+}
+
+/* 微信二维码分享 */
+.share-wechat-warp{
+  position: relative;
+}
+.share-wechat-qr{
+  position: absolute;
+  top: 45px;
+  left: -10px;
+  display: none;
+}
+.share-wechat-hover:hover+ .share-wechat-qr{
+  display: block;
 }

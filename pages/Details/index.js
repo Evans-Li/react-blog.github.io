@@ -30,6 +30,7 @@ const Detailed = (props) => {
   const tocify = new Tocify()
   const renderer = new marked.Renderer();
   const [commentKey, setCommentKey] = useState(Math.random());
+  const [media, setMedia] = useState('');
 
   renderer.heading = function (text, level, raw) {
     const anchor = tocify.add(text, level);
@@ -39,6 +40,13 @@ const Detailed = (props) => {
   
 
   useEffect(() => {
+    let SW = document.querySelector('body').clientWidth;
+    console.log(SW);
+    if(SW<1200){
+      setMedia('isPhone');
+    } else if(SW>=1200){
+      setMedia('isSreen');
+    }
     // fetchCommCount()
   },[])
 
@@ -128,7 +136,7 @@ const Detailed = (props) => {
                 </Transition>
               </div>
               <div id='comment-box'>
-                <CommentList artId={props.id} listKey={commentKey} upComment={upComment} ></CommentList>
+                <CommentList media={media} artId={props.id} listKey={commentKey} upComment={upComment} ></CommentList>
                 <CommentForm onOk={upComment} />
               </div>
             </div>
@@ -147,10 +155,13 @@ const Detailed = (props) => {
           </Affix>
         </Col>
       </Row>
+      <BackTopBtn />
+      <div id='share'>
+        <Share props={props}  className='share'/>
+      </div>
       <Footer />
       {/* <Butterfly /> */}
-      <BackTopBtn />
-      <Share props={props} />
+      
 
     </>
   )

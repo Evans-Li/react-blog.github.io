@@ -63,7 +63,6 @@ const CommentForm = ({ onCancel, onOk,isReply = false }) => {
           <Form.Item name={'comment'} label="留言" rules={[{ required: true }]}>
             <Input.TextArea maxLength={400} rows={5} placeholder={`请写下您${ isReply ? '的回复' : '的留言,作者审核后会显示在评论区.目前不支持任何编码格式.'}`} />
           </Form.Item>
-
           <Form.Item style={{ textAlign: "center" }}>
             {isReply && (
               <Button style={buttonStyle} onClick={onCancel}> 取消 </Button>

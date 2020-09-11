@@ -35,6 +35,7 @@ const Share = ({ props }) => {
     desc: props.title
   }
 
+  // 判断当前环境  
   if (process.env.NODE_ENV == 'development') {
     shareQQData.baseUrl = `http://jsv5.tk:3000${props.url.asPath}`
   } else if (process.env.NODE_ENV == 'production') {
@@ -77,7 +78,7 @@ const Share = ({ props }) => {
     <div>
       <span className='btn' >
         <a href='#comment-box' className='share-qq' >
-          <Badge count={commentCount} offset={offset} showZero>
+          <Badge count={commentCount} offset={offset} showZero  style={{backgroundColor:'#70ACF9'}}>
             <CommentOutlined style={iconStyleN} />
           </Badge>
         </a>
@@ -98,23 +99,39 @@ const Share = ({ props }) => {
 
   // 微信分享
   const renderShareWechat = () => (
-    <div>
-      <Tooltip
-        placement="bottom"
-        title={
-          <QRCode
-            value={shareWechatData.qrUrl}// 生成二维码的内容
-            size={100} // 二维码的大小
-            fgColor="#000000" // 二维码的颜色
-          />
-        }
-      >
-        <span className='btn' >
-          <a className='share-wechat' >
-            <WechatOutlined style={iconStyleN} />
-          </a>
-        </span>
-      </Tooltip>
+    // <div>
+    //   <Tooltip
+    //     placement="bottom"
+    //     title={
+    //       <QRCode
+    //         value={shareWechatData.qrUrl}// 生成二维码的内容
+    //         size={100} // 二维码的大小
+    //         fgColor="#000000" // 二维码的颜色
+    //       />
+    //     }
+    //   >
+    //     <span className='btn' >
+    //       <a className='share-wechat' >
+    //         <WechatOutlined style={iconStyleN} />
+    //       </a>
+    //     </span>
+    //   </Tooltip>
+    // </div >
+
+    <div className='share-wechat-warp'>
+      <span className='btn share-wechat-hover' >
+        <a className='share-wechat' >
+          <WechatOutlined style={iconStyleN} />
+        </a>
+      </span>
+      <div className='share-wechat-qr'>
+        <QRCode
+          value={shareWechatData.qrUrl}// 生成二维码的内容
+          size={100} // 二维码的大小
+          fgColor="#000000" // 二维码的颜色
+        />
+      </div>
+      
     </div >
   )
 
@@ -160,7 +177,7 @@ const Share = ({ props }) => {
   return (
     <div>
       <div className='share'>
-        {renderLike()}
+        {/* {renderLike()} */}
         {renderToComment()}
         <span className='share-text'>分享</span>
         {renderShareQQ()}

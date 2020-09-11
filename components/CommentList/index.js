@@ -23,7 +23,7 @@ const commentFormat = list => {
 }
 
 
-const CommentList = ({ artId, listKey, upComment }) => {
+const CommentList = ({ media ,artId, listKey, upComment }) => {
   const [list, setList] = useState([])
   const [drawerOptions, setDrawerOptions] = useState({ visible: false, item: undefined });
   const handleReply = (comment) => {
@@ -95,8 +95,10 @@ const CommentList = ({ artId, listKey, upComment }) => {
 
       <Drawer
         title="回复"
-        placement="right"
+        placement={media == 'isPhone' ? 'bottom' : 'right'}
         width='34%'
+        height={media == 'isPhone' ? '100%' : ''}
+        // height='100%'
         destroyOnClose
         closable={false}
         maskClosable={false}

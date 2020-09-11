@@ -6,30 +6,12 @@ import {
 } from '@ant-design/icons'
 const { TabPane } = Tabs
 
-const qqList = [
-  {
+const qqList = [0,1,2,3,4].map((item,index)=>{
+  return {
     href: 'https://shang.qq.com/wpa/qunwpa?idkey=b579b0054e58fea7d7e41e529c2dd415d7e0632c1f95a00c065513d8763a202e',
-    text: '前端1群:创造404(3000人)'
-  },
-  {
-    href: 'https://shang.qq.com/wpa/qunwpa?idkey=b579b0054e58fea7d7e41e529c2dd415d7e0632c1f95a00c065513d8763a202e',
-    text: '前端2群:创造404(3000人)'
-
-  }, {
-    href: 'https://shang.qq.com/wpa/qunwpa?idkey=b579b0054e58fea7d7e41e529c2dd415d7e0632c1f95a00c065513d8763a202e',
-    text: '前端3群:创造404(3000人)'
-
-  }, {
-    href: 'https://shang.qq.com/wpa/qunwpa?idkey=b579b0054e58fea7d7e41e529c2dd415d7e0632c1f95a00c065513d8763a202e',
-    text: '前端4群:创造404(3000人)'
-
-  }, {
-
-    href: 'https://shang.qq.com/wpa/qunwpa?idkey=b579b0054e58fea7d7e41e529c2dd415d7e0632c1f95a00c065513d8763a202e',
-    text: '前端5群:创造404(3000人)'
-
-  },
-]
+    text: `前端${index+1}群:创造404(3000人)`
+  }
+})
 
 const HomeTab = () => {
   return (
