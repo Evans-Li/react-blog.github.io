@@ -16,7 +16,6 @@ import './index.css'
 import { FileOutlined } from '@ant-design/icons'
 import marked from 'marked'
 import hljs from "highlight.js";
-import Butterfly from '../../components/Pendant/Butterfly'
 import BackTopBtn from '../../components/BackTopBtn'
 import ListIcon from '../../components/ListIcon'
 import Transition from '../../components/Transtion'
@@ -55,9 +54,10 @@ const ArticleList = (list) => {
           itemLayout="vertical"
           dataSource={mylist}
           renderItem={item => (
-            <div>
+            <div className='list-box'>
               <Spin spinning={isLoading}>
                 <Card
+                  bordered={false}
                   hoverable
                   className='list-item'
                 >
@@ -88,13 +88,13 @@ const ArticleList = (list) => {
   }
   useEffect(() => {
     setMylist(list.data)
-    setBreadName(list.data[0].typeName)
+    setBreadName(list.data[0].typeName);
   })
   return (
     <div>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Evans-blog</title>
+        <title>Evans-blog-{list.data[0].typeName}</title>
         <body style='background: url(../../../../static/floor-tile.png)'></body>
       </Helmet>
       <Header>
@@ -126,7 +126,6 @@ const ArticleList = (list) => {
         </Col>
       </Row>
       <Footer />
-      {/* <Butterfly /> */}
       <BackTopBtn />
     </div>
   )

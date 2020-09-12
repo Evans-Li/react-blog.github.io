@@ -2,7 +2,7 @@ let ipUrl =  ''
 if (process.env.NODE_ENV == 'development') {
   ipUrl = 'http://127.0.0.1:7001/default/'
 } else if (process.env.NODE_ENV == 'production') {
-  ipUrl = 'http://jsvt.tk:7001/default/'
+  ipUrl = 'http://jsv5.tk:7001/default/'
 }
 
 export const serviceUrl = {

@@ -10,7 +10,8 @@ import {
   HomeOutlined,
   YoutubeOutlined,
   ReadOutlined,
-  SmileOutlined
+  SmileOutlined,
+  MenuOutlined
 } from '@ant-design/icons'
 
 
@@ -42,14 +43,19 @@ const Header = () => {
 
       <div className="header">
         <Row type="flex" justify="center" >
-          <Col xs={24} sm={24} md={10} lg={15} xl={10}>
-            <span className="header-logo"><a href='/'>Evans</a></span>
+          <Col xs={20} sm={20} md={6} lg={11} xl={9} className='blog-title'>
+            <span className="header-logo"><a href='/'>&nbsp;&nbsp;&nbsp;Evans &nbsp;</a></span>
             {/* <span className="header-txt">-- while( !(succeed == try()) )</span> */}
-            <span className="header-txt">-- 深入技术 看看世界</span>
+            <span className="header-txt">深入技术 看看世界</span>
           </Col>
 
-          <Col className="memu-div" xs={2} sm={2} md={14} lg={8} xl={6}>
+
+          <Col className="memu-div" xs={3} sm={4} md={2} lg={2} xl={8}>
+
             <Menu mode="horizontal"
+              style={{marginRight:'10px',height:'70px'}}
+              overflowedIndicator={<MenuOutlined />}
+              title='菜单'
               onClick={handleClick}
             >
               <Menu.Item key="0">

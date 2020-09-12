@@ -26,7 +26,7 @@ const offset = [12, -5]
 const Share = ({ props }) => {
   const [likeCount, setLikeCount] = useState(0) // 点赞数
   const [isLike, setIsLike] = useState(false) // 是否已经点赞
-  const [commentCount, setCommentCount] = useState(51)
+  const [commentCount, setCommentCount] = useState(99);
   const [cookies, setCookie, removeCookie] = useCookies(['isLike']);
   let shareQQData = {
     baseUrl: '',
@@ -77,8 +77,8 @@ const Share = ({ props }) => {
   const renderToComment = () => (
     <div>
       <span className='btn' >
-        <a href='#comment-box' className='share-qq' >
-          <Badge count={commentCount} offset={offset} showZero  style={{backgroundColor:'#70ACF9'}}>
+        <a href='#comment-box' className='share-qq'>
+          <Badge count={commentCount} offset={offset} overflowCount={99} style={{backgroundColor:'#70ACF9'}}>
             <CommentOutlined style={iconStyleN} />
           </Badge>
         </a>
@@ -99,25 +99,6 @@ const Share = ({ props }) => {
 
   // 微信分享
   const renderShareWechat = () => (
-    // <div>
-    //   <Tooltip
-    //     placement="bottom"
-    //     title={
-    //       <QRCode
-    //         value={shareWechatData.qrUrl}// 生成二维码的内容
-    //         size={100} // 二维码的大小
-    //         fgColor="#000000" // 二维码的颜色
-    //       />
-    //     }
-    //   >
-    //     <span className='btn' >
-    //       <a className='share-wechat' >
-    //         <WechatOutlined style={iconStyleN} />
-    //       </a>
-    //     </span>
-    //   </Tooltip>
-    // </div >
-
     <div className='share-wechat-warp'>
       <span className='btn share-wechat-hover' >
         <a className='share-wechat' >

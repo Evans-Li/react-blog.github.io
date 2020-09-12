@@ -41,9 +41,18 @@ const Home = (list) => {
   const [mylist, setMylist] = useState(list.data)
   const [topList, setTopList] = useState([])
   const [isLoading, setIsLoading] = useState(false)
+  const [media, setmedia] = useState('')
   const changeLoading = () => {
     setIsLoading(true)
   }
+
+  useEffect(()=>{
+    let w = document.querySelector('body').offsetWidth;
+    console.log(w);
+    if(w<1200){
+      setmedia('isPhone')
+    }
+  },[])
 
   useEffect(() => {
     // 置顶文章数据
@@ -76,6 +85,7 @@ const Home = (list) => {
                     <Spin spinning={isLoading}>
                       <Card
                         hoverable
+                        bordered={false}
                         className='list-item'
                       >
                         <List.Item>
@@ -84,7 +94,9 @@ const Home = (list) => {
                               <a onClick={changeLoading}>{item.title}</a>
                             </Link>
                           </div>
-                          <ListIcon item={item} className='list-icon' isTop />
+                          <div className='artTop-responsive-box'>
+                            <ListIcon media={media} item={item} className='list-icon' isTop />
+                          </div>
                           <div className="list-context"
                             dangerouslySetInnerHTML={{ __html: marked(item.introduce) }}>
                           </div>
@@ -119,10 +131,11 @@ const Home = (list) => {
           renderItem={(item, index) => (
             <div className='list-item-warp' >
               <Spin spinning={isLoading}>
-                {/* <Card
+                <Card
                   hoverable
+                  bordered={false}
                   className='list-item'
-                > */}
+                >
                   <List.Item>
                     <div className="list-title">
                       <Link href={{ pathname: '/Details', query: { id: item.id } }}>
@@ -140,7 +153,7 @@ const Home = (list) => {
                       </Link> </span>
                     </div>
                   </List.Item>
-                {/* </Card> */}
+                </Card>
               </Spin>
 
             </div>
@@ -154,7 +167,7 @@ const Home = (list) => {
     <div className='wrap'>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Evans-blog</title>
+        <title>Evans-blog-首页</title>
         <body style='background: url(../../../static/floor-tile.png)'></body>
       </Helmet>
      
@@ -175,7 +188,7 @@ const Home = (list) => {
         </Col>
         <Col className="comm-right" xs={0} sm={0} md={7} lg={5} xl={4}>
           <Author />
-          <Affix offsetTop={50}>
+          <Affix offsetTop={52}>
             <HomeTab />
             <Advert />
           </Affix>

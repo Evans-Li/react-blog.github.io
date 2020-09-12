@@ -163,5 +163,44 @@ code {
 }
 
 
+@media only all and (max-width: 1200px){
+  
+  .list-icon span{
+    margin: 0;
+    padding-left: 0px; 
+  } 
+  .list-title{
+    padding-left: 6px;
+  }
+  
+  .listicon-istop-box {
+    width: 100%;
+    padding-left: 6px;
+  }
+  .artTop-responsive-box span:nth-child(1){
+    padding-left: 6px;
+  }
+  
+}
+
+@media only all and (min-width: 1200px){
+  .list-icon span{
+    margin: 0;
+    padding-left: 0px;
+  }
+  .list-icon span:nth-child(1){
+    padding-left: 3px;
+  }
+  .list-title{
+    padding-left: -6px;
+  }
+  .listicon-istop-box {
+    padding-left: 6px;
+  }
+}
+
+.ant-tooltip{
+  cursor: pointer;
+}
 
 

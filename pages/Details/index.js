@@ -18,7 +18,6 @@ import Footer from '../../components/Footer'
 import { serviceUrl } from '../../config/apiUrl'
 import { $GET, $POST } from '../../config/request'
 import { Helmet } from 'react-helmet'
-import Butterfly from '../../components/Pendant/Butterfly'
 import BackTopBtn from '../../components/BackTopBtn'
 import ListIcon from '../../components/ListIcon'
 import CommentForm from '../../components/CommentForm'
@@ -39,6 +38,7 @@ const Detailed = (props) => {
 
   
 
+  // 获取屏幕宽度, 设置响应式
   useEffect(() => {
     let SW = document.querySelector('body').clientWidth;
     console.log(SW);
@@ -101,7 +101,7 @@ const Detailed = (props) => {
     <>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Evans-blog</title>
+        <title>Evans-{props.title}</title>
         <body style='background: url(../../../../static/floor-tile.png)'></body>
       </Helmet>
       <Head>
@@ -136,7 +136,7 @@ const Detailed = (props) => {
                 </Transition>
               </div>
               <div id='comment-box'>
-                <CommentList media={media} artId={props.id} listKey={commentKey} upComment={upComment} ></CommentList>
+                <CommentList media={media} artId={props.id} listKey={commentKey} upComment={upComment} />
                 <CommentForm onOk={upComment} />
               </div>
             </div>
