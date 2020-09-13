@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-
 import Header from '../components/Header'
 import { Row, Col, List, Spin, Card, Tag, BackTop, Affix } from 'antd'
 import '../static/style/pages/index.css'
@@ -10,8 +9,8 @@ import HomeTab from '../components/HomeTab'
 import axios from 'axios'
 import Link from 'next/link'
 import { serviceUrl } from '../config/apiUrl'
+import hljs from "highlight.js"
 import marked from 'marked'
-import hljs from "highlight.js";
 import 'highlight.js/styles/monokai-sublime.css';
 import { Helmet } from 'react-helmet'
 import { FileOutlined, CarryOutOutlined, FireTwoTone } from '@ant-design/icons'
@@ -38,7 +37,7 @@ marked.setOptions({
 });
 
 const Home = (list) => {
-  const [mylist, setMylist] = useState(list.data)
+  const [mylist, setMylist] = useState([])
   const [topList, setTopList] = useState([])
   const [isLoading, setIsLoading] = useState(false)
   const [media, setmedia] = useState('')
@@ -64,6 +63,7 @@ const Home = (list) => {
         artArr.push(item)
       }
     })
+    console.log(artArr)
     setMylist(artArr)
     setTopList(topArr)
   }, [])
@@ -124,41 +124,48 @@ const Home = (list) => {
     return (
       <div>
         {renderTopList()}
-        <List
-          header={<div style={{ padding: '20px 0 0 20px' }}>最新日志</div>}
-          itemLayout="vertical"
-          dataSource={mylist}
-          renderItem={(item, index) => (
-            <div className='list-item-warp' >
-              <Spin spinning={isLoading}>
-                <Card
-                  hoverable
-                  bordered={false}
-                  className='list-item'
-                >
-                  <List.Item>
-                    <div className="list-title">
-                      <Link href={{ pathname: '/Details', query: { id: item.id } }}>
-                        <a onClick={changeLoading}>{item.title}</a>
-                      </Link>
-                    </div>
-                    <ListIcon item={item} className='list-icon' />
-                    <div className="list-context"
-                      dangerouslySetInnerHTML={{ __html: marked(item.introduce) }}>
-                    </div>
-                    <div className='list-go'>
-                      <FileOutlined />
-                      <span><Link href={{ pathname: '/Details', query: { id: item.id } }}>
-                        <a onClick={changeLoading}>	&nbsp; 查看全文 &gt;</a>
-                      </Link> </span>
-                    </div>
-                  </List.Item>
-                </Card>
-              </Spin>
+        {
+          !!mylist.length
+          ? 
+          <List
+            header={<div style={{ padding: '20px 0 0 20px' }}>最新日志</div>}
+            itemLayout="vertical"
+            dataSource={mylist}
+            renderItem={(item, index) => (
+              <div className='list-item-warp' >
+                <Spin spinning={isLoading}>
+                  <Card
+                    hoverable
+                    bordered={false}
+                    className='list-item'
+                  >
+                    <List.Item>
+                      <div className="list-title">
+                        <Link href={{ pathname: '/Details', query: { id: item.id } }}>
+                          <a onClick={changeLoading}>{item.title}</a>
+                        </Link>
+                      </div>
+                      <ListIcon item={item} className='list-icon' />
+                      <div className="list-context"
+                        dangerouslySetInnerHTML={{ __html: marked(item.introduce) }}>
+                      </div>
+                      <div className='list-go'>
+                        <FileOutlined />
+                        <span><Link href={{ pathname: '/Details', query: { id: item.id } }}>
+                          <a onClick={changeLoading}>	&nbsp; 查看全文 &gt;</a>
+                        </Link> </span>
+                      </div>
+                    </List.Item>
+                  </Card>
+                </Spin>
 
-            </div>
-          )}
-        />
+              </div>
+            )}
+          />
+          :
+          null
+        }
+         
       </div>
 
     )
@@ -195,10 +202,7 @@ const Home = (list) => {
         </Col>
       </Row>
       <Footer />
-      {/* <Butterfly /> */}
       <BackTopBtn />
-      {/* <canvas id="canvas">很抱歉，您当前的浏览器暂不支持Canvas标签，查看最佳效果请您先升级当前浏览器或使用其他浏览器。</canvas> */}
-       {/* <script async src='../static/js/fireworks.js'></script> */}
     </div>
 
   )
