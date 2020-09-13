@@ -70,7 +70,6 @@ class MainController extends Controller {
 
   async updateArticle() { // 更新文章
     let tmpArticle = this.ctx.request.body
-    console.log(tmpArticle)
     let result = await this.app.mysql.update('article', tmpArticle)
     let isUpdataSuccess = result.affectedRows === 1
     this.ctx.body = {
@@ -142,7 +141,7 @@ class MainController extends Controller {
 
   }
 
-  // 通过 / 删除留言
+  // 通过留言 / 删除留言
   async upPassComment() {
     let id = this.ctx.request.body.id
     let type = this.ctx.request.body.type
@@ -162,6 +161,11 @@ class MainController extends Controller {
       this.ctx.body = {
         isSuccess: isSuccess,
         msg: '已删除'
+      }
+    } else {
+      this.ctx.body = {
+        isSuccess: false,
+        msg: '参数错误'
       }
     }
     console.log('[ok] upPassComment')
