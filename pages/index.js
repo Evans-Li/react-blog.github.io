@@ -17,6 +17,8 @@ import { FileOutlined, CarryOutOutlined, FireTwoTone } from '@ant-design/icons'
 import BackTopBtn from '../components/BackTopBtn'
 import ListIcon from '../components/ListIcon'
 import Transition from '../components/Transtion'
+import { $POST } from '../config/request'
+import '../static/style/md.css'
 
 
 const renderer = new marked.Renderer();
@@ -41,6 +43,7 @@ const Home = (list) => {
   const [topList, setTopList] = useState([])
   const [isLoading, setIsLoading] = useState(false)
   const [media, setmedia] = useState('')
+  const [pageNum, setPageNum] = useState(1);
   const changeLoading = () => {
     setIsLoading(true)
   }
@@ -67,6 +70,17 @@ const Home = (list) => {
     setMylist(artArr)
     setTopList(topArr)
   }, [])
+
+  //加载更多文章
+  const _onLoadMore = async()=>{
+    let dataProps = {
+      pageNum,
+    }
+    await $POST(serviceUrl['getArticle'],dataProps)
+      .then((val)=>{
+        console.log(val)
+      })
+  }
 
 
   const renderTopList = () => {

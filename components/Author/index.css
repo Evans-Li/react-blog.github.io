@@ -189,3 +189,9 @@
   opacity: 1;
   transition: all 10000ms ease-out;
 }
+
+.author-name-p{
+  font-size: 20px !important;
+  font-weight: 700;
+  color: #000;
+}

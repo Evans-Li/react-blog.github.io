@@ -19,6 +19,7 @@ import hljs from "highlight.js";
 import BackTopBtn from '../../components/BackTopBtn'
 import ListIcon from '../../components/ListIcon'
 import Transition from '../../components/Transtion'
+import '../../static/style/md.css'
 
 const renderer = new marked.Renderer();
 marked.setOptions({

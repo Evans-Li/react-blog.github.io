@@ -24,6 +24,7 @@ import CommentForm from '../../components/CommentForm'
 import CommentList from '../../components/CommentList/index'
 import Transition from '../../components/Transtion'
 import Share from '../../components/Share'
+import '../../static/style/md.css'
 
 const Detailed = (props) => {
   const tocify = new Tocify()

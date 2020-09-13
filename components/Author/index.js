@@ -127,7 +127,7 @@ const Author = (data) => {
 
           </div>
         </div>
-        <h4>Evans</h4>
+        <p className='author-name-p'>Evans</p>
         <p>-- 入门程序员 --</p>
         <div>
           <Tag color="magenta">WEB前端</Tag>
