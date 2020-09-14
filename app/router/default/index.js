@@ -14,5 +14,6 @@ module.exports = app =>{
     router.post('/default/doLike',likeauth,controller.default.index.doLike)
     router.get('/default/getArticleCommentCountById/:id',controller.default.index.getArticleCommentCountById)
     router.post('/default/getArticle',controller.default.index.getArticle)
+    router.post('/default/getListByIdLoadMore',controller.default.index.getListByIdLoadMore)
     router.get('/default/getTopArticle',controller.default.index.getTopArticle)
   }

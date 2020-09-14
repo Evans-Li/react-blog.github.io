@@ -4,6 +4,7 @@ const Controller = require('egg').Controller
 const { start } = require('egg');
 const ms = require('ms');
 
+const log = (str)=> console.log(str);
 class HomeController extends Controller {
   async index() {
     let results = await this.app.mysql.get('content')
@@ -76,8 +77,10 @@ class HomeController extends Controller {
     const result = await this.app.mysql.query(sql)
     console.log(`[ok] getListById`)
     this.ctx.body = { data: result }
-
   }
+
+  
+  
   //  添加评论
   async addComment() {
     let tmpComment = this.ctx.request.body;
@@ -224,7 +227,7 @@ class HomeController extends Controller {
     if(result.length == 0){
       this.ctx.body = {
         success: false,
-        msg: '文章全部加载完'
+        msg: '文章已全部加载完'
       }
     } else {
       this.ctx.body = {
@@ -233,8 +236,40 @@ class HomeController extends Controller {
         data: result
       }
     }
-    
     console.log('[ok] /getArticle')
+  }
+
+  // list页面 lodeMore
+  async getListByIdLoadMore(){
+    let _LIMIT  = 2;
+    let id = this.ctx.request.body.id;
+    let pageNum = this.ctx.request.body.pagemum;
+    let startNum = (pageNum * _LIMIT - _LIMIT); //开始截取索引
+    let sql = 'SELECT article.id as id,' +
+      'article.title as title,' +
+      'article.introduce as introduce,' +
+      "FROM_UNIXTIME(article.addTime,'%Y-%m-%d' ) as addTime," +
+      'article.view_count as view_count ,' +
+      'type.typeName as typeName ' +
+      'FROM article LEFT JOIN type ON article.type_id = type.Id ' +
+      'WHERE type_id='+id+
+      ` ORDER BY article.id DESC LIMIT ${startNum},${_LIMIT}`
+    let result = new Array();
+    result  = await this.app.mysql.query(sql,{});
+    if(result.length == 0){
+      this.ctx.body = {
+        success: false,
+        msg: '分类文章已全部加载完'
+      }
+    } else {
+      this.ctx.body = {
+        success: true,
+        pageNum,
+        data: result
+      }
+    }
+    console.log('[ok] /getArticle')
+    
   }
 }
 
