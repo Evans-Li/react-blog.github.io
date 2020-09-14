@@ -1,6 +1,7 @@
 
 // 'use strict';
 const Controller = require('egg').Controller
+const { start } = require('egg');
 const ms = require('ms');
 
 class HomeController extends Controller {
@@ -12,8 +13,6 @@ class HomeController extends Controller {
     }
   }
   async getArticleList() {  // 获取博客首页数据
-
-
     let sql = 'SELECT article.id as id ,' +
       'article.title as title ,' +
       'article.introduce as introduce ,' +
@@ -24,10 +23,8 @@ class HomeController extends Controller {
       //  todo 格式化时间end
       'article.view_count as view_count ,' +
       'type.typeName as typeName ' +
-      'FROM article LEFT JOIN type ON article.type_id = type.Id'
-
+      'FROM article LEFT JOIN type ON article.type_id = type.Id ORDER BY article.id DESC'
     // let sql = 'SELECT * FROM article'
-
     let results = await this.app.mysql.query(sql, {})
     console.log('[ok] getArticleList')
     this.ctx.body = {
@@ -136,12 +133,12 @@ class HomeController extends Controller {
     const result2 = await this.app.mysql.query(sql2);
     this.ctx.body = {
       commList: result,
-      replyList:result2
+      replyList: result2
     };
     console.log(`[ok] getCommentListById`)
   }
   // 根据id获取文章点赞数
-  async getLikeCount(){
+  async getLikeCount() {
     let id = this.ctx.params.id
     let sql = `
       SELECT article.id as id,
@@ -155,7 +152,7 @@ class HomeController extends Controller {
     console.log('[ok] getLikeCount')
   }
   // 点赞
-  async doLike(){
+  async doLike() {
     let sessionId = new Date().getTime()
     let id = this.ctx.request.body.id
     this.ctx.cookies.set('isLike', sessionId, {
@@ -173,25 +170,72 @@ class HomeController extends Controller {
     let result = await this.app.mysql.query(sql)
     let isSuccess = result.affectedRows == 1
     this.ctx.body = {
-      isSuccess:isSuccess
+      isSuccess: isSuccess
     }
     console.log('[ok] doLike')
   }
   // 根据id获取文章评论数
-  async getArticleCommentCountById(){
+  async getArticleCommentCountById() {
     let id = this.ctx.params.id
     let sql = `
       SELECT COUNT(art_id) AS count FROM artcomment
-      WHERE art_id=${id} AND is_reply=0 AND is_pass=1
-    `
+      WHERE art_id=${id} AND is_reply=0 AND is_pass=1`
     let result = await this.app.mysql.query(sql)
     this.ctx.body = {
       data: result
     }
     console.log('[ok] getArticleCommentCountById')
-    
   }
 
+  //获取置顶列表
+  async getTopArticle(){
+    let sql_topArt = `
+      SELECT article.id as id ,
+      article.title as title ,
+      article.introduce as introduce ,
+      article.is_top as is_top ,
+      FROM_UNIXTIME(article.addTime,'%Y-%m-%d' ) as addTime,
+      article.view_count as view_count ,
+      type.typeName as typeName 
+      FROM article LEFT JOIN type ON article.type_id = type.Id WHERE article.is_top=1`
+    let result_topArt = await this.app.mysql.query(sql_topArt);
+    this.ctx.body = {
+      data: result_topArt
+    }
+    console.log('[ok] /getTpArticle')
+  }
+
+  //加载文章列表
+  async getArticle() {
+    let _LIMIT = 2; // 每次拉取个数
+    let pageNum = this.ctx.request.body.pagemum;
+    console.log(pageNum);
+    let startNum = (pageNum * _LIMIT - _LIMIT);
+    let sql = 'SELECT article.id as id ,' +
+      'article.title as title ,' +
+      'article.introduce as introduce ,' +
+      'article.is_top as is_top ,' +
+      "FROM_UNIXTIME(article.addTime,'%Y-%m-%d' ) as addTime," +
+      'article.view_count as view_count ,' +
+      'type.typeName as typeName ' +
+      `FROM article LEFT JOIN type ON article.type_id = type.Id ORDER BY id DESC LIMIT ${startNum},${_LIMIT} `
+    let result = new Array();
+    result  = await this.app.mysql.query(sql,{});
+    if(result.length == 0){
+      this.ctx.body = {
+        success: false,
+        msg: '文章全部加载完'
+      }
+    } else {
+      this.ctx.body = {
+        success: true,
+        pageNum,
+        data: result
+      }
+    }
+    
+    console.log('[ok] /getArticle')
+  }
 }
 
 module.exports = HomeController
