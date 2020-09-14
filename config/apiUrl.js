@@ -17,5 +17,6 @@ export const serviceUrl = {
   doLike: ipUrl+'doLike', //点赞文章
   getArticleCommentCountById: ipUrl+'getArticleCommentCountById/', // 获取文章评论总数
   getArticle: ipUrl + 'getArticle' , // 首页文章list
-  getTopArticle: ipUrl + 'getTopArticle'  // 置顶文章
+  getTopArticle: ipUrl + 'getTopArticle' ,// 置顶文章
+  getListByIdLoadMore: ipUrl + 'getListByIdLoadMore'  // List页面 loadMore
 } 

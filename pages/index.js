@@ -23,6 +23,14 @@ import LoadMore from '../components/LoadMore';
 import LoadingPage from '../components/Loading';
 
 
+// 延迟函数
+export const _awaitFn = async (millisecond)=>{
+  return  await new Promise((resolve, reject)=>{
+    setTimeout(() => {
+      resolve(`成功延迟 ${millisecond} `)
+    }, millisecond);
+  })
+}
 const renderer = new marked.Renderer();
 marked.setOptions({
   renderer: renderer,
@@ -49,14 +57,7 @@ const Home = (list) => {
   const [showLoadingPage, setShowLoadingPage] = useState(false);
   const [showLoadMoreBtn, setShowLoadMoreBtn] = useState(true);
 
-  // 延迟函数
-  const _awaitFn = async (millisecond)=>{
-    return  await new Promise((resolve, reject)=>{
-      setTimeout(() => {
-        resolve(`成功延迟 ${millisecond} `)
-      }, millisecond);
-    })
-  }
+  
   //进入文章loading
   const changeLoading = async() => {
     // await _awaitFn(1500);

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 
-import { Row, Col, List, Card, Breadcrumb, Spin } from 'antd'
+import { Row, Col, List, Card, Breadcrumb, Spin ,message} from 'antd'
 import '../../static/style/pages/comm.css'
 import Header from '../../components/Header'
 import Author from '../../components/Author/index.js'
@@ -20,6 +20,10 @@ import BackTopBtn from '../../components/BackTopBtn'
 import ListIcon from '../../components/ListIcon'
 import Transition from '../../components/Transtion'
 import '../../static/style/md.css'
+import LoadMore from '../../components/LoadMore/index'
+import LoadingPage from '../../components/Loading';
+import {_awaitFn} from '../index'
+
 
 const renderer = new marked.Renderer();
 marked.setOptions({
@@ -41,17 +45,77 @@ marked.setOptions({
 
 const ArticleList = (list) => {
 
-  const [mylist, setMylist] = useState([]);
-  const [isShow, setIsShow] = useState(true)
+  const [mylist, setMylist] = useState(list.list.data || []);
   const [breadName, setBreadName] = useState('ddd')
   const [isLoading, setIsLoading] = useState(false)
+  const [typeId, setTypeId] = useState();
+  const [pagemum, setPagenum] = useState(2);
+  const [showLoadMoreBtn, setShowLoadMoreBtn] = useState(true);
+  const [showLoadPage, setShowLoadPage] = useState(false);
+  let tempList;
   const changeLoading = () => {
-    setIsLoading(true)
+    setShowLoadPage(true)
   }
+
+  useEffect(() => {
+    console.log('typeId change')
+    setShowLoadMoreBtn(true);
+  }, [list.typeId])
+  
+  useEffect(() => {
+    setMylist(list.list.data);
+    setBreadName(list.list.data[0].typeName);
+  })
+  useEffect(()=>{
+    setTypeId(list.typeId)
+  },[])
+  //加载更多文章
+  const _onLoadMore = async () => {
+    setShowLoadPage(true);
+    let dataProps = {
+      pagemum,
+      id:typeId,
+    }
+    await _awaitFn(1500); //  执行延迟函数
+    await axios.post(serviceUrl['getListByIdLoadMore'], dataProps)
+      .then( (val) => {
+        setShowLoadPage(false);
+        if (val.data.success == false) {
+          console.log(val.data.msg);
+          setShowLoadMoreBtn(false);
+          message.success(val.data.msg);
+        } else {
+          tempList = mylist;
+          let valtmplist = val.data.data;
+          if(valtmplist.length == 0){
+            console.log('vallist',0)
+            return ;
+          } else {
+            for (let i = 0; i < valtmplist.length; i++) {
+              for (let j = 0; j < tempList.length; j++) {
+                if (valtmplist[i].id == tempList[j].id) {
+                  valtmplist.splice[i, 1];
+                  i--;
+                }
+              }
+            };
+            valtmplist.map((i) => {
+              tempList.push(i);
+            });
+            setMylist(tempList);
+            setPagenum((val.data.pageNum + 1))
+          }
+        }
+      })
+  }
+
   const renderItem = () => {
     return (
       <div>
-        <List
+        {
+          !!mylist.length
+          ?
+          <List
           itemLayout="vertical"
           dataSource={mylist}
           renderItem={item => (
@@ -84,18 +148,17 @@ const ArticleList = (list) => {
             </div>
           )}
         />
+        : null
+        }
       </div>
     )
   }
-  useEffect(() => {
-    setMylist(list.data)
-    setBreadName(list.data[0].typeName);
-  })
+
   return (
     <div>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Evans-blog-{list.data[0].typeName}</title>
+        {/* <title>Evans-blog-{list.data[0].typeName}</title> */}
         <body style='background: url(../../../../static/floor-tile.png)'></body>
       </Helmet>
       <Header>
@@ -119,6 +182,7 @@ const ArticleList = (list) => {
               item={renderItem}
             />
           </div>
+          { showLoadMoreBtn ? <LoadMore onloadMore={_onLoadMore} /> : null}
         </Col>
         <Col className="comm-right" xs={0} sm={0} md={7} lg={5} xl={4}>
           <Author />
@@ -126,6 +190,7 @@ const ArticleList = (list) => {
           <Advert />
         </Col>
       </Row>
+      { showLoadPage ? <LoadingPage /> : null }
       <Footer />
       <BackTopBtn />
     </div>
@@ -133,12 +198,10 @@ const ArticleList = (list) => {
 
 }
 ArticleList.getInitialProps = async (context) => {
-  // console.log(context.query)
   let id = context.query.id;
   let promise = new Promise((resolve, reject) => {
-    axios(serviceUrl.getListById + id).then((res) => {
-      // console.log(res.data.data)
-      resolve(res.data)
+    axios.post(serviceUrl['getListByIdLoadMore'],{pagemum:1, id}).then((res) => {
+      resolve({list:res.data,typeId:id})
     })
   })
   return await promise
