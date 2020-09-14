@@ -16,5 +16,6 @@ export const serviceUrl = {
   getLikeCount: ipUrl+'getLikeCount/',  //获取文章点赞数
   doLike: ipUrl+'doLike', //点赞文章
   getArticleCommentCountById: ipUrl+'getArticleCommentCountById/', // 获取文章评论总数
-  getArticle: ipUrl + 'getArticle'  // 首页文章list
+  getArticle: ipUrl + 'getArticle' , // 首页文章list
+  getTopArticle: ipUrl + 'getTopArticle'  // 置顶文章
 } 

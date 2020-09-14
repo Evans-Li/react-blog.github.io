@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Header from '../components/Header'
-import { Row, Col, List, Spin, Card, Tag, BackTop, Affix } from 'antd'
+import { Row, Col, List, Spin, Card, Affix, message } from 'antd'
 import '../static/style/pages/index.css'
 import Author from '../components/Author'
 import Advert from '../components/Advert'
@@ -17,8 +17,10 @@ import { FileOutlined, CarryOutOutlined, FireTwoTone } from '@ant-design/icons'
 import BackTopBtn from '../components/BackTopBtn'
 import ListIcon from '../components/ListIcon'
 import Transition from '../components/Transtion'
-import { $POST } from '../config/request'
+import { $POST, $GET } from '../config/request'
 import '../static/style/md.css'
+import LoadMore from '../components/LoadMore';
+import LoadingPage from '../components/Loading';
 
 
 const renderer = new marked.Renderer();
@@ -39,61 +41,93 @@ marked.setOptions({
 });
 
 const Home = (list) => {
-  const [mylist, setMylist] = useState([])
+  const [mylist, setMylist] = useState(list.data || []);
   const [topList, setTopList] = useState([])
   const [isLoading, setIsLoading] = useState(false)
   const [media, setmedia] = useState('')
-  const [pageNum, setPageNum] = useState(1);
-  const changeLoading = () => {
-    setIsLoading(true)
-  }
+  const [pagemum, setPageNum] = useState(2);
+  const [showLoadingPage, setShowLoadingPage] = useState(false);
+  const [showLoadMoreBtn, setShowLoadMoreBtn] = useState(true);
 
-  useEffect(()=>{
+  // 延迟函数
+  const _awaitFn = async (millisecond)=>{
+    return  await new Promise((resolve, reject)=>{
+      setTimeout(() => {
+        resolve(`成功延迟 ${millisecond} `)
+      }, millisecond);
+    })
+  }
+  //进入文章loading
+  const changeLoading = async() => {
+    // await _awaitFn(1500);
+    setShowLoadingPage(true);
+  }
+  let tempList = [];  // 文章list
+  useEffect(() => {
     let w = document.querySelector('body').offsetWidth;
-    console.log(w);
-    if(w<1200){
+    if (w < 1200) {
       setmedia('isPhone')
     }
-  },[])
-
-  useEffect(() => {
-    // 置顶文章数据
-    let artArr = [], topArr = [];
-    list.data.map((item, key) => {
-      if (item.is_top) {
-        topArr.push(item)
-      } else {
-        artArr.push(item)
-      }
-    })
-    console.log(artArr)
-    setMylist(artArr)
-    setTopList(topArr)
   }, [])
-
+  //  获取置顶文章
+  useEffect(() => {
+    $GET(serviceUrl['getTopArticle'])
+      .then((val) => {
+        setTopList(val.data.data);
+      })
+  }, [])
+  
   //加载更多文章
-  const _onLoadMore = async()=>{
+  const _onLoadMore = async () => {
+    
+    setShowLoadingPage(true);
     let dataProps = {
-      pageNum,
+      pagemum,
     }
-    await $POST(serviceUrl['getArticle'],dataProps)
-      .then((val)=>{
-        console.log(val)
+    await _awaitFn(1500); //  执行延迟函数
+    await $POST(serviceUrl['getArticle'], dataProps)
+      .then( (val) => {
+        setShowLoadingPage(false);
+        if (val.data.success == false) {
+          console.log(val.data.msg);
+          setShowLoadMoreBtn(false);
+          message.success(val.data.msg);
+        } else {
+          tempList = mylist;
+          let valtmplist = val.data.data;
+          if(valtmplist.length == 0){
+            console.log('vallist',0)
+            return ;
+          } else {
+            for (let i = 0; i < valtmplist.length; i++) {
+              for (let j = 0; j < tempList.length; j++) {
+                if (valtmplist[i].id == tempList[j].id) {
+                  valtmplist.splice[i, 1];
+                  i--;
+                }
+              }
+            };
+            valtmplist.map((i) => {
+              tempList.push(i);
+            });
+            setMylist(tempList);
+            setPageNum((val.data.pageNum + 1))
+          }
+        }
       })
   }
 
 
-  const renderTopList = () => {
+  const renderTopList = (list) => {
     return (
       <div>
-        {/* 置顶列表 */}
         {
-          !!topList.length ?
+          list.length > 0 ?
             <div>
               <List
                 // header={<div></div>}
                 itemLayout="vertical"
-                dataSource={topList}
+                dataSource={list}
                 renderItem={(item, index) => (
                   <div >
                     <Spin spinning={isLoading}>
@@ -137,49 +171,47 @@ const Home = (list) => {
   const renderItem = () => {
     return (
       <div>
-        {renderTopList()}
+        { !!topList.length > 0 ? renderTopList(topList) : null}
         {
-          !!mylist.length
-          ? 
-          <List
-            header={<div style={{ padding: '20px 0 0 20px' }}>最新日志</div>}
-            itemLayout="vertical"
-            dataSource={mylist}
-            renderItem={(item, index) => (
-              <div className='list-item-warp' >
-                <Spin spinning={isLoading}>
-                  <Card
-                    hoverable
-                    bordered={false}
-                    className='list-item'
-                  >
-                    <List.Item>
-                      <div className="list-title">
-                        <Link href={{ pathname: '/Details', query: { id: item.id } }}>
-                          <a onClick={changeLoading}>{item.title}</a>
-                        </Link>
-                      </div>
-                      <ListIcon item={item} className='list-icon' />
-                      <div className="list-context"
-                        dangerouslySetInnerHTML={{ __html: marked(item.introduce) }}>
-                      </div>
-                      <div className='list-go'>
-                        <FileOutlined />
-                        <span><Link href={{ pathname: '/Details', query: { id: item.id } }}>
-                          <a onClick={changeLoading}>	&nbsp; 查看全文 &gt;</a>
-                        </Link> </span>
-                      </div>
-                    </List.Item>
-                  </Card>
-                </Spin>
-
-              </div>
-            )}
-          />
-          :
-          null
+          mylist.length > 0
+            ?
+            <List
+              header={<div style={{ padding: '20px 0 0 20px' }}>最新日志</div>}
+              itemLayout="vertical"
+              dataSource={mylist}
+              renderItem={(item, index) => (
+                <div className='list-item-warp' >
+                  <Spin spinning={isLoading}>
+                    <Card
+                      hoverable
+                      bordered={false}
+                      className='list-item'
+                    >
+                      <List.Item>
+                        <div className="list-title">
+                          <Link href={{ pathname: '/Details', query: { id: item.id } }}>
+                            <a onClick={changeLoading}>{item.title}</a>
+                          </Link>
+                        </div>
+                        <ListIcon item={item} className='list-icon' />
+                        <div className="list-context"
+                          dangerouslySetInnerHTML={{ __html: marked(item.introduce) }}>
+                        </div>
+                        <div className='list-go'>
+                          <FileOutlined />
+                          <span><Link href={{ pathname: '/Details', query: { id: item.id } }}>
+                            <a onClick={changeLoading}>	&nbsp; 查看全文 &gt;</a>
+                          </Link> </span>
+                        </div>
+                      </List.Item>
+                    </Card>
+                  </Spin>
+                </div>
+              )}
+            />
+            :
+            null
         }
-         
       </div>
 
     )
@@ -191,7 +223,7 @@ const Home = (list) => {
         <title>Evans-blog-首页</title>
         <body style='background: url(../../../static/floor-tile.png)'></body>
       </Helmet>
-     
+
       <Affix offsetTop={0}>
         <Header>
           <title>Home</title>
@@ -206,6 +238,7 @@ const Home = (list) => {
             unmountOnExit={true}
             item={renderItem}
           />
+          { showLoadMoreBtn ? <LoadMore onloadMore={_onLoadMore} /> : null}
         </Col>
         <Col className="comm-right" xs={0} sm={0} md={7} lg={5} xl={4}>
           <Author />
@@ -217,17 +250,21 @@ const Home = (list) => {
       </Row>
       <Footer />
       <BackTopBtn />
+      { showLoadingPage ? <LoadingPage /> : null }
     </div>
 
   )
 }
+
 Home.getInitialProps = async () => {
   const promise = new Promise((resolve, reject) => {
-    axios(serviceUrl.getArticleList).then(
-      (res) => {
-        resolve(res.data)
-      }
-    )
+    axios.post(serviceUrl['getArticle'], { pagemum: 1 })
+      .then(
+        (res) => {
+          console.log('init');
+          resolve(res.data)
+        }
+      )
   })
   return await promise
 }
