@@ -13,7 +13,7 @@ import hljs from "highlight.js"
 import marked from 'marked'
 import 'highlight.js/styles/monokai-sublime.css';
 import { Helmet } from 'react-helmet'
-import { FileOutlined, CarryOutOutlined, FireTwoTone } from '@ant-design/icons'
+import { FileOutlined,CheckSquareTwoTone } from '@ant-design/icons'
 import BackTopBtn from '../components/BackTopBtn'
 import ListIcon from '../components/ListIcon'
 import Transition from '../components/Transtion'
@@ -21,6 +21,7 @@ import { $POST, $GET } from '../config/request'
 import '../static/style/md.css'
 import LoadMore from '../components/LoadMore';
 import LoadingPage from '../components/Loading';
+import Floor from '../components/bg_floor'
 
 
 // 延迟函数
@@ -92,7 +93,13 @@ const Home = (list) => {
         if (val.data.success == false) {
           console.log(val.data.msg);
           setShowLoadMoreBtn(false);
-          message.success(val.data.msg);
+          // message.success(val.data.msg);
+          message.success({
+            icon:<CheckSquareTwoTone />,
+            content: val.data.msg,
+            style:{ color:'#fff'},
+            duration: 2,
+          })
         } else {
           tempList = mylist;
           let valtmplist = val.data.data;
@@ -130,7 +137,7 @@ const Home = (list) => {
                 itemLayout="vertical"
                 dataSource={list}
                 renderItem={(item, index) => (
-                  <div >
+                  <div className='list-item-warp'>
                     <Spin spinning={isLoading}>
                       <Card
                         hoverable
@@ -217,8 +224,9 @@ const Home = (list) => {
 
     )
   }
+  
   return (
-    <div className='wrap'>
+      <div className='wrap'>
       <Helmet>
         <meta charSet="utf-8" />
         <title>Evans-blog-首页</title>
@@ -232,7 +240,9 @@ const Home = (list) => {
       </Affix>
       <Row className="comm-main" type="flex" justify="center">
         <Col className="comm-left" xs={24} sm={24} md={16} lg={18} xl={12}   >
-          <Transition
+          {/* <LXAnimation  items={renderItem()}> 
+          </LXAnimation> */}
+         <Transition
             timeout={3000}
             classNames={'fly'}
             appear={true}
@@ -253,7 +263,6 @@ const Home = (list) => {
       <BackTopBtn />
       { showLoadingPage ? <LoadingPage /> : null }
     </div>
-
   )
 }
 

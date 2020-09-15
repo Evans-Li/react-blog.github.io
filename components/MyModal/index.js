@@ -19,6 +19,7 @@ const MyModal =({visible, onOk, image}) => {
           background: 'rgba(0,0,0,0)',
           width: '490px',
         }}
+        footer={false}
         keyboard={true}
         mask={true}
         maskStyle={{

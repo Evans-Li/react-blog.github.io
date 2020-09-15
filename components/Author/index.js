@@ -105,8 +105,8 @@ const Author = (data) => {
     }
   }, [])
   const clickToShowqq = ()=> setVisibleqq(!visibleqq)
-  const clickToCloseqq = () => setVisibleqq(!visiblewechat)
-  const clickToshowwechat =() => setvisibalewechat(true)
+  const clickToCloseqq = () => setVisibleqq(false)
+  const clickToshowwechat =() => setvisibalewechat(!visiblewechat)
   const clickToClosewechat = () => setvisibalewechat(false)
 
 

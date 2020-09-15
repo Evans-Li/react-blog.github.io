@@ -5,6 +5,7 @@
     height: 4rem;
     border-bottom:1px solid #eee;
     position: relative;
+    border-top: #999999 4px solid;
     /* top: -20px; */
 }
 .header-logo{

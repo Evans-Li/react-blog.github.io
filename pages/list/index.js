@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 
 import { Row, Col, List, Card, Breadcrumb, Spin ,message} from 'antd'
+import {CheckSquareTwoTone, CompassOutlined } from '@ant-design/icons'
 import '../../static/style/pages/comm.css'
 import Header from '../../components/Header'
 import Author from '../../components/Author/index.js'
@@ -13,7 +14,7 @@ import axios from 'axios'
 import { Helmet } from 'react-helmet'
 import { serviceUrl } from '../../config/apiUrl'
 import './index.css'
-import { FileOutlined } from '@ant-design/icons'
+import Icon, { FileOutlined } from '@ant-design/icons'
 import marked from 'marked'
 import hljs from "highlight.js";
 import BackTopBtn from '../../components/BackTopBtn'
@@ -23,6 +24,7 @@ import '../../static/style/md.css'
 import LoadMore from '../../components/LoadMore/index'
 import LoadingPage from '../../components/Loading';
 import {_awaitFn} from '../index'
+import LXAnimation from '../../components/lx_animation'
 
 
 const renderer = new marked.Renderer();
@@ -83,7 +85,13 @@ const ArticleList = (list) => {
         if (val.data.success == false) {
           console.log(val.data.msg);
           setShowLoadMoreBtn(false);
-          message.success(val.data.msg);
+          // message.success(val.data.msg);
+          message.success({
+            icon:<CheckSquareTwoTone />,
+            content: val.data.msg,
+            style:{ color:'#fff'},
+            duration: 2,
+          })
         } else {
           tempList = mylist;
           let valtmplist = val.data.data;
@@ -91,6 +99,7 @@ const ArticleList = (list) => {
             console.log('vallist',0)
             return ;
           } else {
+            // 删除重复文章数据
             for (let i = 0; i < valtmplist.length; i++) {
               for (let j = 0; j < tempList.length; j++) {
                 if (valtmplist[i].id == tempList[j].id) {
@@ -173,6 +182,7 @@ const ArticleList = (list) => {
                 <Breadcrumb.Item>{breadName}</Breadcrumb.Item>
               </Breadcrumb>
             </div>
+            {/* <LXAnimation items={renderItem}/> */}
             <Transition
               in={true}
               timeout={1000}
@@ -190,9 +200,9 @@ const ArticleList = (list) => {
           <Advert />
         </Col>
       </Row>
-      { showLoadPage ? <LoadingPage /> : null }
       <Footer />
       <BackTopBtn />
+      { showLoadPage ? <LoadingPage /> : null }
     </div>
   )
 
