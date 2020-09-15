@@ -227,7 +227,7 @@ class HomeController extends Controller {
     if(result.length == 0){
       this.ctx.body = {
         success: false,
-        msg: '文章已全部加载完'
+        msg: '没有更多啦 😊'
       }
     } else {
       this.ctx.body = {
@@ -259,7 +259,7 @@ class HomeController extends Controller {
     if(result.length == 0){
       this.ctx.body = {
         success: false,
-        msg: '分类文章已全部加载完'
+        msg: '没有更多啦 😊'
       }
     } else {
       this.ctx.body = {
