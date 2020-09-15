@@ -21,7 +21,6 @@ import { $POST, $GET } from '../config/request'
 import '../static/style/md.css'
 import LoadMore from '../components/LoadMore';
 import LoadingPage from '../components/Loading';
-import Floor from '../components/bg_floor'
 
 
 // 延迟函数

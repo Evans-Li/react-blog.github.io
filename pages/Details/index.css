@@ -86,6 +86,11 @@ iframe{
 }
 .ant-anchor-wrapper{
   padding: 5px !important;
+  max-height:calc(100vh - 5vh) !important;
+}
+code{
+  background: #777486 !important;
+  color: #e6f7ff !important;
 }
 
 
